@@ -1,0 +1,24 @@
+.sn-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex: 1;
+  padding: 4rem 5%;
+  text-align: center;
+}
+
+.sn-not-found__title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+}
+
+.sn-not-found__text { color: var(--color-text-muted); }
+
+.sn-not-found__link {
+  margin-top: 0.5rem;
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}

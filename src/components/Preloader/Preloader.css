@@ -1,0 +1,24 @@
+.sn-preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+}
+
+.sn-preloader__spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(244, 243, 238, 0.2);
+  border-top-color: var(--color-accent);
+  animation: sn-spin 0.8s linear infinite;
+}
+
+@keyframes sn-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sn-preloader__spinner { animation-duration: 2.4s; }
+}

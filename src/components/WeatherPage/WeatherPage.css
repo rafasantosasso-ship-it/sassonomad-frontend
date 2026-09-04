@@ -1,0 +1,69 @@
+.sn-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 5%;
+  flex: 1;
+}
+
+.sn-weather__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.sn-weather__selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sn-weather__city {
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sn-weather__city_active {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border-color: var(--color-bg-dark);
+}
+
+.sn-weather__status { color: var(--color-text-muted); }
+.sn-weather__status_error { color: #b3261e; }
+
+.sn-weather__days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sn-weather__day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  min-width: 100px;
+  background-color: #fff;
+}
+
+.sn-weather__date {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: var(--color-text-muted);
+}
+
+.sn-weather__temps {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .sn-weather__days { justify-content: center; }
+}

@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./assets/fonts/Fraunces-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('./assets/fonts/Fraunces-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/fonts/IBMPlexSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/fonts/IBMPlexSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #f4f3ee;
+  --color-bg-dark: #001524;
+  --color-bg-dark-alt: #0a2436;
+  --color-text: #1c2321;
+  --color-text-light: #f4f3ee;
+  --color-text-muted: #5b6660;
+  --color-text-muted-light: #b7c2c4;
+  --color-accent: #e08a4f;
+  --color-accent-dark: #c46f37;
+  --color-border: #d9d6cc;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+img { max-width: 100%; display: block; }
+a, button { cursor: pointer; }
+h1, h2, h3, p { margin: 0; }
+button { font-family: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
