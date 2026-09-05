@@ -60,7 +60,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #f0c9a0;
+  color: var(--color-accent);
 }
 
 .sn-hero__eyebrow-dot {
@@ -70,11 +70,13 @@
 .sn-hero__title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.1;
+  line-height: 1.15;
+  color: var(--color-text-light);
 }
 
-.sn-hero__title_accent {
-  color: var(--color-accent);
+.sn-hero__title-line2 {
+  display: block;
+  margin-top: 0.2em;
 }
 
 .sn-hero__subtitle {

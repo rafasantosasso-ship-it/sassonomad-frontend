@@ -21,8 +21,9 @@ function Main({ onJoinClick }) {
               <span className="sn-hero__eyebrow-dot" aria-hidden="true">·</span>
               <span className="sn-hero__eyebrow-word">Nomadismo Digital</span>
             </span>
-            <h1 className="sn-hero__title sn-hero__title_accent">
-              Vivências reais, paisagens que viram histórias
+            <h1 className="sn-hero__title">
+              Vivências Reais
+              <span className="sn-hero__title-line2">Paisagens que viram História</span>
             </h1>
             <p className="sn-hero__subtitle">
               Do mar à montanha, o mundo é seu próximo destino. Guias e histórias de uma
