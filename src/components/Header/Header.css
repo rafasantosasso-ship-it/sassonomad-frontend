@@ -22,36 +22,31 @@
 }
 
 .sn-header__logo {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  color: inherit;
-  text-decoration: none;
+  height: 34px;
 }
 
-.sn-header__mark {
-  flex-shrink: 0;
+.sn-header__logo-img {
+  height: 34px;
+  width: auto;
+  transition: opacity 0.3s ease;
 }
 
-.sn-header__wordmark {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  font-family: var(--font-logo);
+.sn-header__logo-img_dark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 
-.sn-header__sasso {
-  font-size: 1.15rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.sn-header_solid .sn-header__logo-img_light {
+  opacity: 0;
 }
 
-.sn-header__nomad {
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 0.2rem;
+.sn-header_solid .sn-header__logo-img_dark {
+  opacity: 1;
 }
 
 .sn-header__actions {
@@ -63,7 +58,7 @@
 .sn-header__action {
   background: none;
   border: none;
-  padding: 0;
+  padding: 0 0 3px;
   color: inherit;
   font-family: var(--font-body);
   font-size: 0.82rem;
@@ -72,7 +67,6 @@
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
-  padding-bottom: 3px;
 }
 
 .sn-header__action::after {
@@ -90,8 +84,8 @@
   right: 0;
 }
 
-.sn-header__action_solid {
-  color: var(--color-accent-dark);
+.sn-header__action_accent {
+  color: var(--color-accent);
 }
 
 @media (max-width: 640px) {
@@ -107,7 +101,8 @@
     font-size: 0.72rem;
   }
 
-  .sn-header__sasso {
-    font-size: 1rem;
+  .sn-header__logo,
+  .sn-header__logo-img {
+    height: 28px;
   }
 }
