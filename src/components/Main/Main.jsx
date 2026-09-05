@@ -10,8 +10,8 @@ function Main({ onJoinClick }) {
       <section className="sn-hero">
         <img
           className="sn-hero__image"
-          src="/images/hero-torre-sardegna.jpg"
-          alt="Torre à beira-mar iluminada ao entardecer, vista a partir de uma bússola de pedra"
+          src="/images/hero-pegadas-areia.jpg"
+          alt="Pegadas na areia da praia, textura em close-up"
         />
         <div className="sn-hero__overlay" />
         <div className="sn-hero__content">
