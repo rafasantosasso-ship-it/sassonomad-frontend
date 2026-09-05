@@ -52,12 +52,19 @@
 }
 
 .sn-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #f0c9a0;
+}
+
+.sn-hero__eyebrow-dot {
+  opacity: 0.6;
 }
 
 .sn-hero__title {
@@ -66,7 +73,7 @@
   line-height: 1.1;
 }
 
-.sn-hero__title-accent {
+.sn-hero__title_accent {
   color: var(--color-accent);
 }
 
