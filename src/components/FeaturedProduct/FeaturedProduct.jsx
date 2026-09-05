@@ -3,7 +3,7 @@ import './FeaturedProduct.css';
 
 function FeaturedProduct() {
   return (
-    <section className="sn-product">
+    <section className="sn-product" id="guias">
       <div className="sn-product__image-wrap">
         <img className="sn-product__image" src={productImage} alt="Capa do guia de nomadismo digital" />
       </div>

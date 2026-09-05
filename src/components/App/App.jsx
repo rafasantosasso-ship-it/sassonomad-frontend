@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="sn-app">
-      <Header onLoginClick={handleOpenAuthModal} />
+      <Header onCommunityClick={handleOpenAuthModal} />
       <Routes>
         <Route path="/" element={<Main onJoinClick={handleOpenAuthModal} />} />
         <Route path="/clima" element={<WeatherPage />} />
