@@ -8,10 +8,14 @@ function Main({ onJoinClick }) {
   return (
     <main className="sn-main">
       <section className="sn-hero">
-        <img
-          className="sn-hero__image"
-          src="/images/hero-pegadas-areia.jpg"
-          alt="Pegadas na areia da praia, textura em close-up"
+        <video
+          className="sn-hero__video"
+          src="/videos/hero-parapente.mp4"
+          poster="/videos/hero-parapente-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
         <div className="sn-hero__overlay" />
         <div className="sn-hero__inner">
