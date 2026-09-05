@@ -8,14 +8,10 @@ function Main({ onJoinClick }) {
   return (
     <main className="sn-main">
       <section className="sn-hero">
-        <video
-          className="sn-hero__video"
-          src="/videos/hero-praia.mp4"
-          poster="/videos/hero-praia-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          className="sn-hero__image"
+          src="/images/hero-torre-sardegna.jpg"
+          alt="Torre à beira-mar iluminada ao entardecer, vista a partir de uma bússola de pedra"
         />
         <div className="sn-hero__overlay" />
         <div className="sn-hero__content">

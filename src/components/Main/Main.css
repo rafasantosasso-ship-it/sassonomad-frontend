@@ -11,13 +11,13 @@
   overflow: hidden;
 }
 
-.sn-hero__video {
+.sn-hero__image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 28%;
   z-index: -1;
   background-color: var(--color-bg-dark);
 }
