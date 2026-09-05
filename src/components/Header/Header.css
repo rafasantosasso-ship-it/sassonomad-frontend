@@ -31,11 +31,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 56px;
+  height: 64px;
 }
 
 .sn-header__logo-img {
-  height: 56px;
+  height: 64px;
   width: auto;
   transition: opacity 0.3s ease;
 }
@@ -109,6 +109,6 @@
 
   .sn-header__logo,
   .sn-header__logo-img {
-    height: 40px;
+    height: 46px;
   }
 }
