@@ -41,6 +41,8 @@
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
   --header-height: 80px;
+  --container-max: 1200px;
+  --container-pad: clamp(20px, 4vw, 40px);
 }
 
 * { box-sizing: border-box; }

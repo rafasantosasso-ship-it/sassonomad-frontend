@@ -26,19 +26,21 @@ function Header({ onCommunityClick }) {
 
   return (
     <header className={isSolid ? 'sn-header sn-header_solid' : 'sn-header'}>
-      <NavLink className="sn-header__logo" to="/">
-        <img className="sn-header__logo-img sn-header__logo-img_light" src={logoLight} alt="Sasso Nomad" />
-        <img className="sn-header__logo-img sn-header__logo-img_dark" src={logoDark} alt="Sasso Nomad" />
-      </NavLink>
+      <div className="sn-header__inner">
+        <NavLink className="sn-header__logo" to="/">
+          <img className="sn-header__logo-img sn-header__logo-img_light" src={logoLight} alt="Sasso Nomad" />
+          <img className="sn-header__logo-img sn-header__logo-img_dark" src={logoDark} alt="Sasso Nomad" />
+        </NavLink>
 
-      <nav className="sn-header__actions">
-        <button className="sn-header__action sn-header__action_accent" type="button" onClick={onCommunityClick}>
-          Comunidade
-        </button>
-        <a className="sn-header__action" href="#guias">
-          Guias
-        </a>
-      </nav>
+        <nav className="sn-header__actions">
+          <button className="sn-header__action sn-header__action_accent" type="button" onClick={onCommunityClick}>
+            Comunidade
+          </button>
+          <a className="sn-header__action" href="#guias">
+            Guias
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }
