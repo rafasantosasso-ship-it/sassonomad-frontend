@@ -74,7 +74,7 @@
 
 .sn-hero__title {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(2.6rem, 6.5vw, 4.6rem);
   line-height: 1.08;
   letter-spacing: 0.01em;
