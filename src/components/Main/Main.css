@@ -51,6 +51,15 @@
   color: var(--color-text-light);
 }
 
+.sn-hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f0c9a0;
+}
+
 .sn-hero__title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);

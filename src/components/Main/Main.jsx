@@ -16,12 +16,14 @@ function Main({ onJoinClick }) {
         <div className="sn-hero__overlay" />
         <div className="sn-hero__inner">
           <div className="sn-hero__content">
+            <span className="sn-hero__eyebrow">Slow Travel · Nomadismo Digital</span>
             <h1 className="sn-hero__title">
-              Existe um mundo <span className="sn-hero__title-accent">te esperando lá fora</span>
+              Vivências reais,{' '}
+              <span className="sn-hero__title-accent">paisagens que viram histórias</span>
             </h1>
             <p className="sn-hero__subtitle">
-              Guias e histórias reais pra quem decidiu viver em movimento — trabalhando de
-              qualquer lugar. Sem escritório fixo. Sem rotina. Sem desculpa.
+              Do mar à montanha, o mundo é seu próximo destino. Guias e histórias de uma
+              comunidade que escolheu viver assim.
             </p>
           </div>
         </div>
