@@ -3,6 +3,7 @@ import chapadaImg from '../images/articles/chapada-diamantina.jpg';
 import nomadismoImg from '../images/articles/nomadismo-digital.jpg';
 import thailandImg from '../images/articles/thailand.jpg';
 import irelandImg from '../images/articles/ireland.jpg';
+import cagliariImg from '../images/articles/cagliari.jpg';
 
 export const ARTICLES = [
   {
@@ -44,6 +45,14 @@ export const ARTICLES = [
     excerpt: 'Silicon Docks, vilarejos costeiros a 25 minutos de trem e como funciona o trabalho remoto por lá.',
     image: irelandImg,
     path: '/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin',
+  },
+  {
+    slug: 'cagliari',
+    tag: 'Cagliari',
+    title: 'Cagliari: a capital que ninguém trata como capital',
+    excerpt: 'Fachadas coloridas, ruas vazias ao amanhecer e uma cidade que ainda vive no próprio ritmo.',
+    image: cagliariImg,
+    path: '/sardegna/cagliari-a-capital-que-ninguem-trata-como-capital',
   },
 ];
 

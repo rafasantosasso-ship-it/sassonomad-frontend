@@ -3,7 +3,7 @@ import SaveButton from '../SaveButton/SaveButton';
 import useFavorites from '../../hooks/useFavorites';
 import './ArticleCard.css';
 
-function ArticleCard({ article, variant = 'featured' }) {
+function ArticleCard({ article }) {
   const { slug, tag, title, excerpt, image, path } = article;
   const { isFavorite, toggleFavorite } = useFavorites();
   const isPending = !path;
@@ -12,7 +12,7 @@ function ArticleCard({ article, variant = 'featured' }) {
 
   return (
     <Wrapper
-      className={`sn-article-card sn-article-card_${variant}${isPending ? ' sn-article-card_pending' : ''}`}
+      className={`sn-article-card${isPending ? ' sn-article-card_pending' : ''}`}
       {...wrapperProps}
     >
       <div className="sn-article-card__image-wrap">
