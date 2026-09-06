@@ -26,23 +26,21 @@
   position: absolute;
   inset: 0;
   background:
-    /* mancha escura atrás da logo, no canto superior esquerdo */
-    radial-gradient(220px 150px at 60px 40px, rgba(66, 69, 48, 0.62) 0%, rgba(66, 69, 48, 0) 75%),
-    /* mancha escura atrás dos botões do menu, no canto superior direito */
-    radial-gradient(280px 160px at calc(100% - 90px) 40px, rgba(66, 69, 48, 0.56) 0%, rgba(66, 69, 48, 0) 75%),
-    /* sombra ampla e suave atrás de todo o bloco de texto, à esquerda, esmaecendo em direção à imagem */
-    radial-gradient(
-      60% 70% at 20% 55%,
-      rgba(66, 69, 48, 0.72) 0%,
-      rgba(66, 69, 48, 0.34) 45%,
-      rgba(66, 69, 48, 0) 78%
-    ),
     /* leve profundidade geral, do topo à base */
     linear-gradient(
       to bottom,
-      rgba(66, 69, 48, 0.32) 0%,
-      rgba(66, 69, 48, 0.08) 35%,
-      rgba(66, 69, 48, 0.42) 100%
+      rgba(66, 69, 48, 0.28) 0%,
+      rgba(66, 69, 48, 0.06) 30%,
+      rgba(66, 69, 48, 0.38) 100%
+    ),
+    /* faixa escura no lado esquerdo inteiro (cobre logo, menu e texto), esmaecendo em direção à imagem */
+    linear-gradient(
+      to right,
+      rgba(66, 69, 48, 0.82) 0%,
+      rgba(66, 69, 48, 0.6) 22%,
+      rgba(66, 69, 48, 0.28) 45%,
+      rgba(66, 69, 48, 0.08) 60%,
+      rgba(66, 69, 48, 0) 70%
     );
 }
 
