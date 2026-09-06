@@ -18,8 +18,8 @@ function GuidesGrid() {
           <GuideCard
             key={guide.slug}
             guide={guide}
-            isSaved={isFavorite(guide.slug)}
-            onToggleSave={() => toggleFavorite(guide.slug)}
+            isSaved={isFavorite(`guide:${guide.slug}`)}
+            onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
           />
         ))}
       </div>

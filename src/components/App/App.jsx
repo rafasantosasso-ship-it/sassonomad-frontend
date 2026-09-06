@@ -8,6 +8,9 @@ import GuidesGrid from '../GuidesGrid/GuidesGrid';
 import GuideChapada from '../GuideChapada/GuideChapada';
 import GuideSardegna from '../GuideSardegna/GuideSardegna';
 import GuideNomadismo from '../GuideNomadismo/GuideNomadismo';
+import ArticleSardegna from '../ArticleSardegna/ArticleSardegna';
+import ArticleChapada from '../ArticleChapada/ArticleChapada';
+import ArticleNomadismo from '../ArticleNomadismo/ArticleNomadismo';
 import NotFound from '../NotFound/NotFound';
 import AuthModal from '../AuthModal/AuthModal';
 import Preloader from '../Preloader/Preloader';
@@ -39,6 +42,9 @@ function App() {
         <Route path="/guias/chapada" element={<GuideChapada />} />
         <Route path="/guias/sardegna" element={<GuideSardegna />} />
         <Route path="/guias/nomadismo" element={<GuideNomadismo />} />
+        <Route path="/sardegna/vilarejos-de-pedra-e-mar-turquesa" element={<ArticleSardegna />} />
+        <Route path="/chapada-diamantina/trilhas-pocos-e-lencois" element={<ArticleChapada />} />
+        <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

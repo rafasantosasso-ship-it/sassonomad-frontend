@@ -42,8 +42,8 @@ function GuideSardegna() {
         title: 'Quanto Custa Viver na Sardenha em 2026',
         dek: 'Números reais de quem já foi — nada de faixa de preço genérica e otimista de blog.',
       }}
-      isSaved={isFavorite(guide.slug)}
-      onToggleSave={() => toggleFavorite(guide.slug)}
+      isSaved={isFavorite(`guide:${guide.slug}`)}
+      onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
     >
       <p>
         A maioria dos blogs de nômade digital te dá uma faixa de preço genérica, otimista o

@@ -37,8 +37,8 @@ function GuideNomadismo() {
         title: 'Sardegna ou Chapada Diamantina: Qual Destino Combina com Seu Tipo de Nômade',
         dek: 'A comparação direta, sem enrolação, entre os dois territórios da Sassonomad.',
       }}
-      isSaved={isFavorite(guide.slug)}
-      onToggleSave={() => toggleFavorite(guide.slug)}
+      isSaved={isFavorite(`guide:${guide.slug}`)}
+      onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
     >
       <p>
         Essa é uma pergunta que só faz sentido perguntar pra quem já morou nos dois lugares. É
