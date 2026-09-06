@@ -1,0 +1,115 @@
+.sn-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  padding: 4rem 5%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.sn-faq__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 60ch;
+}
+
+.sn-faq__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-text);
+}
+
+.sn-faq__subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+}
+
+.sn-faq__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.sn-faq__category-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.sn-faq__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.sn-faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sn-faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.05rem 0.1rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sn-faq__item_open .sn-faq__question {
+  color: var(--color-accent-dark);
+}
+
+.sn-faq__icon {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.sn-faq__answer {
+  padding: 0 0.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 70ch;
+}
+
+.sn-faq__answer p {
+  color: var(--color-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sn-faq__link {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.sn-faq__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .sn-faq {
+    padding: 3rem 6%;
+  }
+
+  .sn-faq__question {
+    font-size: 0.95rem;
+  }
+}

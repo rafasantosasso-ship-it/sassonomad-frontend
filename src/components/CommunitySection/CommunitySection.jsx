@@ -3,7 +3,7 @@ import './CommunitySection.css';
 
 function CommunitySection({ onJoinClick }) {
   return (
-    <section className="sn-community">
+    <section className="sn-community" id="comunidade">
       <img
         className="sn-community__bg"
         src={communityImg}
