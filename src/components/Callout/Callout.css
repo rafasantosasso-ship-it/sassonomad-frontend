@@ -1,0 +1,12 @@
+.sn-callout {
+  background-color: var(--color-bg-alt);
+  border-left: 3px solid var(--color-accent);
+  padding: 1.1rem 1.35rem;
+  margin: 0 0 2rem;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.sn-callout strong {
+  color: var(--color-accent-dark);
+}

@@ -4,6 +4,10 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import WeatherPage from '../WeatherPage/WeatherPage';
+import GuidesGrid from '../GuidesGrid/GuidesGrid';
+import GuideChapada from '../GuideChapada/GuideChapada';
+import GuideSardegna from '../GuideSardegna/GuideSardegna';
+import GuideNomadismo from '../GuideNomadismo/GuideNomadismo';
 import NotFound from '../NotFound/NotFound';
 import AuthModal from '../AuthModal/AuthModal';
 import Preloader from '../Preloader/Preloader';
@@ -31,6 +35,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Main onJoinClick={handleOpenAuthModal} />} />
         <Route path="/clima" element={<WeatherPage />} />
+        <Route path="/guias" element={<GuidesGrid />} />
+        <Route path="/guias/chapada" element={<GuideChapada />} />
+        <Route path="/guias/sardegna" element={<GuideSardegna />} />
+        <Route path="/guias/nomadismo" element={<GuideNomadismo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -36,9 +36,9 @@ function Header({ onCommunityClick }) {
           <button className="sn-header__action sn-header__action_accent" type="button" onClick={onCommunityClick}>
             Comunidade
           </button>
-          <a className="sn-header__action" href="#guias">
+          <NavLink className="sn-header__action" to="/guias">
             Guias
-          </a>
+          </NavLink>
         </nav>
       </div>
     </header>

@@ -1,0 +1,26 @@
+.sn-guides-grid {
+  padding: calc(var(--header-height) + 2.5rem) 5% 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sn-guides-grid__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin: 0 0 0.4rem;
+}
+
+.sn-guides-grid__label {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 52ch;
+  margin: 0 0 2rem;
+}
+
+.sn-guides-grid__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}

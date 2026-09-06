@@ -1,0 +1,48 @@
+.sn-save-button {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(18, 23, 43, 0.4);
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+
+.sn-save-button svg {
+  stroke: var(--color-text-light);
+  stroke-width: 1.8;
+  fill: none;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.sn-save-button_saved svg {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+}
+
+.sn-save-button_card {
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+}
+
+.sn-save-button_card svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sn-save-button_hero {
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+}
+
+.sn-save-button_hero svg {
+  width: 20px;
+  height: 20px;
+}
