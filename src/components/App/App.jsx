@@ -16,11 +16,14 @@ import ArticleCagliari from '../ArticleCagliari/ArticleCagliari';
 import NotFound from '../NotFound/NotFound';
 import AuthModal from '../AuthModal/AuthModal';
 import Preloader from '../Preloader/Preloader';
+import useScrollToHash from '../../hooks/useScrollToHash';
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  useScrollToHash();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 600);
@@ -51,7 +54,7 @@ function App() {
         <Route path="/sardegna/cagliari-a-capital-que-ninguem-trata-como-capital" element={<ArticleCagliari />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <Footer onJoinClick={handleOpenAuthModal} />
       {isAuthModalOpen && <AuthModal onClose={handleCloseAuthModal} />}
     </div>
   );

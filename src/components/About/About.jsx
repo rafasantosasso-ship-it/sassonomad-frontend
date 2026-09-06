@@ -3,7 +3,7 @@ import './About.css';
 
 function About() {
   return (
-    <section className="sn-about">
+    <section className="sn-about" id="sobre">
       <div className="sn-about__image-wrap">
         <img
           className="sn-about__image"
