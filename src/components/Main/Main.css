@@ -92,9 +92,15 @@
   color: var(--color-text-light);
 }
 
-.sn-hero__title-line2 {
-  display: block;
-  margin-top: 0.3em;
+.sn-hero__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  letter-spacing: 0.01em;
+  color: var(--color-text-light);
+  opacity: 0.92;
+  margin-top: 0.55rem;
 }
 
 .sn-hero__subtitle {
