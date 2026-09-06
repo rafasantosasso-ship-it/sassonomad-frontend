@@ -9,10 +9,12 @@ function FeaturedProduct() {
       </div>
       <div className="sn-product__content">
         <span className="sn-product__eyebrow">Guia digital</span>
-        <h2 className="sn-product__title">Guia completo de nomadismo digital</h2>
+        <h2 className="sn-product__title">Guia Completo de Nomadismo Digital</h2>
         <p className="sn-product__text">
-          Um material aprofundado com checklists, ferramentas e roteiros testados para quem quer
-          transformar viagem em estilo de vida — dos vistos ao orçamento mensal.
+          Checklists, ferramentas e roteiros testados por quem já fez a mudança de verdade. Do
+          visto ao orçamento mensal, dos dois territórios da Sassonomad — Sardegna e Chapada
+          Diamantina — a como sustentar rotina e produtividade trabalhando de qualquer lugar.
+          Tudo num guia só, pronto pra usar desde o dia 1.
         </p>
         <span className="sn-product__price">R$ 49,90</span>
         <button className="sn-product__cta" type="button">Comprar</button>

@@ -96,13 +96,13 @@ function GuideNomadismo() {
       <GuideCta
         variant="alt"
         title="O próximo passo"
-        buttonLabel="Baixar o Kit Nômade Digital"
-        buttonHref="https://sassonomad.com/kit-nomade"
-        price="BRL 37 · acesso imediato via Hotmart"
+        buttonLabel="Conhecer o Guia Completo de Nomadismo Digital"
+        buttonHref="https://sassonomad.com/nomadismo-digital"
+        price="R$ 49,90 · acesso imediato via Hotmart"
       >
-        Antes de escolher território, comece pelo <strong>Kit Nômade Digital</strong>: orçamento
-        comparado dos dois destinos, checklist de partida, roteiro do primeiro mês e guia de vistos
-        — tudo num só lugar.
+        Antes de escolher território, comece pelo <strong>Guia Completo de Nomadismo Digital</strong>:
+        orçamento comparado dos dois destinos, checklist de partida, roteiro do primeiro mês e guia
+        de vistos — tudo num só lugar.
       </GuideCta>
     </GuideArticleLayout>
   );
