@@ -6,7 +6,7 @@
   justify-content: center;
   border: none;
   border-radius: 50%;
-  background-color: rgba(30, 42, 58, 0.4);
+  background-color: rgba(110, 115, 80, 0.4);
   backdrop-filter: blur(3px);
   cursor: pointer;
 }

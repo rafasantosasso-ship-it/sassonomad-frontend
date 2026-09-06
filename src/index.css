@@ -5,8 +5,8 @@
   /* Paleta oficial Sasso Nomad */
   --color-bg: #f4eee1; /* Creme */
   --color-bg-alt: #e3d2aa; /* Areia */
-  --color-bg-dark: #1e2a3a; /* Indigo-noite */
-  --color-bg-dark-alt: #2e4058;
+  --color-bg-dark: #6e7350; /* Oliva (substitui o indigo/azul) */
+  --color-bg-dark-alt: #7d8360;
   --color-text: #1c2321;
   --color-text-light: #f4eee1;
   --color-text-muted: #5b6660;
