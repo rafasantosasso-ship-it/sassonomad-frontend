@@ -26,9 +26,9 @@
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(18, 23, 43, 0.8) 0%,
-    rgba(18, 23, 43, 0.62) 45%,
-    rgba(18, 23, 43, 0.88) 100%
+    rgba(30, 42, 58, 0.8) 0%,
+    rgba(30, 42, 58, 0.62) 45%,
+    rgba(30, 42, 58, 0.88) 100%
   );
 }
 
@@ -66,7 +66,7 @@
 }
 
 .sn-community__cta:hover {
-  background-color: rgba(224, 138, 79, 0.15);
+  background-color: rgba(193, 98, 59, 0.15);
 }
 
 @media (max-width: 640px) {

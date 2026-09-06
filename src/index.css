@@ -1,20 +1,21 @@
 /* Fontes carregadas via Google Fonts (link no index.html):
-   Cormorant Garamond (display) + Inter (corpo) */
+   Bodoni Moda (display) + Inter (corpo) */
 
 :root {
-  --color-bg: #f4f3ee;
-  --color-bg-alt: #efe6d4;
-  --color-bg-dark: #12172b;
-  --color-bg-dark-alt: #1c2340;
+  /* Paleta oficial Sasso Nomad */
+  --color-bg: #f4eee1; /* Creme */
+  --color-bg-alt: #e3d2aa; /* Areia */
+  --color-bg-dark: #1e2a3a; /* Indigo-noite */
+  --color-bg-dark-alt: #2e4058;
   --color-text: #1c2321;
-  --color-text-light: #f4f3ee;
+  --color-text-light: #f4eee1;
   --color-text-muted: #5b6660;
   --color-text-muted-light: #b7c2c4;
-  --color-accent: #c1440e;
-  --color-accent-dark: #93340a;
+  --color-accent: #c1623b; /* Terracota */
+  --color-accent-dark: #924a2d;
   --color-border: #d9d6cc;
-  --color-turquoise: #2e7a78;
-  --color-olive: #6e7350;
+  --color-turquoise: #2e7a78; /* Turquesa */
+  --color-olive: #6e7350; /* Oliva */
   --font-display: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --header-height: 80px;
