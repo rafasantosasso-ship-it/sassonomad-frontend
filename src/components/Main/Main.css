@@ -26,6 +26,17 @@
   position: absolute;
   inset: 0;
   background:
+    /* mancha escura atrás da logo, no canto superior esquerdo */
+    radial-gradient(200px 140px at 60px 40px, rgba(66, 69, 48, 0.55) 0%, rgba(66, 69, 48, 0) 75%),
+    /* mancha escura atrás dos botões do menu, no canto superior direito */
+    radial-gradient(260px 150px at calc(100% - 90px) 40px, rgba(66, 69, 48, 0.5) 0%, rgba(66, 69, 48, 0) 75%),
+    /* faixa lateral esquerda mais escura, esmaecendo em direção à imagem, pra destacar o texto */
+    linear-gradient(
+      to right,
+      rgba(66, 69, 48, 0.6) 0%,
+      rgba(66, 69, 48, 0.22) 32%,
+      rgba(66, 69, 48, 0) 58%
+    ),
     radial-gradient(
       120% 90% at 50% 38%,
       rgba(110, 115, 80, 0) 42%,
