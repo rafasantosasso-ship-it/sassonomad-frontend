@@ -3,7 +3,7 @@ import SaveButton from '../SaveButton/SaveButton';
 import useFavorites from '../../hooks/useFavorites';
 import './ArticleCard.css';
 
-function ArticleCard({ article }) {
+function ArticleCard({ article, variant = 'featured' }) {
   const { slug, tag, title, excerpt, image, path } = article;
   const { isFavorite, toggleFavorite } = useFavorites();
   const isPending = !path;
@@ -12,21 +12,22 @@ function ArticleCard({ article }) {
 
   return (
     <Wrapper
-      className={`sn-article-card${isPending ? ' sn-article-card_pending' : ''}`}
+      className={`sn-article-card sn-article-card_${variant}${isPending ? ' sn-article-card_pending' : ''}`}
       {...wrapperProps}
     >
       <div className="sn-article-card__image-wrap">
         <img className="sn-article-card__image" src={image} alt={title} />
-        {isPending && <span className="sn-article-card__badge">Em breve</span>}
+        {isPending ? (
+          <span className="sn-article-card__badge">Em breve</span>
+        ) : (
+          <SaveButton
+            size="card"
+            isSaved={isFavorite(`article:${slug}`)}
+            onToggle={() => toggleFavorite(`article:${slug}`)}
+            label={`Salvar ${title} nos favoritos`}
+          />
+        )}
       </div>
-      {!isPending && (
-        <SaveButton
-          size="card"
-          isSaved={isFavorite(`article:${slug}`)}
-          onToggle={() => toggleFavorite(`article:${slug}`)}
-          label={`Salvar ${title} nos favoritos`}
-        />
-      )}
       <div className="sn-article-card__body">
         <span className="sn-article-card__tag">{tag}</span>
         <h3 className="sn-article-card__title">{title}</h3>
