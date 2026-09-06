@@ -8,7 +8,7 @@ function ArticlesSection() {
       <div className="sn-articles__header">
         <h2 className="sn-articles__title">Últimas histórias</h2>
         <p className="sn-articles__subtitle">
-          Guias e relatos sobre os lugares que moldam a vida nômade — atualizados toda semana.
+          Guias e relatos sobre os lugares que moldam a vida nômade.
         </p>
       </div>
       <div className="sn-articles__list">

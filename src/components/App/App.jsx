@@ -11,6 +11,7 @@ import GuideNomadismo from '../GuideNomadismo/GuideNomadismo';
 import ArticleSardegna from '../ArticleSardegna/ArticleSardegna';
 import ArticleChapada from '../ArticleChapada/ArticleChapada';
 import ArticleNomadismo from '../ArticleNomadismo/ArticleNomadismo';
+import ArticleIreland from '../ArticleIreland/ArticleIreland';
 import NotFound from '../NotFound/NotFound';
 import AuthModal from '../AuthModal/AuthModal';
 import Preloader from '../Preloader/Preloader';
@@ -45,6 +46,7 @@ function App() {
         <Route path="/sardegna/vilarejos-de-pedra-e-mar-turquesa" element={<ArticleSardegna />} />
         <Route path="/chapada-diamantina/trilhas-pocos-e-lencois" element={<ArticleChapada />} />
         <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
+        <Route path="/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin" element={<ArticleIreland />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

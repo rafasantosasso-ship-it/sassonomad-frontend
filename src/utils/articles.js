@@ -2,6 +2,7 @@ import sardegnaImg from '../images/articles/sardegna.jpg';
 import chapadaImg from '../images/articles/chapada-diamantina.jpg';
 import nomadismoImg from '../images/articles/nomadismo-digital.jpg';
 import thailandImg from '../images/articles/thailand.jpg';
+import irelandImg from '../images/articles/ireland.jpg';
 
 export const ARTICLES = [
   {
@@ -35,6 +36,14 @@ export const ARTICLES = [
     excerpt: 'Praias tranquilas, comida de rua e como se locomover entre as ilhas do sul.',
     image: thailandImg,
     path: null,
+  },
+  {
+    slug: 'ireland',
+    tag: 'Irlanda',
+    title: 'Irlanda fora do óbvio: vida de nômade além do centro caótico de Dublin',
+    excerpt: 'Silicon Docks, vilarejos costeiros a 25 minutos de trem e como funciona o trabalho remoto por lá.',
+    image: irelandImg,
+    path: '/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin',
   },
 ];
 
