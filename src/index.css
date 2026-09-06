@@ -1,5 +1,5 @@
 /* Fontes carregadas via Google Fonts (link no index.html):
-   Bodoni Moda (display) + Inter (corpo) */
+   Zilla Slab (display) + Inter (corpo) */
 
 :root {
   /* Paleta oficial Sasso Nomad */
@@ -16,7 +16,7 @@
   --color-border: #d9d6cc;
   --color-turquoise: #2e7a78; /* Turquesa */
   --color-olive: #6e7350; /* Oliva */
-  --font-display: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  --font-display: 'Zilla Slab', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --header-height: 80px;
   --container-max: 1200px;
