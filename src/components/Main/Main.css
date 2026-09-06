@@ -27,27 +27,22 @@
   inset: 0;
   background:
     /* mancha escura atrás da logo, no canto superior esquerdo */
-    radial-gradient(200px 140px at 60px 40px, rgba(66, 69, 48, 0.55) 0%, rgba(66, 69, 48, 0) 75%),
+    radial-gradient(220px 150px at 60px 40px, rgba(66, 69, 48, 0.62) 0%, rgba(66, 69, 48, 0) 75%),
     /* mancha escura atrás dos botões do menu, no canto superior direito */
-    radial-gradient(260px 150px at calc(100% - 90px) 40px, rgba(66, 69, 48, 0.5) 0%, rgba(66, 69, 48, 0) 75%),
-    /* faixa lateral esquerda mais escura, esmaecendo em direção à imagem, pra destacar o texto */
-    linear-gradient(
-      to right,
-      rgba(66, 69, 48, 0.6) 0%,
-      rgba(66, 69, 48, 0.22) 32%,
-      rgba(66, 69, 48, 0) 58%
-    ),
+    radial-gradient(280px 160px at calc(100% - 90px) 40px, rgba(66, 69, 48, 0.56) 0%, rgba(66, 69, 48, 0) 75%),
+    /* sombra ampla e suave atrás de todo o bloco de texto, à esquerda, esmaecendo em direção à imagem */
     radial-gradient(
-      120% 90% at 50% 38%,
-      rgba(110, 115, 80, 0) 42%,
-      rgba(110, 115, 80, 0.62) 100%
+      60% 70% at 20% 55%,
+      rgba(66, 69, 48, 0.72) 0%,
+      rgba(66, 69, 48, 0.34) 45%,
+      rgba(66, 69, 48, 0) 78%
     ),
+    /* leve profundidade geral, do topo à base */
     linear-gradient(
       to bottom,
-      rgba(110, 115, 80, 0.88) 0%,
-      rgba(110, 115, 80, 0.56) 25%,
-      rgba(110, 115, 80, 0.58) 55%,
-      rgba(110, 115, 80, 0.95) 100%
+      rgba(66, 69, 48, 0.32) 0%,
+      rgba(66, 69, 48, 0.08) 35%,
+      rgba(66, 69, 48, 0.42) 100%
     );
 }
 
