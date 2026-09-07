@@ -100,7 +100,6 @@ function ArticleNomadismo() {
         >
           Conhecer o Guia Completo de Nomadismo Digital
         </a>
-        <span className="sn-guide-cta__price">R$ 49,90</span>
       </div>
     </ArticleLayout>
   );

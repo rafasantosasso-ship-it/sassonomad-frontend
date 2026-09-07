@@ -153,7 +153,6 @@ function ArticleChapada() {
         <Link className="sn-guide-cta__button" to="/guias/chapada">
           Conhecer o Guia Chapada Diamantina Profunda
         </Link>
-        <span className="sn-guide-cta__price">BRL 89</span>
       </div>
     </ArticleLayout>
   );

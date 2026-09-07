@@ -127,7 +127,6 @@ function ArticleSardegna() {
         <Link className="sn-guide-cta__button" to="/guias/sardegna">
           Conhecer o Guia Viver no Sul da Sardenha
         </Link>
-        <span className="sn-guide-cta__price">EUR 19</span>
       </div>
     </ArticleLayout>
   );
