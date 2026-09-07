@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ShareButton from '../ShareButton/ShareButton';
 import './ArticleCard.css';
 
 function ArticleCard({ article }) {
@@ -20,11 +19,7 @@ function ArticleCard({ article }) {
           alt={title}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        {isPending ? (
-          <span className="sn-article-card__badge">Em breve</span>
-        ) : (
-          <ShareButton size="card" path={path} title={title} label={`Compartilhar ${title}`} />
-        )}
+        {isPending && <span className="sn-article-card__badge">Em breve</span>}
         <div className="sn-article-card__overlay" />
         <div className="sn-article-card__content">
           <span className="sn-article-card__tag">{tag}</span>
