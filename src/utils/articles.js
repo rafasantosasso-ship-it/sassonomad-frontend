@@ -10,8 +10,9 @@ export const ARTICLES = [
     slug: 'sardegna',
     tag: 'Itália',
     title: 'Sardegna: vilarejos de pedra e mar turquesa',
-    excerpt: 'Um roteiro lento pela costa e pelo interior sardo, longe das rotas turísticas óbvias.',
+    excerpt: 'Um roteiro lento pela costa e pelo interior, longe das rotas turísticas óbvias.',
     image: sardegnaImg,
+    imagePosition: '50% 15%',
     path: '/sardegna/vilarejos-de-pedra-e-mar-turquesa',
   },
   {

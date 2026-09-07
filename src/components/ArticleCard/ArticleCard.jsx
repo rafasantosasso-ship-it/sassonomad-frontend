@@ -3,7 +3,7 @@ import ShareButton from '../ShareButton/ShareButton';
 import './ArticleCard.css';
 
 function ArticleCard({ article }) {
-  const { tag, title, excerpt, image, path } = article;
+  const { tag, title, excerpt, image, imagePosition, path } = article;
   const isPending = !path;
   const Wrapper = isPending ? 'div' : Link;
   const wrapperProps = isPending ? {} : { to: path };
@@ -14,7 +14,12 @@ function ArticleCard({ article }) {
       {...wrapperProps}
     >
       <div className="sn-article-card__image-wrap">
-        <img className="sn-article-card__image" src={image} alt={title} />
+        <img
+          className="sn-article-card__image"
+          src={image}
+          alt={title}
+          style={imagePosition ? { objectPosition: imagePosition } : undefined}
+        />
         {isPending ? (
           <span className="sn-article-card__badge">Em breve</span>
         ) : (

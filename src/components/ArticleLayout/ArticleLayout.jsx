@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
 import SaveButton from '../SaveButton/SaveButton';
 import CommunityCta from '../CommunityCta/CommunityCta';
 import './ArticleLayout.css';
 
 function ArticleLayout({ article, isSaved, onToggleSave, children }) {
-  const { tag, title, dek, image } = article;
+  const { tag, title, dek, image, imagePosition } = article;
 
   return (
     <article className="sn-light-article">
-      <Link className="sn-light-article__back" to="/">
-        &larr; Voltar para a home
-      </Link>
-
       <div className="sn-light-article__hero">
-        <img className="sn-light-article__hero-img" src={image} alt={title} />
+        <img
+          className="sn-light-article__hero-img"
+          src={image}
+          alt={title}
+          style={imagePosition ? { objectPosition: imagePosition } : undefined}
+        />
         <SaveButton
           size="hero"
           isSaved={isSaved}
