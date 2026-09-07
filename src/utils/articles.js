@@ -50,10 +50,10 @@ export const ARTICLES = [
   {
     slug: 'cagliari',
     tag: 'Cagliari',
-    title: 'Cagliari: a capital que ninguém trata como capital',
-    excerpt: 'Fachadas coloridas, ruas vazias ao amanhecer e uma cidade que ainda vive no próprio ritmo.',
+    title: 'Cagliari: a capital que também é riviera',
+    excerpt: 'Vida cosmopolita, praia a minutos do centro e o tipo de sorte geográfica que poucas capitais europeias têm.',
     image: cagliariImg,
-    path: '/sardegna/cagliari-a-capital-que-ninguem-trata-como-capital',
+    path: '/sardegna/cagliari-capital-que-tambem-e-riviera',
   },
 ];
 

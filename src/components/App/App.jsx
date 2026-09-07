@@ -51,7 +51,7 @@ function App() {
         <Route path="/chapada-diamantina/trilhas-pocos-e-lencois" element={<ArticleChapada />} />
         <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
         <Route path="/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin" element={<ArticleIreland />} />
-        <Route path="/sardegna/cagliari-a-capital-que-ninguem-trata-como-capital" element={<ArticleCagliari />} />
+        <Route path="/sardegna/cagliari-capital-que-tambem-e-riviera" element={<ArticleCagliari />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer onJoinClick={handleOpenAuthModal} />
