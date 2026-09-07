@@ -1,5 +1,6 @@
 import ArticlesSection from '../ArticlesSection/ArticlesSection';
 import FeaturedProduct from '../FeaturedProduct/FeaturedProduct';
+import SectionGap from '../SectionGap/SectionGap';
 import CommunitySection from '../CommunitySection/CommunitySection';
 import About from '../About/About';
 import './Main.css';
@@ -37,6 +38,7 @@ function Main({ onJoinClick }) {
 
       <ArticlesSection />
       <FeaturedProduct />
+      <SectionGap />
       <CommunitySection onJoinClick={onJoinClick} />
       <About />
     </main>

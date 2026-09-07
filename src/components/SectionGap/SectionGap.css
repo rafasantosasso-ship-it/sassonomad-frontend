@@ -1,0 +1,10 @@
+.sn-section-gap {
+  background-color: var(--color-bg);
+  height: 64px;
+}
+
+@media (max-width: 640px) {
+  .sn-section-gap {
+    height: 40px;
+  }
+}

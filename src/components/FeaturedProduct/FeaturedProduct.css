@@ -10,15 +10,17 @@
 }
 
 .sn-product__image-wrap {
-  flex: 1 1 320px;
-  min-width: 260px;
+  flex: 0 0 220px;
+  max-width: 220px;
+  min-width: 180px;
 }
 
 .sn-product__image {
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
-  max-height: 340px;
+  display: block;
+  max-height: 260px;
 }
 
 .sn-product__content {
@@ -77,5 +79,16 @@
 }
 
 @media (max-width: 640px) {
-  .sn-product { flex-direction: column; }
+  .sn-product {
+    flex-direction: column;
+  }
+
+  .sn-product__image-wrap {
+    max-width: 100%;
+    flex-basis: auto;
+  }
+
+  .sn-product__image {
+    max-height: 220px;
+  }
 }
