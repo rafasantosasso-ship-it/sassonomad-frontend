@@ -35,6 +35,7 @@ function Footer({ onJoinClick }) {
               Participar da Comunidade
             </button>
             <Link className="sn-footer__nav-link" to="/#sobre">Sobre o Sasso Nomad</Link>
+            <Link className="sn-footer__nav-link" to="/perguntas-frequentes">Perguntas Frequentes</Link>
             <a className="sn-footer__nav-link" href="#contato">Contato</a>
           </nav>
         </div>

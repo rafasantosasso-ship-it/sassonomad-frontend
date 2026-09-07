@@ -2,7 +2,6 @@ import ArticlesSection from '../ArticlesSection/ArticlesSection';
 import FeaturedProduct from '../FeaturedProduct/FeaturedProduct';
 import CommunitySection from '../CommunitySection/CommunitySection';
 import About from '../About/About';
-import FaqSection from '../FaqSection/FaqSection';
 import './Main.css';
 
 function Main({ onJoinClick }) {
@@ -40,7 +39,6 @@ function Main({ onJoinClick }) {
       <FeaturedProduct />
       <CommunitySection onJoinClick={onJoinClick} />
       <About />
-      <FaqSection />
     </main>
   );
 }

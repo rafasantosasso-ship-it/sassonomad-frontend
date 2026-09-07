@@ -13,6 +13,7 @@ import ArticleChapada from '../ArticleChapada/ArticleChapada';
 import ArticleNomadismo from '../ArticleNomadismo/ArticleNomadismo';
 import ArticleIreland from '../ArticleIreland/ArticleIreland';
 import ArticleCagliari from '../ArticleCagliari/ArticleCagliari';
+import FaqPage from '../FaqPage/FaqPage';
 import NotFound from '../NotFound/NotFound';
 import AuthModal from '../AuthModal/AuthModal';
 import Preloader from '../Preloader/Preloader';
@@ -52,6 +53,7 @@ function App() {
         <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
         <Route path="/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin" element={<ArticleIreland />} />
         <Route path="/sardegna/cagliari-capital-que-tambem-e-riviera" element={<ArticleCagliari />} />
+        <Route path="/perguntas-frequentes" element={<FaqPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer onJoinClick={handleOpenAuthModal} />
