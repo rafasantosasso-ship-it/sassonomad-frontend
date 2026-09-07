@@ -4,7 +4,6 @@ import CostTable from '../CostTable/CostTable';
 import FaqList from '../FaqList/FaqList';
 import GuideCta from '../GuideCta/GuideCta';
 import { getGuideBySlug } from '../../data/guides';
-import useFavorites from '../../hooks/useFavorites';
 
 const guide = getGuideBySlug('chapada');
 
@@ -32,8 +31,6 @@ const faqItems = [
 ];
 
 function GuideChapada() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   return (
     <GuideArticleLayout
       guide={{
@@ -42,8 +39,6 @@ function GuideChapada() {
         title: 'Quanto Custa Viver na Chapada Diamantina em 2026',
         dek: 'Números reais de Lençóis e do Vale do Capão — nada de estimativa otimista de blog de fim de semana.',
       }}
-      isSaved={isFavorite(`guide:${guide.slug}`)}
-      onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
     >
       <p>
         A maioria dos blogs de viagem trata a Chapada como destino de fim de semana — três dias,

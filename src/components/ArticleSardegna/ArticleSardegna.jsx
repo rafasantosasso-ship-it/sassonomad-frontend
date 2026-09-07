@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
-import useFavorites from '../../hooks/useFavorites';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
 import '../GuideCta/GuideCta.css';
@@ -8,8 +7,6 @@ import '../GuideCta/GuideCta.css';
 const article = getArticleBySlug('sardegna');
 
 function ArticleSardegna() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   useDocumentMeta(
     'Sardegna: Vilarejos de Pedra e Mar Turquesa — Um Roteiro Lento pelo Sul da Ilha | Sasso Nomad',
     'Longe das rotas turísticas óbvias: vilarejos de granito rosa, torres que guardam o mar e uma Sardegna que só se revela pra quem fica.',
@@ -22,8 +19,6 @@ function ArticleSardegna() {
         title: 'Sardegna: Vilarejos de Pedra e Mar Turquesa',
         dek: 'Um roteiro lento pela costa e pelo interior, longe das rotas turísticas óbvias.',
       }}
-      isSaved={isFavorite(`article:${article.slug}`)}
-      onToggleSave={() => toggleFavorite(`article:${article.slug}`)}
     >
       <p>
         Tem uma torre no extremo sul da Sardenha que muda de cor com a luz do dia. De manhã, é só

@@ -1,13 +1,10 @@
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
-import useFavorites from '../../hooks/useFavorites';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
 
 const article = getArticleBySlug('nomadismo-digital');
 
 function ArticleNomadismo() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   useDocumentMeta(
     'Trabalhar de Qualquer Lugar: A Rotina Real de Um Nômade Digital | Sasso Nomad',
     'Nada de foto de laptop na praia. A rotina real de quem trabalha remoto viajando devagar: ferramentas, fusos horários e o que ninguém mostra no feed.',
@@ -15,9 +12,11 @@ function ArticleNomadismo() {
 
   return (
     <ArticleLayout
-      article={{ ...article, title: 'Trabalhar de Qualquer Lugar: A Rotina Real de Um Nômade Digital' }}
-      isSaved={isFavorite(`article:${article.slug}`)}
-      onToggleSave={() => toggleFavorite(`article:${article.slug}`)}
+      article={{
+        ...article,
+        title: 'Trabalhar de Qualquer Lugar: A Rotina Real de Um Nômade Digital',
+        dek: 'Ferramentas, fusos horários e como manter produtividade viajando em ritmo lento.',
+      }}
     >
       <p>
         Tem um mural em Milão de um personagem esticando a cidade inteira como se fosse elástico —

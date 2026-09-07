@@ -8,6 +8,21 @@
   right: 14px;
 }
 
+.sn-share_hero {
+  top: 16px;
+  right: 16px;
+}
+
+.sn-share_hero .sn-share__toggle {
+  width: 42px;
+  height: 42px;
+}
+
+.sn-share_hero .sn-share__toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
 .sn-share__toggle {
   display: flex;
   align-items: center;

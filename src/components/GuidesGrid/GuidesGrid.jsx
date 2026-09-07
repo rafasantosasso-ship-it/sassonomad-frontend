@@ -1,11 +1,8 @@
 import GuideCard from '../GuideCard/GuideCard';
 import { GUIDES } from '../../data/guides';
-import useFavorites from '../../hooks/useFavorites';
 import './GuidesGrid.css';
 
 function GuidesGrid() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   return (
     <section className="sn-guides-grid">
       <h1 className="sn-guides-grid__title">Territórios</h1>
@@ -15,12 +12,7 @@ function GuidesGrid() {
 
       <div className="sn-guides-grid__list">
         {GUIDES.map((guide) => (
-          <GuideCard
-            key={guide.slug}
-            guide={guide}
-            isSaved={isFavorite(`guide:${guide.slug}`)}
-            onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
-          />
+          <GuideCard key={guide.slug} guide={guide} />
         ))}
       </div>
     </section>

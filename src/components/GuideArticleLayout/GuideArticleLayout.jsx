@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import SaveButton from '../SaveButton/SaveButton';
+import ShareButton from '../ShareButton/ShareButton';
 import './GuideArticleLayout.css';
 
-function GuideArticleLayout({ guide, isSaved, onToggleSave, children }) {
-  const { eyebrow, title, dek, image, alt } = guide;
+function GuideArticleLayout({ guide, children }) {
+  const { slug, eyebrow, title, dek, image, alt } = guide;
 
   return (
     <article className="sn-guide-article">
@@ -13,11 +13,11 @@ function GuideArticleLayout({ guide, isSaved, onToggleSave, children }) {
 
       <div className="sn-guide-article__hero">
         <img className="sn-guide-article__hero-img" src={image} alt={alt} />
-        <SaveButton
+        <ShareButton
           size="hero"
-          isSaved={isSaved}
-          onToggle={onToggleSave}
-          label="Salvar nos favoritos"
+          path={`/guias/${slug}`}
+          title={title}
+          label={`Compartilhar ${title}`}
         />
       </div>
 

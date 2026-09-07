@@ -4,7 +4,6 @@ import CostTable from '../CostTable/CostTable';
 import FaqList from '../FaqList/FaqList';
 import GuideCta from '../GuideCta/GuideCta';
 import { getGuideBySlug } from '../../data/guides';
-import useFavorites from '../../hooks/useFavorites';
 
 const guide = getGuideBySlug('sardegna');
 
@@ -32,8 +31,6 @@ const faqItems = [
 ];
 
 function GuideSardegna() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   return (
     <GuideArticleLayout
       guide={{
@@ -42,8 +39,6 @@ function GuideSardegna() {
         title: 'Quanto Custa Viver na Sardenha em 2026',
         dek: 'Números reais de quem já foi — nada de faixa de preço genérica e otimista de blog.',
       }}
-      isSaved={isFavorite(`guide:${guide.slug}`)}
-      onToggleSave={() => toggleFavorite(`guide:${guide.slug}`)}
     >
       <p>
         A maioria dos blogs de nômade digital te dá uma faixa de preço genérica, otimista o

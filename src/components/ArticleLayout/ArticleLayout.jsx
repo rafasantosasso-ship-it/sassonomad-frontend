@@ -1,9 +1,9 @@
-import SaveButton from '../SaveButton/SaveButton';
+import ShareButton from '../ShareButton/ShareButton';
 import CommunityCta from '../CommunityCta/CommunityCta';
 import './ArticleLayout.css';
 
-function ArticleLayout({ article, isSaved, onToggleSave, children }) {
-  const { tag, title, dek, image, imagePosition } = article;
+function ArticleLayout({ article, children }) {
+  const { tag, title, dek, image, imagePosition, path } = article;
 
   return (
     <article className="sn-light-article">
@@ -14,12 +14,7 @@ function ArticleLayout({ article, isSaved, onToggleSave, children }) {
           alt={title}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        <SaveButton
-          size="hero"
-          isSaved={isSaved}
-          onToggle={onToggleSave}
-          label="Salvar nos favoritos"
-        />
+        <ShareButton size="hero" path={path} title={title} label={`Compartilhar ${title}`} />
       </div>
 
       <header className="sn-light-article__header">

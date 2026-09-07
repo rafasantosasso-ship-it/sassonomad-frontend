@@ -1,13 +1,10 @@
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
-import useFavorites from '../../hooks/useFavorites';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
 
 const article = getArticleBySlug('cagliari');
 
 function ArticleCagliari() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   useDocumentMeta(
     'Cagliari: A Capital Que Ninguém Trata Como Capital | Sasso Nomad',
     'Fachadas coloridas, ladeiras de pedra e uma capital europeia que ainda não virou destino de massa. Cagliari fora do roteiro clássico da Sardegna.',
@@ -15,9 +12,11 @@ function ArticleCagliari() {
 
   return (
     <ArticleLayout
-      article={{ ...article, title: 'Cagliari: A Capital Que Ninguém Trata Como Capital' }}
-      isSaved={isFavorite(`article:${article.slug}`)}
-      onToggleSave={() => toggleFavorite(`article:${article.slug}`)}
+      article={{
+        ...article,
+        title: 'Cagliari: A Capital Que Ninguém Trata Como Capital',
+        dek: 'Fachadas coloridas, ruas vazias ao amanhecer e uma cidade que ainda vive no próprio ritmo.',
+      }}
     >
       <p>
         Tem uma rua no centro histórico de Cagliari onde as fachadas mudam de cor a cada prédio —

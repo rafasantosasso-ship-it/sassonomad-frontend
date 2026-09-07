@@ -1,13 +1,10 @@
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
-import useFavorites from '../../hooks/useFavorites';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
 
 const article = getArticleBySlug('ireland');
 
 function ArticleIreland() {
-  const { isFavorite, toggleFavorite } = useFavorites();
-
   useDocumentMeta(
     'Irlanda Fora do Óbvio: Vida de Nômade Além do Centro Caótico de Dublin | Sasso Nomad',
     'Dublin é "Silicon Docks" — mas a vida de quem trabalha remoto por lá acontece longe do centro, em vilarejos costeiros a 25 minutos de trem.',
@@ -18,9 +15,8 @@ function ArticleIreland() {
       article={{
         ...article,
         title: 'Irlanda Fora do Óbvio: Vida de Nômade Além do Centro Caótico de Dublin',
+        dek: 'Silicon Docks, vilarejos costeiros a 25 minutos de trem e como funciona o trabalho remoto por lá.',
       }}
-      isSaved={isFavorite(`article:${article.slug}`)}
-      onToggleSave={() => toggleFavorite(`article:${article.slug}`)}
     >
       <p>
         Tem um telescópio azul de observação plantado numa esquina de Howth, apontado pra baía de
