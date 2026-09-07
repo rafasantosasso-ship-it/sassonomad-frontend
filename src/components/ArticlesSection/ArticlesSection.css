@@ -22,20 +22,16 @@
   font-size: 0.98rem;
 }
 
-.sn-articles__list {
+.sn-articles__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 200px 200px 160px;
+  gap: 18px;
 }
 
-@media (max-width: 960px) {
-  .sn-articles__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .sn-articles__list {
-    grid-template-columns: 1fr;
+@media (max-width: 800px) {
+  .sn-articles__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
 }
