@@ -6,7 +6,7 @@ function ArticlesSection() {
   return (
     <section className="sn-articles">
       <div className="sn-articles__header">
-        <h2 className="sn-articles__title">Últimas histórias</h2>
+        <h2 className="sn-articles__title">O próximo destino já está te esperando</h2>
         <p className="sn-articles__subtitle">
           Guias e relatos sobre os lugares que moldam a vida nômade.
         </p>
