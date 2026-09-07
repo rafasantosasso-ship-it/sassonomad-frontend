@@ -1,6 +1,7 @@
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
+import '../GuideCta/GuideCta.css';
 
 const article = getArticleBySlug('nomadismo-digital');
 
@@ -29,6 +30,12 @@ function ArticleNomadismo() {
         A internet vendeu a ideia de que nomadismo digital é notebook aberto numa cadeira de
         praia, coco na mão, cronograma inexistente. A realidade é bem menos fotogênica — e bem
         mais interessante.
+      </p>
+      <p>
+        Também é bem menos nicho do que parece: são mais de 43 milhões de pessoas vivendo assim ao
+        redor do mundo, número que deve passar de 80 milhões até o fim da década. A pergunta não é
+        mais &ldquo;isso funciona de verdade?&rdquo; — já funciona, em escala. A pergunta é como
+        fazer funcionar sem virar estatística de quem tenta seis meses e desiste.
       </p>
 
       <h2>O Mito do Trabalho Sem Estrutura</h2>
@@ -71,6 +78,30 @@ function ArticleNomadismo() {
         É esse equilíbrio — não o cenário — que faz a diferença entre um nômade digital que dura
         seis meses e um que dura seis anos.
       </p>
+
+      <div className="sn-guide-cta sn-guide-cta_alt">
+        <h3 className="sn-guide-cta__title">O Que Este Artigo Não Te Contou</h3>
+        <p className="sn-guide-cta__text">
+          Qual ferramenta substitui qual planilha. Como montar o bloco de horário quando seu
+          cliente está em três fusos diferentes ao mesmo tempo. O checklist exato de documentos,
+          seguro e backup de conexão antes de embarcar. Esse tipo de detalhe prático não cabe numa
+          reflexão — cabe num manual.
+        </p>
+        <p className="sn-guide-cta__text">
+          O <strong style={{ color: 'var(--color-text-light)' }}>Guia Completo de Nomadismo
+          Digital</strong> é esse manual: checklists, ferramentas e roteiros testados por quem já
+          fez a mudança de verdade, dos dois territórios da Sassonomad ao orçamento mensal.
+        </p>
+        <a
+          className="sn-guide-cta__button"
+          href="https://sassonomad.com/nomadismo-digital"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conhecer o Guia Completo de Nomadismo Digital
+        </a>
+        <span className="sn-guide-cta__price">R$ 49,90</span>
+      </div>
     </ArticleLayout>
   );
 }
