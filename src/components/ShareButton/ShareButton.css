@@ -1,0 +1,84 @@
+.sn-share {
+  position: absolute;
+  z-index: 5;
+}
+
+.sn-share_card {
+  top: 14px;
+  right: 14px;
+}
+
+.sn-share__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(28, 35, 20, 0.45);
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+
+.sn-share__toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-text-light);
+  stroke: var(--color-text-light);
+  stroke-width: 1.6;
+}
+
+.sn-share__toggle svg circle {
+  fill: var(--color-text-light);
+  stroke: none;
+}
+
+.sn-share__toggle svg line {
+  stroke: var(--color-text-light);
+}
+
+.sn-share__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 175px;
+  padding: 0.4rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.sn-share__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.6rem;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sn-share__option:hover {
+  background-color: var(--color-bg);
+}
+
+.sn-share__option svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--color-accent-dark);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

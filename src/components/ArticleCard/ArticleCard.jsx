@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
-import SaveButton from '../SaveButton/SaveButton';
-import useFavorites from '../../hooks/useFavorites';
+import ShareButton from '../ShareButton/ShareButton';
 import './ArticleCard.css';
 
 function ArticleCard({ article }) {
-  const { slug, tag, title, excerpt, image, path } = article;
-  const { isFavorite, toggleFavorite } = useFavorites();
+  const { tag, title, excerpt, image, path } = article;
   const isPending = !path;
   const Wrapper = isPending ? 'div' : Link;
   const wrapperProps = isPending ? {} : { to: path };
@@ -20,18 +18,14 @@ function ArticleCard({ article }) {
         {isPending ? (
           <span className="sn-article-card__badge">Em breve</span>
         ) : (
-          <SaveButton
-            size="card"
-            isSaved={isFavorite(`article:${slug}`)}
-            onToggle={() => toggleFavorite(`article:${slug}`)}
-            label={`Salvar ${title} nos favoritos`}
-          />
+          <ShareButton size="card" path={path} title={title} label={`Compartilhar ${title}`} />
         )}
-      </div>
-      <div className="sn-article-card__body">
-        <span className="sn-article-card__tag">{tag}</span>
-        <h3 className="sn-article-card__title">{title}</h3>
-        <p className="sn-article-card__excerpt">{excerpt}</p>
+        <div className="sn-article-card__overlay" />
+        <div className="sn-article-card__content">
+          <span className="sn-article-card__tag">{tag}</span>
+          <h3 className="sn-article-card__title">{title}</h3>
+          <p className="sn-article-card__excerpt">{excerpt}</p>
+        </div>
       </div>
     </Wrapper>
   );
