@@ -47,15 +47,14 @@ function CommunityModal({ onClose }) {
         {status === 'success' ? (
           <div className="sn-modal__success">
             <h2 className="sn-modal__title">Recebido!</h2>
-            <p className="sn-modal__success-text">Confira seu e-mail em alguns minutos.</p>
+            <p className="sn-modal__success-text">Você vai ser um dos primeiros a saber.</p>
           </div>
         ) : (
           <>
             <h2 className="sn-modal__title">Faça Parte da Comunidade Sasso Nomad</h2>
             <p className="sn-modal__intro">
-              Deixa seu e-mail aqui embaixo e ganha de graça um artigo exclusivo sobre nomadismo
-              digital. É também como você fica sabendo primeiro quando a newsletter e os espaços
-              de troca abrirem.
+              Deixa seu e-mail aqui embaixo e eu te conto as novidades por aqui — a partir de
+              quando a newsletter e os espaços de troca abrirem.
             </p>
             <p className="sn-modal__intro">
               E relaxa: a gente não vive mandando e-mail. Só avisa quando tem algo que realmente
