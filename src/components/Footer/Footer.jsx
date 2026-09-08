@@ -9,8 +9,8 @@ function Footer({ onJoinClick }) {
         <div className="sn-footer__col sn-footer__col_brand">
           <img className="sn-footer__logo" src={logoLight} alt="Sasso Nomad" />
           <p className="sn-footer__bio">
-            Rotas de viagem lenta, nomadismo digital sem enrolação e os lugares que realmente
-            merecem a demora. Sardegna, Chapada Diamantina e o que vier depois.
+            Viagem lenta e nomadismo digital sem enrolação. Sardegna, Chapada Diamantina e o que
+            vier depois.
           </p>
         </div>
 
@@ -64,7 +64,12 @@ function Footer({ onJoinClick }) {
               </svg>
               <span>@sassonomad</span>
             </a>
-            <span className="sn-footer__link sn-footer__link_soon">
+            <a
+              className="sn-footer__link"
+              href="https://pinterest.com/sassonomad"
+              target="_blank"
+              rel="noreferrer"
+            >
               <svg
                 className="sn-footer__icon"
                 viewBox="0 0 24 24"
@@ -78,8 +83,7 @@ function Footer({ onJoinClick }) {
                 <path d="M9.5 19c.6-2 1.6-6.2 1.6-6.2M12 12c-1 0-2.4-.8-2.4-2.7 0-2.1 1.7-3.9 4-3.9 2 0 3.6 1.4 3.6 3.4 0 2.4-1.2 4.7-3.1 4.7-.9 0-1.6-.7-1.4-1.6" />
               </svg>
               <span>Sasso Nomad</span>
-              <span className="sn-footer__soon-tag">em breve</span>
-            </span>
+            </a>
           </div>
         </div>
       </div>
