@@ -8,34 +8,39 @@ function About() {
         <img
           className="sn-about__image"
           src={aboutImg}
-          alt="Nascer do sol entre a serra e o rio, na Chapada Diamantina"
+          alt="Pôr do sol entre a serra e o rio, na Bahia"
         />
       </div>
       <div className="sn-about__content">
         <h2 className="sn-about__title">Sobre o Sasso Nomad</h2>
         <p className="sn-about__text">
-          Essa imagem foi tirada num amanhecer qualquer na Chapada Diamantina — sem ninguém por
-          perto, só o sol nascendo entre a serra e o rio. É esse tipo de momento que fica de fora
-          dos guias de turismo comuns, porque exige o que a maioria das viagens não dá: tempo
-          parado, sem pressa de ir pro próximo ponto do roteiro.
+          Essa imagem foi tirada num pôr do sol na Bahia — só o sol entre a serra e o rio. Não tem
+          legenda perfeita pra esse tipo de momento. Ele foi feito pra ser vivido devagar, no
+          silêncio de quem já não está mais de passagem.
         </p>
         <p className="sn-about__text">
-          Sou criador de conteúdo dividido entre a Sardenha e o Brasil — literalmente entre dois
-          lados do mundo que, à primeira vista, não têm nada em comum. Mas os dois me ensinaram a
-          mesma coisa: o lugar que vale a pena conhecer é aquele que você tem tempo de habitar, não
-          só visitar.
+          É esse tipo de instante que eu desejo que você encontre: sem pressa de ir pro próximo
+          ponto do roteiro.
         </p>
         <p className="sn-about__text">
-          O Sasso Nomad nasceu de uma frustração simples: cansei de conteúdo de viagem que promete
-          liberdade e entrega só destino bonito e dica rasa. Quem trabalha remoto e viaja devagar de
-          verdade precisa de outra coisa — rotina que funciona, orçamento real, conectividade que
-          não falha na hora errada, e a coragem de ficar mais tempo num lugar em vez de colecionar
-          carimbo de passaporte.
+          Vivo entre o Brasil e a Itália — literalmente entre dois lados do mundo que, à primeira
+          vista, não têm nada em comum. O mar mediterrâneo de um lado, a Chapada Diamantina do
+          outro. Mas os dois me ensinaram exatamente a mesma coisa, cada um à sua maneira.
         </p>
         <p className="sn-about__text">
-          É isso que você encontra aqui: rotas de viagem lenta, nomadismo digital sem enrolação, e
-          os lugares que realmente merecem a demora.
+          O Sasso Nomad se reflete nisso: quem trabalha remoto e viaja devagar de verdade precisa
+          de rotina que funciona, orçamento real, conectividade que não falha na hora errada — e a
+          coragem de ficar mais tempo num lugar.
         </p>
+        <p className="sn-about__text">
+          É isso que você encontra aqui, sem enrolação: viagens bem aproveitadas por quem já morou
+          nelas, nomadismo digital, e os lugares que realmente merecem a sua presença.
+        </p>
+        <p className="sn-about__text">
+          O sol já nasceu uma vez sobre esse rio, sem ninguém olhando. A próxima vez pode ser você
+          aí.
+        </p>
+        <p className="sn-about__signature">— Sasso Nomad</p>
       </div>
     </section>
   );

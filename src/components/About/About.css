@@ -41,6 +41,14 @@
   margin: 0;
 }
 
+.sn-about__signature {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin: 0.4rem 0 0;
+}
+
 @media (max-width: 780px) {
   .sn-about {
     flex-direction: column;
