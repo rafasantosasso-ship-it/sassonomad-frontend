@@ -15,14 +15,14 @@ import ArticleIreland from '../ArticleIreland/ArticleIreland';
 import ArticleCagliari from '../ArticleCagliari/ArticleCagliari';
 import FaqPage from '../FaqPage/FaqPage';
 import NotFound from '../NotFound/NotFound';
-import AuthModal from '../AuthModal/AuthModal';
+import CommunityModal from '../CommunityModal/CommunityModal';
 import Preloader from '../Preloader/Preloader';
 import useScrollToHash from '../../hooks/useScrollToHash';
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isCommunityModalOpen, setIsCommunityModalOpen] = useState(false);
 
   useScrollToHash();
 
@@ -31,8 +31,8 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleOpenAuthModal = () => setIsAuthModalOpen(true);
-  const handleCloseAuthModal = () => setIsAuthModalOpen(false);
+  const handleOpenCommunityModal = () => setIsCommunityModalOpen(true);
+  const handleCloseCommunityModal = () => setIsCommunityModalOpen(false);
 
   if (isLoading) {
     return <Preloader />;
@@ -40,9 +40,9 @@ function App() {
 
   return (
     <div className="sn-app">
-      <Header onCommunityClick={handleOpenAuthModal} />
+      <Header onCommunityClick={handleOpenCommunityModal} />
       <Routes>
-        <Route path="/" element={<Main onJoinClick={handleOpenAuthModal} />} />
+        <Route path="/" element={<Main onJoinClick={handleOpenCommunityModal} />} />
         <Route path="/clima" element={<WeatherPage />} />
         <Route path="/guias" element={<GuidesGrid />} />
         <Route path="/guias/chapada" element={<GuideChapada />} />
@@ -56,8 +56,8 @@ function App() {
         <Route path="/perguntas-frequentes" element={<FaqPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer onJoinClick={handleOpenAuthModal} />
-      {isAuthModalOpen && <AuthModal onClose={handleCloseAuthModal} />}
+      <Footer onJoinClick={handleOpenCommunityModal} />
+      {isCommunityModalOpen && <CommunityModal onClose={handleCloseCommunityModal} />}
     </div>
   );
 }

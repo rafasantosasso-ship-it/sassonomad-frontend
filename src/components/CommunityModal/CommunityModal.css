@@ -12,7 +12,9 @@
 .sn-modal {
   background: #fff;
   border-radius: 12px;
-  width: min(360px, 100%);
+  width: min(420px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
   padding: 2rem 1.75rem;
   position: relative;
   display: flex;
@@ -29,11 +31,21 @@
   font-size: 1.1rem;
   line-height: 1;
   color: var(--color-text-muted);
+  cursor: pointer;
 }
 
 .sn-modal__title {
   font-family: var(--font-display);
   font-size: 1.3rem;
+  color: var(--color-text);
+  padding-right: 1.5rem;
+}
+
+.sn-modal__intro {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 .sn-modal__form {
@@ -47,14 +59,24 @@
   flex-direction: column;
   gap: 0.3rem;
   font-size: 0.85rem;
+  color: var(--color-text);
 }
 
-.sn-modal__field input {
+.sn-modal__field input,
+.sn-modal__field select {
   padding: 0.6rem 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   font-size: 0.9rem;
   font-family: inherit;
+  color: var(--color-text);
+  background-color: #fff;
+}
+
+.sn-modal__error {
+  font-size: 0.82rem;
+  color: var(--color-accent-dark);
+  margin: 0;
 }
 
 .sn-modal__submit {
@@ -64,14 +86,28 @@
   background-color: var(--color-accent);
   color: #1c2321;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.sn-modal__switch {
-  font-size: 0.82rem;
-  text-align: center;
+.sn-modal__submit:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.sn-modal__submit:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.sn-modal__success {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 0 0.5rem;
+}
+
+.sn-modal__success-text {
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-}
-
-.sn-modal__switch a {
-  color: var(--color-accent-dark);
+  margin: 0;
 }

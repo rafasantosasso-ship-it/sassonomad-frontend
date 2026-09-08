@@ -21,9 +21,9 @@ function CommunitySection({ onJoinClick }) {
         </p>
         <p className="sn-community__text">
           A comunidade Sasso Nomad existe pra isso. Um espaço de gente que troca rota real por rota
-          real — não dica genérica de blog, não recomendação patrocinada. Aqui dentro você tem
-          acesso a conteúdo exclusivo, novidades antes de todo mundo, e principalmente: gente que
-          decidiu viver a viagem lenta, não só admirá-la de longe.
+          real — não dica genérica de blog, não recomendação patrocinada. Cadastre seu e-mail e
+          seja um dos primeiros a saber quando a newsletter e os espaços de troca abrirem — além
+          de já receber, agora, os guias gratuitos sobre o território que mais te interessa.
         </p>
         <button className="sn-community__cta" type="button" onClick={onJoinClick}>
           Participar da Comunidade
