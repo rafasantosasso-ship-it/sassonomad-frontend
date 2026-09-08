@@ -22,8 +22,10 @@
 }
 
 .sn-footer__logo {
-  height: 40px;
+  height: 68px;
   width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .sn-footer__bio {
