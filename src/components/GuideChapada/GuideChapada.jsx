@@ -1,121 +1,41 @@
-import { Link } from 'react-router-dom';
 import GuideArticleLayout from '../GuideArticleLayout/GuideArticleLayout';
-import Callout from '../Callout/Callout';
-import CostTable from '../CostTable/CostTable';
-import FaqList from '../FaqList/FaqList';
 import { getGuideBySlug } from '../../data/guides';
 
 const guide = getGuideBySlug('chapada');
-
-const faqItems = [
-  {
-    question: 'Dá pra viver na Chapada Diamantina com menos de R$3.000 por mês?',
-    answer:
-      'É apertado, mas possível fora de época de festival — hospedagem simples no Capão combinada com alimentação da feirinha orgânica consegue chegar perto disso.',
-  },
-  {
-    question: 'É mais barato ficar em Lençóis ou no Vale do Capão?',
-    answer:
-      'Hospedagem básica costuma ser semelhante nos dois, mas o Capão compensa em alimentação enquanto Lençóis compensa em conectividade e infraestrutura.',
-  },
-  {
-    question: 'A estrada para o Vale do Capão ainda é de terra?',
-    answer:
-      'Não mais. A BA-849 foi totalmente asfaltada e entregue em maio de 2025 — o trajeto de 19–23 km hoje é feito em 25–40 minutos.',
-  },
-  {
-    question: 'A internet é boa o suficiente para trabalho remoto?',
-    answer:
-      'Em Lençóis centro, sim — fibra óptica em pousadas e coworkings. No Capão, há Wi-Fi em pousadas mas nenhuma operadora tem sinal na vila.',
-  },
-];
 
 function GuideChapada() {
   return (
     <GuideArticleLayout
       guide={{
         ...guide,
-        eyebrow: 'CHAPADA DIAMANTINA · GUIAS PRÁTICOS',
-        title: 'Quanto Custa Viver na Chapada Diamantina em 2026',
-        dek: 'Números reais de Lençóis e do Vale do Capão — nada de estimativa otimista de blog de fim de semana.',
+        eyebrow: 'LENÇÓIS · GUIA DIGITAL · R$ 39 · PDF',
+        title: 'Viver em Lençóis: O Guia Que Nenhum Turista Tem',
+        dek: 'Quanto custa, de verdade, viver em Lençóis? Não a estimativa de blog genérico — o número real, de quem já pagou aluguel, já errou negociação de casa histórica, já descobriu na prática o que sai caro e o que ninguém avisa antes.',
       }}
     >
       <p>
-        A maioria dos blogs de viagem trata a Chapada como destino de fim de semana — três dias,
-        quatro trilhas, de volta pra rotina. Quase nenhum fala do que custa realmente ficar um mês.
-        Aqui está a conta feita por quem já fez as duas coisas: os números que usamos nos nossos
-        próprios guias, testados, não estimados.
+        Esse guia não é sobre os três dias de roteiro. É sobre o que acontece depois — quando
+        você para de visitar e começa a morar. A busca por casa que ninguém posta no Instagram.
+        O momento exato em que a cidade te aceita como um dos seus. O rio que só quem fica
+        descobre. A internet que cai bem na hora errada, e o que fazer quando isso acontece.
       </p>
 
-      <Callout>
-        <strong>Resposta rápida:</strong> viver na Chapada Diamantina custa entre{' '}
-        <strong>R$3.350 e R$6.450 por mês</strong>, dependendo do perfil e de onde você fica —
-        Lençóis ou Vale do Capão. Convertendo pela cotação de referência (1 EUR ≈ R$5,60, jun/2026),
-        um nômade europeu ou americano vive confortavelmente na região com menos de EUR 400/mês.
-      </Callout>
-
-      <h2>A Tabela Completa</h2>
-      <CostTable
-        columns={['Categoria', 'Econômico', 'Confortável', 'Observação']}
-        rows={[
-          ['Hospedagem', 'R$1.500', 'R$3.000', 'Hostel em Lençóis ou casa alugada no Capão'],
-          ['Alimentação', 'R$800', 'R$1.500', 'Feira orgânica de sábado · Pix amplamente aceito'],
-          ['Transporte', 'R$200', 'R$400', 'Mototáxi local · bicicleta no Capão sai R$40/dia'],
-          ['Conectividade', 'R$150', 'R$250', 'Chip Claro é o de melhor cobertura na região'],
-          ['Passeios', 'R$400', 'R$800', 'Guia certificado ABETA obrigatório em trilhas longas'],
-          ['Imprevistos', 'R$300', 'R$500', 'Farmácia, manutenção, saques de emergência'],
-        ]}
-        totalRow={['Total', '~R$3.350', '~R$6.450', '']}
-      />
-
-      <h2>Lençóis ou Vale do Capão: Onde Morar Muda Tudo no Orçamento</h2>
       <p>
-        <strong>Lençóis</strong> — a base mais prática. Cidade histórica tombada pelo IPHAN, com
-        caixas eletrônicos, farmácias, mercado e a melhor conectividade da região: fibra óptica já
-        chegou ao centro histórico. Hospedagem de qualidade sai por R$80–280/noite dependendo do
-        padrão.
-      </p>
-      <p>
-        <strong>Vale do Capão</strong> — o polo alternativo. A estrada de acesso (BA-849,
-        Palmeiras–Capão) foi totalmente asfaltada e entregue em maio de 2025 — o trajeto que levava
-        45–55 minutos (podendo passar de 1h30 na chuva) agora é feito em 25–40 minutos.
-        Conectividade continua sem sinal de operadora na vila — apenas Wi-Fi em pousadas,
-        restaurantes e casas. Aluguel de casa completa: R$1.500–3.500/mês.
-      </p>
-      <p>
-        <strong>A lógica prática:</strong> quem depende de videochamadas frequentes fica em
-        Lençóis. Quem trabalha em blocos de 3–4h por dia encontra no Capão uma experiência
-        transformadora.
-      </p>
-
-      <h2>O Que os Blogs de Fim de Semana Não Te Contam</h2>
-      <p>
-        Caixas eletrônicos existem só em Lençóis centro — quem vai ao Capão precisa sacar dinheiro
-        antes, porque lá o Pix e o dinheiro dominam. E um chip de dados Claro não é opcional fora de
-        Lençóis: é seguro contra o dia em que a chuva derruba a luz e o Wi-Fi da pousada junto com
-        ela.
-      </p>
-
-      <h2>Perguntas Frequentes</h2>
-      <FaqList items={faqItems} />
-
-      <p>
-        Esses números cobrem a Chapada como um todo — mas Lençóis, especificamente, tem camadas
-        que uma tabela de custo não mostra: como se encontra casa de verdade na cidade, o erro
-        que sai caro na primeira negociação de moradia, o momento exato em que você deixa de ser
-        visitante, e o que fazer quando a internet cai bem na hora errada.
+        Escrito por quem viveu cada capítulo antes de escrever sobre ele — sem enrolação, sem
+        dica genérica, sem spoiler aqui. As respostas estão lá dentro.
       </p>
 
       <div className="sn-guide-cta sn-guide-cta_primary">
-        <h3 className="sn-guide-cta__title">O próximo passo</h3>
+        <h3 className="sn-guide-cta__title">Garanta o seu agora</h3>
         <p className="sn-guide-cta__text">
-          O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá,
-          não estimado de fora.
+          PDF direto pro seu e-mail, sem burocracia — R$ 39, formato digital.
         </p>
-        <Link className="sn-guide-cta__button" to="/lencois">
-          Conhecer o Guia Viver em Lençóis
-        </Link>
-        <span className="sn-guide-cta__price">R$ 39 · Formato: PDF</span>
+        <button className="sn-guide-cta__button" type="button">
+          Conhecer o Guia — R$ 39
+        </button>
+        <span className="sn-guide-cta__price">
+          * Botão ainda sem checkout real — em breve via Hotmart.
+        </span>
       </div>
     </GuideArticleLayout>
   );

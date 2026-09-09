@@ -5,9 +5,9 @@ import nomadismoImg from '../images/guides/nomadismo.jpg';
 export const GUIDES = [
   {
     slug: 'chapada',
-    eyebrow: 'CHAPADA DIAMANTINA',
-    title: 'Quanto custa viver na Chapada Diamantina',
-    dek: 'Números reais de Lençóis e do Vale do Capão — não estimativa de blog.',
+    eyebrow: 'LENÇÓIS',
+    title: 'Viver em Lençóis: O Guia Que Nenhum Turista Tem',
+    dek: 'Quanto custa, de verdade, viver em Lençóis — escrito por quem já morou lá. R$ 39 · PDF.',
     image: chapadaImg,
     alt: 'Orquídea silvestre nos campos rupestres da Chapada Diamantina',
   },
