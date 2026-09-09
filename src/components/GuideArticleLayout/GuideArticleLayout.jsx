@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import ShareButton from '../ShareButton/ShareButton';
 import './GuideArticleLayout.css';
 
@@ -7,10 +6,6 @@ function GuideArticleLayout({ guide, children }) {
 
   return (
     <article className="sn-guide-article">
-      <Link className="sn-guide-article__back" to="/guias">
-        &larr; Voltar aos territórios
-      </Link>
-
       <div className="sn-guide-article__hero">
         <img className="sn-guide-article__hero-img" src={image} alt={alt} />
         <ShareButton

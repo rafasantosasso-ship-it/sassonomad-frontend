@@ -4,20 +4,6 @@
   padding: calc(var(--header-height) + 2rem) 5% 5rem;
 }
 
-.sn-guide-article__back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  margin-bottom: 1.75rem;
-}
-
-.sn-guide-article__back:hover {
-  color: var(--color-accent-dark);
-}
-
 .sn-guide-article__hero {
   position: relative;
   border-radius: 6px;

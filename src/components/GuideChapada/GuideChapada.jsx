@@ -99,16 +99,22 @@ function GuideChapada() {
       <h2>Perguntas Frequentes</h2>
       <FaqList items={faqItems} />
 
+      <p>
+        Esses números cobrem a Chapada como um todo — mas Lençóis, especificamente, tem camadas
+        que uma tabela de custo não mostra: como se encontra casa de verdade na cidade, o erro
+        que sai caro na primeira negociação de moradia, o momento exato em que você deixa de ser
+        visitante, e o que fazer quando a internet cai bem na hora errada.
+      </p>
+
       <GuideCta
         variant="primary"
         title="O próximo passo"
-        buttonLabel="Conhecer o Guia Chapada Diamantina Profunda"
-        buttonHref="https://sassonomad.com/chapada"
-        price="BRL 89 · acesso imediato via Hotmart"
+        buttonLabel="Conhecer o Guia Viver em Lençóis"
+        buttonHref="https://sassonomad.com/lencois"
+        price="R$ 39 · acesso imediato via Hotmart"
       >
-        O guia completo <strong>Chapada Diamantina Profunda</strong> detalha onde morar por perfil,
-        os melhores restaurantes de Lençóis e do Capão, as trilhas alternativas que quase ninguém
-        conhece e o roteiro completo de conexão com a natureza.
+        O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá, não
+        estimado de fora.
       </GuideCta>
     </GuideArticleLayout>
   );

@@ -147,11 +147,11 @@ function ArticleChapada() {
           suficiente pra descobrir.
         </p>
         <p className="sn-guide-cta__text">
-          O <strong style={{ color: 'var(--color-text-light)' }}>Guia Chapada Diamantina Profunda
+          O <strong style={{ color: 'var(--color-text-light)' }}>Guia Viver em Lençóis
           </strong> é esse mapa: os nomes, os horários e os convites que este texto só insinuou.
         </p>
         <Link className="sn-guide-cta__button" to="/guias/chapada">
-          Conhecer o Guia Chapada Diamantina Profunda
+          Conhecer o Guia Viver em Lençóis
         </Link>
       </div>
     </ArticleLayout>
