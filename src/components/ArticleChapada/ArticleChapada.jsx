@@ -150,7 +150,7 @@ function ArticleChapada() {
           O <strong style={{ color: 'var(--color-text-light)' }}>Guia Viver em Lençóis
           </strong> é esse mapa: os nomes, os horários e os convites que este texto só insinuou.
         </p>
-        <Link className="sn-guide-cta__button" to="/guias/chapada">
+        <Link className="sn-guide-cta__button" to="/lencois">
           Conhecer o Guia Viver em Lençóis
         </Link>
       </div>

@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
 import GuideArticleLayout from '../GuideArticleLayout/GuideArticleLayout';
 import Callout from '../Callout/Callout';
 import CostTable from '../CostTable/CostTable';
 import FaqList from '../FaqList/FaqList';
-import GuideCta from '../GuideCta/GuideCta';
 import { getGuideBySlug } from '../../data/guides';
 
 const guide = getGuideBySlug('chapada');
@@ -106,16 +106,17 @@ function GuideChapada() {
         visitante, e o que fazer quando a internet cai bem na hora errada.
       </p>
 
-      <GuideCta
-        variant="primary"
-        title="O próximo passo"
-        buttonLabel="Conhecer o Guia Viver em Lençóis"
-        buttonHref="https://sassonomad.com/lencois"
-        price="R$ 39 · acesso imediato via Hotmart"
-      >
-        O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá, não
-        estimado de fora.
-      </GuideCta>
+      <div className="sn-guide-cta sn-guide-cta_primary">
+        <h3 className="sn-guide-cta__title">O próximo passo</h3>
+        <p className="sn-guide-cta__text">
+          O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá,
+          não estimado de fora.
+        </p>
+        <Link className="sn-guide-cta__button" to="/lencois">
+          Conhecer o Guia Viver em Lençóis
+        </Link>
+        <span className="sn-guide-cta__price">R$ 39 · Formato: PDF</span>
+      </div>
     </GuideArticleLayout>
   );
 }

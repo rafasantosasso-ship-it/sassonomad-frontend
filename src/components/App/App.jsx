@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import WeatherPage from '../WeatherPage/WeatherPage';
 import GuidesGrid from '../GuidesGrid/GuidesGrid';
 import GuideChapada from '../GuideChapada/GuideChapada';
+import GuiaLencois from '../GuiaLencois/GuiaLencois';
 import GuideSardegna from '../GuideSardegna/GuideSardegna';
 import GuideNomadismo from '../GuideNomadismo/GuideNomadismo';
 import ArticleSardegna from '../ArticleSardegna/ArticleSardegna';
@@ -46,6 +47,7 @@ function App() {
         <Route path="/clima" element={<WeatherPage />} />
         <Route path="/guias" element={<GuidesGrid />} />
         <Route path="/guias/chapada" element={<GuideChapada />} />
+        <Route path="/lencois" element={<GuiaLencois />} />
         <Route path="/guias/sardegna" element={<GuideSardegna />} />
         <Route path="/guias/nomadismo" element={<GuideNomadismo />} />
         <Route path="/sardegna/vilarejos-de-pedra-e-mar-turquesa" element={<ArticleSardegna />} />
