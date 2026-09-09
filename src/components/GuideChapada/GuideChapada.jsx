@@ -8,7 +8,7 @@ function GuideChapada() {
     <GuideArticleLayout
       guide={{
         ...guide,
-        eyebrow: 'LENÇÓIS · GUIA DIGITAL · R$ 39 · PDF',
+        eyebrow: 'LENÇÓIS · GUIA DIGITAL',
         title: 'Viver em Lençóis: O Guia Que Nenhum Turista Tem',
         dek: 'Quanto custa, de verdade, viver em Lençóis? Não a estimativa de blog genérico — o número real, de quem já pagou aluguel, já errou negociação de casa histórica, já descobriu na prática o que sai caro e o que ninguém avisa antes.',
       }}
@@ -26,16 +26,15 @@ function GuideChapada() {
       </p>
 
       <div className="sn-guide-cta sn-guide-cta_primary">
-        <h3 className="sn-guide-cta__title">Garanta o seu agora</h3>
+        <h3 className="sn-guide-cta__title">O próximo passo</h3>
         <p className="sn-guide-cta__text">
-          PDF direto pro seu e-mail, sem burocracia — R$ 39, formato digital.
+          O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá,
+          não estimado de fora.
         </p>
         <button className="sn-guide-cta__button" type="button">
-          Conhecer o Guia — R$ 39
+          Conhecer o Guia Viver em Lençóis
         </button>
-        <span className="sn-guide-cta__price">
-          * Botão ainda sem checkout real — em breve via Hotmart.
-        </span>
+        <span className="sn-guide-cta__price">R$ 39 · Formato: PDF</span>
       </div>
     </GuideArticleLayout>
   );

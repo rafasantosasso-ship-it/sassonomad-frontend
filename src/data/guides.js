@@ -7,7 +7,7 @@ export const GUIDES = [
     slug: 'chapada',
     eyebrow: 'LENÇÓIS',
     title: 'Viver em Lençóis: O Guia Que Nenhum Turista Tem',
-    dek: 'Quanto custa, de verdade, viver em Lençóis — escrito por quem já morou lá. R$ 39 · PDF.',
+    dek: 'Quanto custa, de verdade, viver em Lençóis — escrito por quem já morou lá.',
     image: chapadaImg,
     alt: 'Orquídea silvestre nos campos rupestres da Chapada Diamantina',
   },
