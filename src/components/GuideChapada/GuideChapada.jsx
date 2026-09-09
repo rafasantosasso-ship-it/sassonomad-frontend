@@ -28,8 +28,7 @@ function GuideChapada() {
       <div className="sn-guide-cta sn-guide-cta_primary">
         <h3 className="sn-guide-cta__title">O próximo passo</h3>
         <p className="sn-guide-cta__text">
-          O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá,
-          não estimado de fora.
+          O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá.
         </p>
         <button className="sn-guide-cta__button" type="button">
           Conhecer o Guia Viver em Lençóis
