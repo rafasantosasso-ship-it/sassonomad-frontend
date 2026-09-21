@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import logoLight from '../../images/brand/logo-lockup-light.svg';
 import logoDark from '../../images/brand/logo-lockup-dark.svg';
+import Navigation from '../Navigation/Navigation';
 import './Header.css';
 
 function Header({ onCommunityClick }) {
@@ -32,14 +33,7 @@ function Header({ onCommunityClick }) {
           <img className="sn-header__logo-img sn-header__logo-img_dark" src={logoDark} alt="Sasso Nomad" />
         </NavLink>
 
-        <nav className="sn-header__actions">
-          <button className="sn-header__action sn-header__action_accent" type="button" onClick={onCommunityClick}>
-            Comunidade
-          </button>
-          <NavLink className="sn-header__action" to="/guias">
-            Guias
-          </NavLink>
-        </nav>
+        <Navigation onCommunityClick={onCommunityClick} />
       </div>
     </header>
   );

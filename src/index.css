@@ -1,5 +1,6 @@
-/* Fontes carregadas via Google Fonts (link no index.html):
+/* Fontes self-hosted via @font-face (arquivos WOFF/WOFF2 em src/vendor/fonts):
    Zilla Slab (display) + Inter (corpo) */
+@import './vendor/fonts/fonts.css';
 
 :root {
   /* Paleta oficial Sasso Nomad */
