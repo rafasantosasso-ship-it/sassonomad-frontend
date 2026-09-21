@@ -21,4 +21,3 @@ npm run dev
 - Trocar as imagens placeholder em `src/images/` pelas fotos reais (mesmos nomes de arquivo, ou ajuste os imports).
 - `AuthModal` e `FeaturedProduct` ainda são só front-end — sem back-end conectado (login, cadastro e "Comprar" não enviam pra lugar nenhum ainda).
 - Deploy do front-end fica pra quando o back-end entrar (Fase 2+), conforme a lição permite.
-- Nomenclatura de classes usa `bloco__elemento_modificador` (underscore simples), não o BEM estrito com `--modificador` duplo — decisão consciente, não vamos reescrever agora.
