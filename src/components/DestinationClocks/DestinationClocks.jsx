@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllDestinationTimes } from '../../utils/TimeApi';
+import { fetchAllDestinationTimes, formatDestinationTime } from '../../utils/TimeApi';
 import { TIMEZONES_CACHE_KEY } from '../../utils/constants';
 import useLocalStorageState from '../../hooks/useLocalStorageState';
 import './DestinationClocks.css';
-
-function formatTime(entry) {
-  const { hour, minute } = entry.data;
-  return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
-}
 
 /**
  * Faixa compacta entre seções da Home: cidade + hora atual dos destinos
@@ -37,7 +32,7 @@ function DestinationClocks() {
       {results.map((entry) => (
         <span className="sn-destination-clocks__item" key={entry.destination.id}>
           <span className="sn-destination-clocks__city">{entry.destination.label}</span>
-          <span className="sn-destination-clocks__time">{formatTime(entry)}</span>
+          <span className="sn-destination-clocks__time">{formatDestinationTime(entry)}</span>
         </span>
       ))}
     </Link>

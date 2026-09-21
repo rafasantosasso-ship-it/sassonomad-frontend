@@ -1,3 +1,5 @@
+import { DAY_LABELS } from './constants';
+
 const BASE_URL = 'https://timeapi.io/api/time/current/zone';
 
 export const DESTINATIONS = [
@@ -47,4 +49,20 @@ export function fetchAllDestinationTimes() {
   return Promise.all(DESTINATIONS.map(fetchTimeForDestination)).then((entries) =>
     [...entries].sort((a, b) => toComparableInstant(a) - toComparableInstant(b))
   );
+}
+
+// Formatadores compartilhados — usados tanto pela página /fusos quanto pela
+// faixa da Home, pra não duplicar a mesma lógica nos dois componentes.
+export function formatDestinationTime(entry) {
+  const { hour, minute } = entry.data;
+  return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+}
+
+export function formatDestinationDay(entry) {
+  return DAY_LABELS[entry.data.dayOfWeek] || entry.data.dayOfWeek;
+}
+
+export function formatDestinationDate(entry) {
+  const { day, month } = entry.data;
+  return `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}`;
 }
