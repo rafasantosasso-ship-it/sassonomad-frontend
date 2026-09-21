@@ -49,9 +49,9 @@ function TimeZonesPage() {
 
   return (
     <section className="sn-timezones">
-      <h1 className="sn-timezones__title">Fusos horários dos destinos</h1>
+      <h1 className="sn-timezones__title">Sasso Nomad pelo mundo</h1>
       <p className="sn-timezones__subtitle">
-        Hora atual nos destinos Sasso Nomad — útil pra coordenar chamadas e prazos remotos.
+        Hora atual em cada destino — útil pra coordenar chamadas e prazos remotos.
       </p>
 
       {isLoading && <Preloader inline />}

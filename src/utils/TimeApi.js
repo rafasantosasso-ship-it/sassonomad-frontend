@@ -1,12 +1,10 @@
 const BASE_URL = 'https://timeapi.io/api/time/current/zone';
 
 export const DESTINATIONS = [
-  { id: 'lencois', label: 'Lençóis — Chapada Diamantina, BR', timeZone: 'America/Bahia' },
-  { id: 'cagliari', label: 'Cagliari — Sardegna, IT', timeZone: 'Europe/Rome' },
-  { id: 'chiang-mai', label: 'Chiang Mai, TH', timeZone: 'Asia/Bangkok' },
-  { id: 'dublin', label: 'Dublin, IE', timeZone: 'Europe/Dublin' },
-  { id: 'sao-paulo', label: 'São Paulo, BR', timeZone: 'America/Sao_Paulo' },
-  { id: 'lisboa', label: 'Lisboa, PT', timeZone: 'Europe/Lisbon' },
+  { id: 'lencois', label: 'Lençóis, Bahia', timeZone: 'America/Bahia' },
+  { id: 'sardegna', label: 'Sardegna', timeZone: 'Europe/Rome' },
+  { id: 'california', label: 'California', timeZone: 'America/Los_Angeles' },
+  { id: 'dublin', label: 'Dublin', timeZone: 'Europe/Dublin' },
 ];
 
 /**
