@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ArticleLayout from '../ArticleLayout/ArticleLayout';
 import useDocumentMeta from '../../hooks/useDocumentMeta';
 import { getArticleBySlug } from '../../utils/articles';
@@ -89,17 +90,13 @@ function ArticleNomadismo() {
         </p>
         <p className="sn-guide-cta__text">
           O <strong style={{ color: 'var(--color-text-light)' }}>Guia Completo de Nomadismo
-          Digital</strong> é esse manual: checklists, ferramentas e roteiros testados por quem já
-          fez a mudança de verdade, dos dois territórios da Sassonomad ao orçamento mensal.
+          Digital</strong> é esse manual: o que muda de verdade no trabalho remoto, como tornar
+          sua profissão portátil e um roteiro de quatro fases pra testar essa vida antes de virar
+          ela de cabeça pra baixo.
         </p>
-        <a
-          className="sn-guide-cta__button"
-          href="https://sassonomad.com/nomadismo-digital"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link className="sn-guide-cta__button" to="/guias/nomadismo">
           Conhecer o Guia Completo de Nomadismo Digital
-        </a>
+        </Link>
       </div>
     </ArticleLayout>
   );

@@ -21,9 +21,9 @@ export const GUIDES = [
   },
   {
     slug: 'nomadismo',
-    eyebrow: 'NOMADISMO DIGITAL',
-    title: 'Sardegna ou Chapada Diamantina?',
-    dek: 'Qual destino combina com seu tipo de nômade — comparado com dado, não achismo.',
+    eyebrow: 'GUIA DIGITAL',
+    title: 'Guia Completo de Nomadismo Digital',
+    dek: 'Como construir uma vida com mais mobilidade, sem abrir mão da carreira — sem fórmula mágica.',
     image: nomadismoImg,
     alt: 'Piolho-de-cobra enrolado em espiral, close-up macro',
   },
