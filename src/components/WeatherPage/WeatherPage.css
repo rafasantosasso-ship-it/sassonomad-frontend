@@ -11,6 +11,12 @@
   font-size: clamp(1.5rem, 3vw, 2.2rem);
 }
 
+.sn-weather__subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: -1rem;
+}
+
 .sn-weather__selector {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +29,11 @@
   border: 1px solid var(--color-border);
   background-color: #fff;
   font-size: 0.85rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.sn-weather__city:hover {
+  transform: translateY(-1px);
 }
 
 .sn-weather__city_active {
@@ -36,8 +46,8 @@
 .sn-weather__status_error { color: #b3261e; }
 
 .sn-weather__days {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -46,11 +56,17 @@
   flex-direction: column;
   gap: 0.4rem;
   align-items: center;
-  padding: 1rem 1.25rem;
+  text-align: center;
+  padding: 1.1rem 1.25rem;
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  min-width: 100px;
   background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sn-weather__day:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .sn-weather__date {
@@ -59,11 +75,39 @@
   color: var(--color-text-muted);
 }
 
+.sn-weather__code {
+  font-size: 0.85rem;
+}
+
 .sn-weather__temps {
   font-size: 1rem;
   font-weight: 600;
 }
 
-@media (max-width: 480px) {
-  .sn-weather__days { justify-content: center; }
+.sn-weather__more {
+  align-self: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--color-accent);
+  color: #1c2321;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sn-weather__more:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1279px) {
+  .sn-weather__days {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sn-weather__days {
+    grid-template-columns: 1fr;
+  }
 }
