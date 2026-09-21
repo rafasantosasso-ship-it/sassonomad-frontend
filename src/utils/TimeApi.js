@@ -26,10 +26,25 @@ async function fetchTimeForDestination(destination) {
 }
 
 /**
- * Busca a hora atual de todos os destinos em paralelo. Se qualquer uma das
+ * Trata o horário local de um destino como se fosse UTC. Como todas as
+ * solicitações partem do mesmo instante real (busca em paralelo), esse
+ * valor cresce exatamente na ordem do horário mais cedo pro mais tarde —
+ * equivale a ordenar por fuso, sem precisar de um campo de offset
+ * explícito na resposta da API.
+ */
+function toComparableInstant(entry) {
+  const { year, month, day, hour, minute, seconds } = entry.data;
+  return Date.UTC(year, month - 1, day, hour, minute, seconds);
+}
+
+/**
+ * Busca a hora atual de todos os destinos em paralelo e devolve já
+ * ordenado do horário mais cedo para o mais tarde. Se qualquer uma das
  * solicitações falhar, a promessa combinada rejeita — tratado como erro
  * geral da funcionalidade (mensagem única para o usuário).
  */
 export function fetchAllDestinationTimes() {
-  return Promise.all(DESTINATIONS.map(fetchTimeForDestination));
+  return Promise.all(DESTINATIONS.map(fetchTimeForDestination)).then((entries) =>
+    [...entries].sort((a, b) => toComparableInstant(a) - toComparableInstant(b))
+  );
 }
