@@ -1,4 +1,4 @@
-.sn-weather {
+.sn-timezones {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -6,85 +6,62 @@
   flex: 1;
 }
 
-.sn-weather__title {
+.sn-timezones__title {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2.2rem);
 }
 
-.sn-weather__subtitle {
+.sn-timezones__subtitle {
   color: var(--color-text-muted);
   font-size: 0.95rem;
   margin-top: -1rem;
+  max-width: 60ch;
 }
 
-.sn-weather__selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
+.sn-timezones__status { color: var(--color-text-muted); }
+.sn-timezones__status_error { color: #b3261e; }
 
-.sn-weather__city {
-  padding: 0.6rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background-color: #fff;
-  font-size: 0.85rem;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-}
-
-.sn-weather__city:hover {
-  transform: translateY(-1px);
-}
-
-.sn-weather__city_active {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  border-color: var(--color-bg-dark);
-}
-
-.sn-weather__status { color: var(--color-text-muted); }
-.sn-weather__status_error { color: #b3261e; }
-
-.sn-weather__days {
+.sn-timezones__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.sn-weather__day {
+.sn-timezones__card {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   align-items: center;
   text-align: center;
-  padding: 1.1rem 1.25rem;
+  padding: 1.4rem 1.25rem;
   border: 1px solid var(--color-border);
   border-radius: 10px;
   background-color: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.sn-weather__day:hover {
+.sn-timezones__card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-.sn-weather__date {
-  font-size: 0.8rem;
-  text-transform: capitalize;
+.sn-timezones__city {
+  font-size: 0.85rem;
   color: var(--color-text-muted);
 }
 
-.sn-weather__code {
-  font-size: 0.85rem;
-}
-
-.sn-weather__temps {
-  font-size: 1rem;
+.sn-timezones__time {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
-.sn-weather__more {
+.sn-timezones__day {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.sn-timezones__more {
   align-self: center;
   padding: 0.75rem 1.75rem;
   border-radius: 999px;
@@ -95,19 +72,19 @@
   transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-.sn-weather__more:hover {
+.sn-timezones__more:hover {
   background-color: var(--color-accent-dark);
   transform: translateY(-2px);
 }
 
 @media (max-width: 1279px) {
-  .sn-weather__days {
+  .sn-timezones__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .sn-weather__days {
+  .sn-timezones__grid {
     grid-template-columns: 1fr;
   }
 }

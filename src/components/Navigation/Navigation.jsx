@@ -10,6 +10,9 @@ function Navigation({ onCommunityClick }) {
       <NavLink className="sn-nav__link" to="/guias">
         Guias
       </NavLink>
+      <NavLink className="sn-nav__link" to="/fusos">
+        Fusos horários
+      </NavLink>
     </nav>
   );
 }
