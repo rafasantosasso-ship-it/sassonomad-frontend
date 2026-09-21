@@ -3,6 +3,10 @@
 
 export const PAGE_SIZE = 3;
 
+// Versionada: se a lista de destinos mudar, bump aqui força uma nova
+// solicitação em vez de mostrar cache antigo (dados de cidades removidas).
+export const TIMEZONES_CACHE_KEY = 'sn_timezones_cache_v3';
+
 export const ERROR_MESSAGE =
   'Desculpe, algo deu errado durante a solicitação. Pode haver um problema de conexão ou o servidor pode estar inativo. Por favor, tente novamente mais tarde.';
 

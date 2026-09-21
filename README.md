@@ -9,7 +9,7 @@ npm run dev
 
 ## Integração com API de terceiros (Fase 1.2)
 
-- **GET** — rota `/fusos`, consumindo a [timeapi.io](https://timeapi.io/) (`src/utils/TimeApi.js`). Sem chave de API. Busca a hora atual (em paralelo) em 4 destinos: Lençóis (Bahia), Sardegna, California e Dublin.
+- **GET** — rota `/fusos`, consumindo a [timeapi.io](https://timeapi.io/) (`src/utils/TimeApi.js`). Sem chave de API. Busca a hora atual (em paralelo) em 5 destinos: Chapada Diamantina, Sardegna, Chiang Mai, Dublin e California.
   - Preloader enquanto a resposta não chega, mensagem de erro padrão em caso de falha, "Nada encontrado" se a API não retornar dados.
   - Resultado é salvo em `localStorage` (`src/hooks/useLocalStorageState.js`) — ao reabrir a aba, os cartões aparecem na hora, sem nova solicitação.
   - Cartões organizados em fileiras de 3, com botão "Mostrar mais" revelando o restante.

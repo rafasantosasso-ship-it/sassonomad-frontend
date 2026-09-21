@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchAllDestinationTimes } from '../../utils/TimeApi';
+import { TIMEZONES_CACHE_KEY } from '../../utils/constants';
 import useLocalStorageState from '../../hooks/useLocalStorageState';
 import './DestinationClocks.css';
 
@@ -17,7 +18,7 @@ function formatTime(entry) {
  * completa, que esta faixa leva até lá).
  */
 function DestinationClocks() {
-  const [results, setResults] = useLocalStorageState('sn_timezones_cache_v1', null);
+  const [results, setResults] = useLocalStorageState(TIMEZONES_CACHE_KEY, null);
 
   useEffect(() => {
     if (results) return;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchAllDestinationTimes } from '../../utils/TimeApi';
-import { PAGE_SIZE, ERROR_MESSAGE, DAY_LABELS } from '../../utils/constants';
+import { PAGE_SIZE, ERROR_MESSAGE, DAY_LABELS, TIMEZONES_CACHE_KEY } from '../../utils/constants';
 import useLocalStorageState from '../../hooks/useLocalStorageState';
 import Preloader from '../Preloader/Preloader';
 import './TimeZonesPage.css';
@@ -22,7 +22,7 @@ function formatDate(entry) {
 function TimeZonesPage() {
   // Lido do localStorage ao montar — se o usuário já visitou a página antes,
   // os cartões aparecem na hora, sem nova solicitação à API.
-  const [results, setResults] = useLocalStorageState('sn_timezones_cache_v1', null);
+  const [results, setResults] = useLocalStorageState(TIMEZONES_CACHE_KEY, null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
