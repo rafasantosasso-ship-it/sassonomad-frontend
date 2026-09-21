@@ -1,9 +1,6 @@
-const BASE_URL = 'https://api.open-meteo.com/v1/forecast';
+import { FORECAST_DAYS } from './constants';
 
-// Previsão estendida (Open-Meteo permite até 16 dias na versão gratuita,
-// sem necessidade de chave de API) — dá material real para a paginação
-// "Mostrar mais" pedida na Fase 1.2.
-const FORECAST_DAYS = 16;
+const BASE_URL = 'https://api.open-meteo.com/v1/forecast';
 
 export const CITIES = [
   { id: 'lencois', label: 'Lençóis — Chapada Diamantina, BR', latitude: -12.5619, longitude: -41.3961 },

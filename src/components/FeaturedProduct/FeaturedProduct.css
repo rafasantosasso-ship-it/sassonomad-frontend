@@ -18,7 +18,7 @@
   display: block;
   flex: 1 1 420px;
   max-width: 480px;
-  min-width: 300px;
+  min-width: 220px;
 }
 
 .sn-product__image {
@@ -83,11 +83,6 @@
   transform: translateY(-2px);
 }
 
-.sn-product__note {
-  font-size: 0.78rem;
-  color: var(--color-text-muted-light);
-  opacity: 0.75;
-}
 
 @media (max-width: 640px) {
   .sn-product__inner {

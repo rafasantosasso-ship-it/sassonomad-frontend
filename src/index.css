@@ -1,6 +1,6 @@
-/* Fontes self-hosted via @font-face (arquivos WOFF/WOFF2 em src/vendor/fonts):
+/* Fontes self-hosted via @font-face (arquivos WOFF/WOFF2 em src/fonts):
    Zilla Slab (display) + Inter (corpo) */
-@import './vendor/fonts/fonts.css';
+@import './fonts/fonts.css';
 
 :root {
   /* Paleta oficial Sasso Nomad */
@@ -25,7 +25,7 @@
 }
 
 * { box-sizing: border-box; }
-html { overflow-x: hidden; scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-body);
