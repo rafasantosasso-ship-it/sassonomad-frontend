@@ -34,7 +34,7 @@
   right: 0;
 }
 
-.sn-nav__link_accent {
+.sn-nav__link--accent {
   color: var(--color-accent);
 }
 

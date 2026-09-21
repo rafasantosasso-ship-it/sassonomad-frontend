@@ -12,7 +12,7 @@ function ArticleCard({ article, role }) {
 
   return (
     <Wrapper
-      className={`sn-article-card${role ? ` sn-article-card_${role}` : ''}${isPending ? ' sn-article-card_pending' : ''}`}
+      className={`sn-article-card${role ? ` sn-article-card--${role}` : ''}${isPending ? ' sn-article-card--pending' : ''}`}
       {...wrapperProps}
     >
       <div className="sn-article-card__image-wrap">

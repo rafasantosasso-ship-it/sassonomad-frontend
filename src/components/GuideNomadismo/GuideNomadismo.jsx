@@ -24,7 +24,7 @@ function GuideNomadismo() {
 
       <p>Não é sobre viajar o tempo todo. É sobre ter menos limitação de lugar.</p>
 
-      <div className="sn-guide-cta sn-guide-cta_alt">
+      <div className="sn-guide-cta sn-guide-cta--alt">
         <h3 className="sn-guide-cta__title">Garanta o seu</h3>
         <button className="sn-guide-cta__button" type="button">
           Comprar

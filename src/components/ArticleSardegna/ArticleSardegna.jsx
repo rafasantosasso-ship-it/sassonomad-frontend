@@ -111,7 +111,7 @@ function ArticleSardegna() {
         exatamente onde essa recompensa ainda não tem fila de espera.
       </p>
 
-      <div className="sn-guide-cta sn-guide-cta_alt">
+      <div className="sn-guide-cta sn-guide-cta--alt">
         <h3 className="sn-guide-cta__title">O Que Este Artigo Não Te Contou</h3>
         <p className="sn-guide-cta__text">
           Qual vilarejo específico ainda está com casas a um euro disponíveis. Qual bairro de

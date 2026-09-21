@@ -19,7 +19,7 @@
 }
 
 .sn-timezones__status { color: var(--color-text-muted); }
-.sn-timezones__status_error { color: #b3261e; }
+.sn-timezones__status--error { color: #b3261e; }
 
 .sn-timezones__grid {
   display: grid;

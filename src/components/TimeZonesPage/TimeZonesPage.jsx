@@ -47,7 +47,7 @@ function TimeZonesPage() {
 
       {isLoading && <Preloader inline />}
 
-      {!isLoading && error && <p className="sn-timezones__status sn-timezones__status_error">{error}</p>}
+      {!isLoading && error && <p className="sn-timezones__status sn-timezones__status--error">{error}</p>}
 
       {!isLoading && !error && items.length === 0 && (
         <p className="sn-timezones__status">Nada encontrado.</p>

@@ -15,7 +15,7 @@
   border-bottom: 1px solid rgba(244, 243, 238, 0.12);
 }
 
-.sn-footer__col_brand {
+.sn-footer__col--brand {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,12 +90,12 @@
   color: var(--color-accent);
 }
 
-.sn-footer__link_soon {
+.sn-footer__link--soon {
   cursor: default;
   opacity: 0.55;
 }
 
-.sn-footer__link_soon:hover {
+.sn-footer__link--soon:hover {
   color: var(--color-text-light);
 }
 
@@ -147,7 +147,7 @@
     row-gap: 2.25rem;
   }
 
-  .sn-footer__col_brand {
+  .sn-footer__col--brand {
     grid-column: 1 / -1;
   }
 }

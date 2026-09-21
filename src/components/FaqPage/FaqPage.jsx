@@ -53,7 +53,7 @@ function FaqPage() {
                 const isOpen = openId === itemId;
                 return (
                   <div
-                    className={`sn-faq-page__item${isOpen ? ' sn-faq-page__item_open' : ''}`}
+                    className={`sn-faq-page__item${isOpen ? ' sn-faq-page__item--open' : ''}`}
                     key={itemId}
                   >
                     <button

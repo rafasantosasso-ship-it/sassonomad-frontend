@@ -26,11 +26,11 @@ function Header({ onCommunityClick }) {
   }, [isHome]);
 
   return (
-    <header className={isSolid ? 'sn-header sn-header_solid' : 'sn-header'}>
+    <header className={isSolid ? 'sn-header sn-header--solid' : 'sn-header'}>
       <div className="sn-header__inner">
         <NavLink className="sn-header__logo" to="/">
-          <img className="sn-header__logo-img sn-header__logo-img_light" src={logoLight} alt="Sasso Nomad" />
-          <img className="sn-header__logo-img sn-header__logo-img_dark" src={logoDark} alt="Sasso Nomad" />
+          <img className="sn-header__logo-img sn-header__logo-img--light" src={logoLight} alt="Sasso Nomad" />
+          <img className="sn-header__logo-img sn-header__logo-img--dark" src={logoDark} alt="Sasso Nomad" />
         </NavLink>
 
         <Navigation onCommunityClick={onCommunityClick} />
