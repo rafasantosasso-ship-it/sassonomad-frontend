@@ -137,7 +137,7 @@ function ArticleChapada() {
         foto de paisagem.
       </p>
 
-      <div className="sn-guide-cta sn-guide-cta_alt">
+      <div className="sn-guide-cta sn-guide-cta--alt">
         <h3 className="sn-guide-cta__title">O Que Este Artigo Não Te Contou</h3>
         <p className="sn-guide-cta__text">
           Qual rio é esse que só gente local frequenta, e quanto tempo de verdade leva pra ganhar

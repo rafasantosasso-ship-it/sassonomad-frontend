@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import WeatherPage from '../WeatherPage/WeatherPage';
+import TimeZonesPage from '../TimeZonesPage/TimeZonesPage';
 import GuidesGrid from '../GuidesGrid/GuidesGrid';
 import GuideChapada from '../GuideChapada/GuideChapada';
 import GuideSardegna from '../GuideSardegna/GuideSardegna';
@@ -43,7 +43,7 @@ function App() {
       <Header onCommunityClick={handleOpenCommunityModal} />
       <Routes>
         <Route path="/" element={<Main onJoinClick={handleOpenCommunityModal} />} />
-        <Route path="/clima" element={<WeatherPage />} />
+        <Route path="/fusos" element={<TimeZonesPage />} />
         <Route path="/guias" element={<GuidesGrid />} />
         <Route path="/guias/chapada" element={<GuideChapada />} />
         <Route path="/guias/sardegna" element={<GuideSardegna />} />

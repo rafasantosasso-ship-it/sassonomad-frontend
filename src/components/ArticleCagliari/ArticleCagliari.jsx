@@ -75,7 +75,7 @@ function ArticleCagliari() {
         foi: um lugar bonito de verdade, sem precisar provar nada pra ninguém.
       </p>
 
-      <div className="sn-guide-cta sn-guide-cta_alt">
+      <div className="sn-guide-cta sn-guide-cta--alt">
         <h3 className="sn-guide-cta__title">Onde Trabalhar em Cagliari — De Graça</h3>
         <p className="sn-guide-cta__text">
           Esse artigo só arranhou a superfície da cena de cafés e coworking da cidade. Preparamos

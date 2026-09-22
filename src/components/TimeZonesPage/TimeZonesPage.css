@@ -1,0 +1,90 @@
+.sn-timezones {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: calc(var(--header-height) + 2rem) 5% 3rem;
+  flex: 1;
+}
+
+.sn-timezones__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.sn-timezones__subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: -1rem;
+  max-width: 60ch;
+}
+
+.sn-timezones__status { color: var(--color-text-muted); }
+.sn-timezones__status--error { color: #b3261e; }
+
+.sn-timezones__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.sn-timezones__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  text-align: center;
+  padding: 1.4rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sn-timezones__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.sn-timezones__city {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.sn-timezones__time {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.sn-timezones__day {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.sn-timezones__more {
+  align-self: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--color-accent);
+  color: #1c2321;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sn-timezones__more:hover {
+  background-color: var(--color-accent-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1279px) {
+  .sn-timezones__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sn-timezones__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,8 +1,8 @@
 import './Preloader.css';
 
-function Preloader() {
+function Preloader({ inline = false }) {
   return (
-    <div className="sn-preloader">
+    <div className={inline ? 'sn-preloader sn-preloader--inline' : 'sn-preloader'}>
       <div className="sn-preloader__spinner" />
     </div>
   );

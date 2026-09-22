@@ -69,7 +69,7 @@
   color: var(--color-text);
 }
 
-.sn-faq-page__item_open .sn-faq-page__question {
+.sn-faq-page__item--open .sn-faq-page__question {
   color: var(--color-accent-dark);
 }
 

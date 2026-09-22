@@ -10,7 +10,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sn-header_solid {
+.sn-header--solid {
   background-color: var(--color-bg);
   color: var(--color-text);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
@@ -40,18 +40,18 @@
   transition: opacity 0.3s ease;
 }
 
-.sn-header__logo-img_dark {
+.sn-header__logo-img--dark {
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
 }
 
-.sn-header_solid .sn-header__logo-img_light {
+.sn-header--solid .sn-header__logo-img--light {
   opacity: 0;
 }
 
-.sn-header_solid .sn-header__logo-img_dark {
+.sn-header--solid .sn-header__logo-img--dark {
   opacity: 1;
 }
 

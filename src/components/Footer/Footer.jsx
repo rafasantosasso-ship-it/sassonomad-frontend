@@ -6,7 +6,7 @@ function Footer({ onJoinClick }) {
   return (
     <footer className="sn-footer" id="contato">
       <div className="sn-footer__inner">
-        <div className="sn-footer__col sn-footer__col_brand">
+        <div className="sn-footer__col sn-footer__col--brand">
           <img className="sn-footer__logo" src={logoLight} alt="Sasso Nomad" />
           <p className="sn-footer__bio">
             Viagem lenta e nomadismo digital sem enrolação. Sardegna, Chapada Diamantina e o que
@@ -28,7 +28,7 @@ function Footer({ onJoinClick }) {
           <h3 className="sn-footer__heading">Comunidade</h3>
           <nav className="sn-footer__nav">
             <button
-              className="sn-footer__nav-link sn-footer__nav-link_button"
+              className="sn-footer__nav-link"
               type="button"
               onClick={onJoinClick}
             >

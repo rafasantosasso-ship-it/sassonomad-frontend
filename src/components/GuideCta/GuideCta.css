@@ -5,11 +5,11 @@
   color: var(--color-text-light);
 }
 
-.sn-guide-cta_primary {
+.sn-guide-cta--primary {
   background-color: var(--color-turquoise);
 }
 
-.sn-guide-cta_alt {
+.sn-guide-cta--alt {
   background-color: var(--color-olive);
 }
 

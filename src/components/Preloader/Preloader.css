@@ -22,3 +22,8 @@
 @media (prefers-reduced-motion: reduce) {
   .sn-preloader__spinner { animation-duration: 2.4s; }
 }
+
+.sn-preloader--inline {
+  min-height: 220px;
+  background-color: transparent;
+}
