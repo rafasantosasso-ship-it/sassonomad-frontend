@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { subscribeToConvertKit } from '../../utils/convertkit';
-import './CommunityModal.css';
+import '../../styles/Modal.css';
 
 function CommunityModal({ onClose }) {
   const [name, setName] = useState('');

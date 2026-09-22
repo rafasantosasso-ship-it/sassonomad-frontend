@@ -5,7 +5,9 @@ import logoDark from '../../images/brand/logo-lockup-dark.svg';
 import Navigation from '../Navigation/Navigation';
 import './Header.css';
 
-function Header({ onCommunityClick }) {
+function Header({
+  onCommunityClick, currentUser, onLoginClick, onLogoutClick,
+}) {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [isSolid, setIsSolid] = useState(!isHome);
@@ -33,7 +35,12 @@ function Header({ onCommunityClick }) {
           <img className="sn-header__logo-img sn-header__logo-img--dark" src={logoDark} alt="Sasso Nomad" />
         </NavLink>
 
-        <Navigation onCommunityClick={onCommunityClick} />
+        <Navigation
+          onCommunityClick={onCommunityClick}
+          currentUser={currentUser}
+          onLoginClick={onLoginClick}
+          onLogoutClick={onLogoutClick}
+        />
       </div>
     </header>
   );

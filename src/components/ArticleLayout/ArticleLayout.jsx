@@ -1,4 +1,5 @@
 import ShareButton from '../ShareButton/ShareButton';
+import SaveArticleButton from '../SaveArticleButton/SaveArticleButton';
 import CommunityCta from '../CommunityCta/CommunityCta';
 import './ArticleLayout.css';
 
@@ -15,6 +16,7 @@ function ArticleLayout({ article, children }) {
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
         <ShareButton size="hero" path={path} title={title} label={`Compartilhar ${title}`} />
+        <SaveArticleButton article={article} />
       </div>
 
       <header className="sn-light-article__header">
