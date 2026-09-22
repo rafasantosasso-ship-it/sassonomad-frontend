@@ -65,7 +65,7 @@ function ShareButton({ path, title, size = 'card', label }) {
   }
 
   return (
-    <div className={`sn-share sn-share_${size}`} ref={containerRef}>
+    <div className={`sn-share sn-share--${size}`} ref={containerRef}>
       <button
         type="button"
         className="sn-share__toggle"

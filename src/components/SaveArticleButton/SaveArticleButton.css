@@ -1,0 +1,44 @@
+.sn-save-btn {
+  position: absolute;
+  z-index: 5;
+  top: 16px;
+  right: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(28, 35, 20, 0.45);
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sn-save-btn:hover {
+  transform: scale(1.06);
+}
+
+.sn-save-btn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.sn-save-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: var(--color-text-light);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.sn-save-btn--active {
+  background-color: var(--color-accent);
+}
+
+.sn-save-btn--active svg {
+  fill: var(--color-text-light);
+  stroke: var(--color-text-light);
+}

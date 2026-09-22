@@ -47,3 +47,15 @@
     font-size: 0.75rem;
   }
 }
+
+.sn-nav__user {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 640px) {
+  .sn-nav__user {
+    display: none;
+  }
+}
