@@ -19,5 +19,16 @@ npm run dev
 ## Pendências
 
 - Trocar as imagens placeholder em `src/images/` pelas fotos reais (mesmos nomes de arquivo, ou ajuste os imports).
-- `AuthModal` e `FeaturedProduct` ainda são só front-end — sem back-end conectado (login, cadastro e "Comprar" não enviam pra lugar nenhum ainda).
-- Deploy do front-end fica pra quando o back-end entrar (Fase 2+), conforme a lição permite.
+- `FeaturedProduct` ("Comprar") ainda é só front-end — checkout/pagamento não está implementado.
+- Chaves do ConvertKit (`VITE_CONVERTKIT_API_KEY`, `VITE_CONVERTKIT_FORM_ID`) ainda não configuradas.
+
+## Produção
+
+- Site: **https://sassonomad.com**
+- Consome a API em `https://api.sassonomad.com` (ver `VITE_API_URL`).
+
+### Infraestrutura
+
+- Build estático (`npm run build`) servido via **Nginx** numa VM do Google Cloud (`e2-micro`, Debian 13).
+- HTTPS via **Let's Encrypt / Certbot**, com redirecionamento automático HTTP → HTTPS.
+- DNS apontando `sassonomad.com`, `www.sassonomad.com` e `api.sassonomad.com` pra VM.
