@@ -24,6 +24,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import AuthModalContext from '../../contexts/AuthModalContext';
 import { getToken, clearToken, getUserInfo } from '../../utils/MainApi';
 import useScrollToHash from '../../hooks/useScrollToHash';
+import useScrollToTop from '../../hooks/useScrollToTop';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   const [authModalMode, setAuthModalMode] = useState('login');
 
   useScrollToHash();
+  useScrollToTop();
 
   useEffect(() => {
     const minDelay = new Promise((resolve) => { setTimeout(resolve, 600); });
@@ -46,10 +48,14 @@ function App() {
     Promise.all([minDelay, authCheck]).then(() => setIsLoading(false));
   }, []);
 
-  const handleOpenCommunityModal = () => setIsCommunityModalOpen(true);
+  const handleOpenCommunityModal = () => {
+    setIsAuthModalOpen(false);
+    setIsCommunityModalOpen(true);
+  };
   const handleCloseCommunityModal = () => setIsCommunityModalOpen(false);
 
   const handleOpenLoginModal = useCallback(() => {
+    setIsCommunityModalOpen(false);
     setAuthModalMode('login');
     setIsAuthModalOpen(true);
   }, []);

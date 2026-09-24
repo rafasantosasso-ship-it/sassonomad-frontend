@@ -12,21 +12,27 @@ import './TimeZonesPage.css';
 
 function TimeZonesPage() {
   // Lido do localStorage ao montar — se o usuário já visitou a página antes,
-  // os cartões aparecem na hora, sem nova solicitação à API.
+  // os cartões aparecem na hora (sem preloader) enquanto uma hora fresca é
+  // buscada da API em segundo plano e substitui o valor exibido.
   const [results, setResults] = useLocalStorageState(TIMEZONES_CACHE_KEY, null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   useEffect(() => {
-    if (results) return; // já em cache: nada para buscar
-
-    setIsLoading(true);
+    // Sempre busca a hora atual ao montar — mesmo com cache no
+    // localStorage. O cache só serve pra mostrar algo na hora (sem
+    // preloader) enquanto a resposta fresca não chega; se depender só do
+    // cache, o horário fica parado e desatualiza (relatado na revisão).
+    const hadCache = Boolean(results);
+    if (!hadCache) setIsLoading(true);
     setError('');
 
     fetchAllDestinationTimes()
       .then((data) => setResults(data))
-      .catch(() => setError(ERROR_MESSAGE))
+      .catch(() => {
+        if (!hadCache) setError(ERROR_MESSAGE);
+      })
       .finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

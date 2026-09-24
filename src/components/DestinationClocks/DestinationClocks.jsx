@@ -7,16 +7,17 @@ import './DestinationClocks.css';
 
 /**
  * Faixa compacta entre seções da Home: cidade + hora atual dos destinos
- * Sasso Nomad. Usa o mesmo cache/API da página /fusos — se os dados já
- * foram buscados ali (ou aqui antes), não solicita de novo. Puramente
- * decorativa: sem preloader/erro visíveis aqui (isso mora na página
- * completa, que esta faixa leva até lá).
+ * Sasso Nomad. Compartilha a mesma chave de cache da página /fusos (pra
+ * pintar algo na hora, sem esperar a rede), mas sempre busca hora fresca
+ * ao montar. Puramente decorativa: sem preloader/erro visíveis aqui (isso
+ * mora na página completa, que esta faixa leva até lá).
  */
 function DestinationClocks() {
   const [results, setResults] = useLocalStorageState(TIMEZONES_CACHE_KEY, null);
 
   useEffect(() => {
-    if (results) return;
+    // Sempre busca hora fresca ao montar (ver comentário em TimeZonesPage) —
+    // o valor em cache só é usado pra render imediato, nunca fica parado.
     fetchAllDestinationTimes()
       .then((data) => setResults(data))
       .catch(() => {});
