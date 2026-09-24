@@ -1,17 +1,20 @@
 import GuideCard from '../GuideCard/GuideCard';
-import { GUIDES } from '../../data/guides';
+import Seo from '../../seo/Seo';
+import { getGuides } from '../../data/guides';
+import { useLang } from '../../i18n/LanguageContext';
 import './GuidesGrid.css';
 
 function GuidesGrid() {
+  const { t, lang } = useLang();
+
   return (
     <section className="sn-guides-grid">
-      <h1 className="sn-guides-grid__title">Territórios</h1>
-      <p className="sn-guides-grid__label">
-        Slow travel entre a Sardegna e a Chapada Diamantina. Escolha um caminho pra começar.
-      </p>
+      <Seo title={t('seo.guidesTitle')} description={t('seo.guidesDescription')} routeKey="guides" />
+      <h1 className="sn-guides-grid__title">{t('guides.title')}</h1>
+      <p className="sn-guides-grid__label">{t('guides.label')}</p>
 
       <div className="sn-guides-grid__list">
-        {GUIDES.map((guide) => (
+        {getGuides(lang).map((guide) => (
           <GuideCard key={guide.slug} guide={guide} />
         ))}
       </div>

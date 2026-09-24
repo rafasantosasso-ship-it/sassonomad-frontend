@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import { getSavedArticles, deleteSavedArticle } from '../../utils/MainApi';
-import { ERROR_MESSAGE } from '../../utils/constants';
+import Seo from '../../seo/Seo';
+import { useLang } from '../../i18n/LanguageContext';
 import Preloader from '../Preloader/Preloader';
 import './SavedGuidesPage.css';
 
@@ -14,7 +15,7 @@ const KEYWORDS_PREVIEW = 2;
  * artigos salvos primeiro) e monta o texto da saudação — ex.: "Natureza,
  * Yellowstone e mais 2" quando há mais de três palavras-chave distintas.
  */
-function buildKeywordsSummary(articles) {
+function buildKeywordsSummary(articles, t) {
   const counts = new Map();
   articles.forEach(({ keyword }) => {
     counts.set(keyword, (counts.get(keyword) || 0) + 1);
@@ -27,7 +28,7 @@ function buildKeywordsSummary(articles) {
   }
 
   const remaining = sorted.length - KEYWORDS_PREVIEW;
-  return `${sorted.slice(0, KEYWORDS_PREVIEW).join(', ')} e mais ${remaining}`;
+  return `${sorted.slice(0, KEYWORDS_PREVIEW).join(', ')} ${t('saved.andMore', { count: remaining })}`;
 }
 
 function getArticlePath(link) {
@@ -40,6 +41,7 @@ function getArticlePath(link) {
 
 function SavedGuidesPage() {
   const currentUser = useContext(CurrentUserContext);
+  const { t } = useLang();
   const [articles, setArticles] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
@@ -50,7 +52,7 @@ function SavedGuidesPage() {
 
     getSavedArticles()
       .then((data) => setArticles(data))
-      .catch(() => setError(ERROR_MESSAGE))
+      .catch(() => setError(t('common.error')))
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -58,7 +60,7 @@ function SavedGuidesPage() {
     setArticles((prev) => prev.filter((article) => article._id !== articleId));
 
     deleteSavedArticle(articleId).catch(() => {
-      setError(ERROR_MESSAGE);
+      setError(t('common.error'));
       // Reverte a remoção otimista se a chamada falhar.
       getSavedArticles().then(setArticles).catch(() => {});
     });
@@ -68,13 +70,14 @@ function SavedGuidesPage() {
 
   return (
     <section className="sn-saved">
+      <Seo title={t('seo.accountTitle')} routeKey="saved" noindex />
       <header className="sn-saved__header">
-        <p className="sn-saved__greeting">Olá, {currentUser?.name}</p>
+        <p className="sn-saved__greeting">{t('saved.hello', { name: currentUser?.name })}</p>
         <h1 className="sn-saved__title">
-          {items.length} {items.length === 1 ? 'guia salvo' : 'guias salvos'}
+          {items.length} {items.length === 1 ? t('saved.one') : t('saved.many')}
         </h1>
         {items.length > 0 && (
-          <p className="sn-saved__keywords">{buildKeywordsSummary(items)}</p>
+          <p className="sn-saved__keywords">{buildKeywordsSummary(items, t)}</p>
         )}
       </header>
 
@@ -85,9 +88,7 @@ function SavedGuidesPage() {
       )}
 
       {!isLoading && !error && items.length === 0 && (
-        <p className="sn-saved__status">
-          Você ainda não salvou nenhum guia. Navegue pelos guias e clique no ícone de salvar.
-        </p>
+        <p className="sn-saved__status">{t('saved.empty')}</p>
       )}
 
       {!isLoading && !error && items.length > 0 && (
@@ -98,7 +99,7 @@ function SavedGuidesPage() {
                 className="sn-saved-card__remove"
                 type="button"
                 onClick={() => handleRemove(article._id)}
-                aria-label="Remover dos guias salvos"
+                aria-label={t('saved.remove')}
               >
                 🗑
               </button>

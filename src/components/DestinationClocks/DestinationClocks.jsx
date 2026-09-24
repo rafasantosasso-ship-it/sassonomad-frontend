@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchAllDestinationTimes, formatDestinationTime } from '../../utils/TimeApi';
 import { TIMEZONES_CACHE_KEY } from '../../utils/constants';
 import useLocalStorageState from '../../hooks/useLocalStorageState';
+import { useLang } from '../../i18n/LanguageContext';
 import './DestinationClocks.css';
 
 /**
@@ -14,6 +15,7 @@ import './DestinationClocks.css';
  */
 function DestinationClocks() {
   const [results, setResults] = useLocalStorageState(TIMEZONES_CACHE_KEY, null);
+  const { path } = useLang();
 
   useEffect(() => {
     // Sempre busca hora fresca ao montar (ver comentário em TimeZonesPage) —
@@ -29,7 +31,7 @@ function DestinationClocks() {
   }
 
   return (
-    <Link className="sn-destination-clocks" to="/fusos">
+    <Link className="sn-destination-clocks" to={path('timezones')}>
       {results.map((entry) => (
         <span className="sn-destination-clocks__item" key={entry.destination.id}>
           <span className="sn-destination-clocks__city">{entry.destination.label}</span>

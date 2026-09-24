@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { resetPassword } from '../../utils/MainApi';
 import AuthModalContext from '../../contexts/AuthModalContext';
+import Seo from '../../seo/Seo';
+import { useLang } from '../../i18n/LanguageContext';
 import '../../styles/Modal.css';
 import '../../styles/AccountPage.css';
 
@@ -13,6 +15,8 @@ function ResetPasswordPage({ onAuthenticated }) {
   const token = searchParams.get('token') || '';
   const navigate = useNavigate();
   const { openLogin } = useContext(AuthModalContext);
+  const { t, path, errorText } = useLang();
+  const seo = <Seo title={t('seo.accountTitle')} routeKey="resetPassword" noindex />;
 
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
@@ -25,11 +29,11 @@ function ResetPasswordPage({ onAuthenticated }) {
     if (isSubmitting) return;
 
     if (password.length < 8) {
-      setFormError('A senha precisa ter pelo menos 8 caracteres.');
+      setFormError(t('common.passwordTooShort'));
       return;
     }
     if (password !== passwordRepeat) {
-      setFormError('As duas senhas não são iguais.');
+      setFormError(t('common.passwordMismatch'));
       return;
     }
 
@@ -38,12 +42,12 @@ function ResetPasswordPage({ onAuthenticated }) {
 
     resetPassword({ token, password })
       .then(() => onAuthenticated())
-      .then(() => navigate('/minha-area', { replace: true }))
+      .then(() => navigate(path('myArea'), { replace: true }))
       .catch((err) => {
-        if (err.message.includes('expirou')) {
+        if (err.code === 'invalidLink' || err.message.includes('expirou')) {
           setIsExpired(true);
         } else {
-          setFormError(err.message);
+          setFormError(errorText(err));
         }
         setIsSubmitting(false);
       });
@@ -52,16 +56,14 @@ function ResetPasswordPage({ onAuthenticated }) {
   if (isExpired) {
     return (
       <main className="sn-account">
+        {seo}
         <div className="sn-account__card">
-          <p className="sn-account__eyebrow">Link expirado</p>
-          <h1 className="sn-account__title">Esse link não vale mais</h1>
-          <p className="sn-account__text">
-            O link para criar uma nova senha vale por 1 hora e só funciona uma vez. Peça outro
-            pelo botão abaixo: em &quot;Entrar&quot;, clique em &quot;Esqueci minha senha&quot;.
-          </p>
+          <p className="sn-account__eyebrow">{t('common.linkExpired')}</p>
+          <h1 className="sn-account__title">{t('common.linkInvalidTitle')}</h1>
+          <p className="sn-account__text">{t('reset.expiredText')}</p>
           <div className="sn-account__actions">
             <button className="sn-account__button" type="button" onClick={openLogin}>
-              Entrar
+              {t('nav.login')}
             </button>
           </div>
         </div>
@@ -71,17 +73,18 @@ function ResetPasswordPage({ onAuthenticated }) {
 
   return (
     <main className="sn-account">
+      {seo}
       <div className="sn-account__card">
-        <p className="sn-account__eyebrow">Sua conta</p>
-        <h1 className="sn-account__title">Crie uma nova senha</h1>
+        <p className="sn-account__eyebrow">{t('reset.eyebrow')}</p>
+        <h1 className="sn-account__title">{t('reset.title')}</h1>
 
         <form className="sn-modal__form" onSubmit={handleSubmit} noValidate>
           <label className="sn-modal__field">
-            Nova senha
+            {t('reset.newPassword')}
             <input
               type="password"
               name="password"
-              placeholder="Mínimo de 8 caracteres"
+              placeholder={t('common.passwordMin')}
               autoComplete="new-password"
               value={password}
               onChange={(evt) => setPassword(evt.target.value)}
@@ -90,11 +93,11 @@ function ResetPasswordPage({ onAuthenticated }) {
             />
           </label>
           <label className="sn-modal__field">
-            Repita a nova senha
+            {t('reset.repeatNew')}
             <input
               type="password"
               name="passwordRepeat"
-              placeholder="Mesma senha de novo"
+              placeholder={t('common.passwordRepeatPlaceholder')}
               autoComplete="new-password"
               value={passwordRepeat}
               onChange={(evt) => setPasswordRepeat(evt.target.value)}
@@ -106,7 +109,7 @@ function ResetPasswordPage({ onAuthenticated }) {
           {formError && <p className="sn-modal__error">{formError}</p>}
 
           <button className="sn-modal__submit" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Salvando...' : 'Salvar e entrar'}
+            {isSubmitting ? t('reset.saving') : t('reset.save')}
           </button>
         </form>
       </div>

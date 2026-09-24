@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '../../i18n/LanguageContext';
 import './ShareButton.css';
 
 function ShareButton({ path, title, size = 'card', label }) {
+  const { t } = useLang();
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const containerRef = useRef(null);
@@ -96,7 +98,7 @@ function ShareButton({ path, title, size = 'card', label }) {
               <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" />
               <path d="M4.5 6.5l7.5 6 7.5-6" />
             </svg>
-            E-mail
+            {t('share.email')}
           </button>
           <button type="button" className="sn-share__option" onClick={handleCopy}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -104,7 +106,7 @@ function ShareButton({ path, title, size = 'card', label }) {
               <path d="M8.2 16.7l-1.4 1.4a3 3 0 0 1-4.2-4.2l2.8-2.8a3 3 0 0 1 4.2 0" />
               <path d="M15.8 7.3l1.4-1.4a3 3 0 0 1 4.2 4.2l-2.8 2.8a3 3 0 0 1-4.2 0" />
             </svg>
-            {copied ? 'Copiado!' : 'Copiar link'}
+            {copied ? t('share.copied') : t('share.copy')}
           </button>
         </div>
       )}

@@ -4,59 +4,115 @@ import nomadismoImg from '../images/articles/nomadismo-digital.jpg';
 import thailandImg from '../images/articles/thailand.jpg';
 import irelandImg from '../images/articles/ireland.jpg';
 import cagliariImg from '../images/articles/cagliari.jpg';
+import { localePath } from '../i18n/routes';
+import { SOURCE_LANG } from '../i18n/config';
 
-export const ARTICLES = [
+import * as sardegnaPt from '../content/articles/sardegna/pt';
+import * as sardegnaIt from '../content/articles/sardegna/it';
+import * as sardegnaEn from '../content/articles/sardegna/en';
+import * as chapadaPt from '../content/articles/chapada/pt';
+import * as chapadaIt from '../content/articles/chapada/it';
+import * as chapadaEn from '../content/articles/chapada/en';
+import * as nomadismoPt from '../content/articles/nomadismo/pt';
+import * as nomadismoIt from '../content/articles/nomadismo/it';
+import * as nomadismoEn from '../content/articles/nomadismo/en';
+import * as irelandPt from '../content/articles/ireland/pt';
+import * as irelandIt from '../content/articles/ireland/it';
+import * as irelandEn from '../content/articles/ireland/en';
+import * as cagliariPt from '../content/articles/cagliari/pt';
+import * as cagliariIt from '../content/articles/cagliari/it';
+import * as cagliariEn from '../content/articles/cagliari/en';
+
+// Artigos da home e das páginas de artigo. O texto de cada idioma mora em
+// src/content/articles/<artigo>/<idioma>.jsx — é lá que você edita.
+// `routeKey: null` = card "Em breve", ainda sem página.
+const REGISTRY = [
   {
     slug: 'sardegna',
-    tag: 'Itália',
-    title: 'Sardegna: vilarejos de pedra e mar turquesa',
-    excerpt: 'Um roteiro lento pela costa e pelo interior, longe das rotas turísticas óbvias.',
+    routeKey: 'articleSardegna',
     image: sardegnaImg,
     imagePosition: '50% 15%',
-    path: '/sardegna/vilarejos-de-pedra-e-mar-turquesa',
+    content: { pt: sardegnaPt, it: sardegnaIt, en: sardegnaEn },
   },
   {
     slug: 'chapada-diamantina',
-    tag: 'Bahia, Brasil',
-    title: 'Chapada Diamantina: trilhas, poços e Lençóis',
-    excerpt: 'O guia completo para explorar o parque com calma, de vans a hospedagens locais.',
+    routeKey: 'articleChapada',
     image: chapadaImg,
-    path: '/chapada-diamantina/trilhas-pocos-e-lencois',
+    content: { pt: chapadaPt, it: chapadaIt, en: chapadaEn },
   },
   {
     slug: 'nomadismo-digital',
-    tag: 'Nomadismo digital',
-    title: 'Trabalhar de qualquer lugar: rotina real de um nômade',
-    excerpt: 'Ferramentas, fusos horários e como manter produtividade viajando em ritmo lento.',
+    routeKey: 'articleNomadismo',
     image: nomadismoImg,
-    path: '/nomadismo-digital/trabalhar-de-qualquer-lugar',
+    content: { pt: nomadismoPt, it: nomadismoIt, en: nomadismoEn },
   },
   {
     slug: 'thailand',
-    tag: 'Tailândia',
-    title: 'Tailândia fora do óbvio: ilhas menos visitadas',
-    excerpt: 'Praias tranquilas, comida de rua e como se locomover entre as ilhas do sul.',
+    routeKey: null,
     image: thailandImg,
-    path: null,
+    content: {
+      pt: {
+        meta: {
+          tag: 'Tailândia',
+          cardTitle: 'Tailândia fora do óbvio: ilhas menos visitadas',
+          excerpt: 'Praias tranquilas, comida de rua e como se locomover entre as ilhas do sul.',
+        },
+      },
+      it: {
+        meta: {
+          tag: 'Thailandia',
+          cardTitle: 'Thailandia fuori dai soliti giri: le isole meno visitate',
+          excerpt: 'Spiagge tranquille, street food e come spostarsi tra le isole del sud.',
+        },
+      },
+      en: {
+        meta: {
+          tag: 'Thailand',
+          cardTitle: 'Thailand off the beaten path: the less-visited islands',
+          excerpt: 'Quiet beaches, street food and how to get around the southern islands.',
+        },
+      },
+    },
   },
   {
     slug: 'ireland',
-    tag: 'Irlanda',
-    title: 'Irlanda fora do óbvio: vida de nômade além do centro caótico de Dublin',
-    excerpt: 'Silicon Docks, vilarejos costeiros a 25 minutos de trem e como funciona o trabalho remoto por lá.',
+    routeKey: 'articleIreland',
     image: irelandImg,
-    path: '/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin',
+    content: { pt: irelandPt, it: irelandIt, en: irelandEn },
   },
   {
     slug: 'cagliari',
-    tag: 'Cagliari',
-    title: 'Cagliari: a capital que também é riviera',
-    excerpt: 'Vida cosmopolita, praia a minutos do centro e o tipo de sorte geográfica que poucas capitais europeias têm.',
+    routeKey: 'articleCagliari',
     image: cagliariImg,
-    path: '/sardegna/cagliari-capital-que-tambem-e-riviera',
+    content: { pt: cagliariPt, it: cagliariIt, en: cagliariEn },
   },
 ];
 
-export function getArticleBySlug(slug) {
-  return ARTICLES.find((article) => article.slug === slug);
+function localize(entry, lang) {
+  const content = entry.content[lang] || entry.content[SOURCE_LANG];
+  const { meta } = content;
+  return {
+    slug: entry.slug,
+    routeKey: entry.routeKey,
+    image: entry.image,
+    imagePosition: entry.imagePosition,
+    tag: meta.tag,
+    cardTitle: meta.cardTitle,
+    excerpt: meta.excerpt,
+    title: meta.title || meta.cardTitle,
+    dek: meta.dek || meta.excerpt,
+    seoTitle: meta.seoTitle,
+    seoDescription: meta.seoDescription,
+    Body: content.default || null,
+    path: entry.routeKey ? localePath(entry.routeKey, lang) : null,
+  };
+}
+
+export function getArticles(lang) {
+  return REGISTRY.map((entry) => localize(entry, lang));
+}
+
+export function getArticleByRoute(routeKey, lang) {
+  const entry = REGISTRY.find((item) => item.routeKey === routeKey);
+  return entry ? localize(entry, lang) : null;
 }

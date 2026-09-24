@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { subscribe } from '../../utils/MainApi';
+import { useLang } from '../../i18n/LanguageContext';
 import '../../styles/Modal.css';
 
 /**
@@ -10,6 +11,9 @@ import '../../styles/Modal.css';
  * home, rodapé, artigo) — aparece nas estatísticas da lista.
  */
 function CommunityModal({ onClose, source = 'site' }) {
+  const {
+    t, tx, lang, path, errorText,
+  } = useLang();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
@@ -42,14 +46,14 @@ function CommunityModal({ onClose, source = 'site' }) {
 
     try {
       await subscribe({
-        name: name.trim(), email: email.trim(), consent, source, website,
+        name: name.trim(), email: email.trim(), consent, source, website, lang,
       });
       setStatus('success');
     } catch (error) {
       setErrorMessage(
         error.message && !error.message.startsWith('Validation')
-          ? error.message
-          : 'Confere o nome (só letras) e o e-mail e tenta de novo.',
+          ? errorText(error)
+          : t('communityModal.validationError'),
       );
       setStatus('error');
     }
@@ -58,44 +62,37 @@ function CommunityModal({ onClose, source = 'site' }) {
   return (
     <div className="sn-modal-overlay" onClick={handleOverlayClick}>
       <div className="sn-modal" onClick={handleContentClick} role="dialog" aria-modal="true">
-        <button className="sn-modal__close" type="button" onClick={onClose} aria-label="Fechar">
+        <button className="sn-modal__close" type="button" onClick={onClose} aria-label={t('common.close')}>
           ✕
         </button>
 
         {status === 'success' ? (
           <div className="sn-modal__success">
             <h2 className="sn-modal__title">
-              Cadastro feito, <span className="sn-modal__name">{name.trim().split(' ')[0]}</span>!
+              {tx('communityModal.successTitle', {
+                name: <span className="sn-modal__name">{name.trim().split(' ')[0]}</span>,
+              })}
             </h2>
-            <p className="sn-modal__success-text">
-              Acabei de te mandar um e-mail de boas-vindas. Clica no botão de confirmar e, na mesma
-              página, você cria sua senha para entrar no site.
-            </p>
+            <p className="sn-modal__success-text">{t('communityModal.successText')}</p>
             <p className="sn-modal__success-text sn-modal__success-text--small">
-              Não chegou em 2 minutos? Dá uma olhada no spam ou na aba Promoções.
+              {t('communityModal.successHint')}
             </p>
             <button className="sn-modal__submit" type="button" onClick={onClose}>
-              Voltar ao site
+              {t('communityModal.back')}
             </button>
           </div>
         ) : (
           <>
-            <h2 className="sn-modal__title">Faça Parte da Comunidade Sasso Nomad</h2>
-            <p className="sn-modal__intro">
-              Deixa seu nome e e-mail aqui embaixo. Você recebe na hora um e-mail de boas-vindas
-              com tudo o que já está no site e o acesso para criar sua conta.
-            </p>
-            <p className="sn-modal__intro">
-              E relaxa: a gente não vive mandando e-mail. Só avisa quando tem algo que realmente
-              vale a pena.
-            </p>
+            <h2 className="sn-modal__title">{t('community.title')}</h2>
+            <p className="sn-modal__intro">{t('communityModal.intro1')}</p>
+            <p className="sn-modal__intro">{t('communityModal.intro2')}</p>
             <form className="sn-modal__form" onSubmit={handleSubmit}>
               <label className="sn-modal__field">
-                Nome
+                {t('common.name')}
                 <input
                   type="text"
                   name="name"
-                  placeholder="Seu nome"
+                  placeholder={t('common.namePlaceholder')}
                   autoComplete="given-name"
                   value={name}
                   onChange={(evt) => setName(evt.target.value)}
@@ -105,11 +102,11 @@ function CommunityModal({ onClose, source = 'site' }) {
                 />
               </label>
               <label className="sn-modal__field">
-                E-mail
+                {t('common.email')}
                 <input
                   type="email"
                   name="email"
-                  placeholder="voce@email.com"
+                  placeholder={t('common.emailPlaceholder')}
                   autoComplete="email"
                   value={email}
                   onChange={(evt) => setEmail(evt.target.value)}
@@ -138,16 +135,16 @@ function CommunityModal({ onClose, source = 'site' }) {
                   required
                 />
                 <span>
-                  Quero receber os e-mails da Sasso Nomad e li a{' '}
-                  <Link to="/privacidade" onClick={onClose}>política de privacidade</Link>.
-                  Dá pra cancelar a qualquer momento.
+                  {t('communityModal.consentBefore')}
+                  <Link to={path('privacy')} onClick={onClose}>{t('communityModal.consentLink')}</Link>
+                  {t('communityModal.consentAfter')}
                 </span>
               </label>
 
               {status === 'error' && <p className="sn-modal__error">{errorMessage}</p>}
 
               <button className="sn-modal__submit" type="submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Enviando...' : 'Participar da Comunidade'}
+                {status === 'submitting' ? t('common.sending') : t('community.cta')}
               </button>
             </form>
           </>

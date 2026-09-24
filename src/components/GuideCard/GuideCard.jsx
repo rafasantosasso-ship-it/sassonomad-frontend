@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import './GuideCard.css';
 
 function GuideCard({ guide }) {
-  const { slug, eyebrow, title, dek, image, alt } = guide;
+  const {
+    path, eyebrow, title, dek, image, alt,
+  } = guide;
 
   return (
-    <Link className="sn-guide-card" to={`/guias/${slug}`}>
+    <Link className="sn-guide-card" to={path}>
       <div className="sn-guide-card__photo">
         <img className="sn-guide-card__image" src={image} alt={alt} />
       </div>

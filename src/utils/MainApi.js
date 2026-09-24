@@ -20,11 +20,29 @@ export function clearToken() {
   localStorage.removeItem(TOKEN_KEY);
 }
 
+// A API responde as mensagens de erro em português. `code` identifica as
+// conhecidas para o front mostrar a versão em italiano/inglês
+// (src/i18n/ui.js -> serverErrors).
+const SERVER_ERROR_CODES = {
+  'E-mail ou senha incorretos': 'invalidCredentials',
+  'Já existe um usuário cadastrado com esse e-mail': 'emailExists',
+  'Esse link é inválido ou expirou': 'invalidLink',
+  'Você já tem uma conta com esse e-mail. É só entrar.': 'accountExists',
+  'Não foi possível enviar o e-mail agora. Tente de novo em instantes.': 'emailSendFailed',
+  'Muitas solicitações vindas desse IP, tente novamente mais tarde': 'rateLimit',
+  'Dados inválidos para o cadastro': 'invalidData',
+  'Dados inválidos para criação do usuário': 'invalidData',
+  'Ocorreu um erro no servidor': 'server',
+  'Ocorreu um erro na solicitação.': 'server',
+};
+
 async function handleResponse(response) {
   const body = await response.json().catch(() => ({}));
   if (!response.ok) {
     const message = body.message || 'Ocorreu um erro na solicitação.';
-    return Promise.reject(new Error(message));
+    const error = new Error(message);
+    error.code = SERVER_ERROR_CODES[message] || null;
+    return Promise.reject(error);
   }
   return body;
 }
@@ -94,8 +112,9 @@ export function createAccount({ token, password }) {
 
 // --- Senha ---
 
-export function requestPasswordReset(email) {
-  return request('/password/forgot', { method: 'POST', body: { email }, auth: false });
+// `lang`: o e-mail de nova senha sai no idioma da página (pt, it, en).
+export function requestPasswordReset(email, lang = 'pt') {
+  return request('/password/forgot', { method: 'POST', body: { email, lang }, auth: false });
 }
 
 export function resetPassword({ token, password }) {

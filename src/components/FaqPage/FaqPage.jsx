@@ -1,50 +1,31 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FAQ_CATEGORIES } from '../../data/faq';
-import useDocumentMeta from '../../hooks/useDocumentMeta';
-import useJsonLd from '../../hooks/useJsonLd';
+import { getFaq } from '../../data/faq';
+import Seo from '../../seo/Seo';
+import { faqSchema } from '../../seo/schema';
+import { useLang } from '../../i18n/LanguageContext';
 import './FaqPage.css';
 
 function FaqPage() {
   const [openId, setOpenId] = useState(null);
-
-  useDocumentMeta(
-    'Perguntas Frequentes | Sasso Nomad',
-    'Dúvidas comuns sobre os territórios, o nomadismo digital e como funciona a Sasso Nomad — direto ao ponto, sem enrolação.'
-  );
-
-  const jsonLd = useMemo(
-    () => ({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: FAQ_CATEGORIES.flatMap((category) =>
-        category.items.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer,
-          },
-        }))
-      ),
-    }),
-    []
-  );
-
-  useJsonLd('sn-faq-jsonld', jsonLd);
+  const { t, lang, path } = useLang();
+  const categories = getFaq(lang);
 
   return (
     <section className="sn-faq-page">
+      <Seo
+        title={t('seo.faqTitle')}
+        description={t('seo.faqDescription')}
+        routeKey="faq"
+        jsonLd={faqSchema(categories.flatMap((category) => category.items))}
+      />
       <header className="sn-faq-page__header">
-        <h1 className="sn-faq-page__title">Perguntas Frequentes</h1>
-        <p className="sn-faq-page__intro">
-          Dúvidas comuns sobre os territórios, o nomadismo digital e como funciona a Sasso Nomad —
-          direto ao ponto, sem enrolação.
-        </p>
+        <h1 className="sn-faq-page__title">{t('footer.faq')}</h1>
+        <p className="sn-faq-page__intro">{t('seo.faqDescription')}</p>
       </header>
 
       <div className="sn-faq-page__categories">
-        {FAQ_CATEGORIES.map((category) => (
+        {categories.map((category) => (
           <div className="sn-faq-page__category" key={category.id}>
             <h2 className="sn-faq-page__category-title">{category.title}</h2>
             <div className="sn-faq-page__list">
@@ -70,8 +51,11 @@ function FaqPage() {
                     {isOpen && (
                       <div className="sn-faq-page__answer">
                         <p>{item.answer}</p>
-                        {item.linkTo && (
-                          <Link className="sn-faq-page__link" to={item.linkTo}>
+                        {item.link && (
+                          <Link
+                            className="sn-faq-page__link"
+                            to={path(item.link.route, item.link.hash)}
+                          >
                             {item.linkLabel} →
                           </Link>
                         )}

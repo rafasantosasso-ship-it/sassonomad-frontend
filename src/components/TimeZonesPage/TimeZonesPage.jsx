@@ -2,15 +2,17 @@ import { useEffect, useState } from 'react';
 import {
   fetchAllDestinationTimes,
   formatDestinationTime,
-  formatDestinationDay,
   formatDestinationDate,
 } from '../../utils/TimeApi';
-import { PAGE_SIZE, ERROR_MESSAGE, TIMEZONES_CACHE_KEY } from '../../utils/constants';
+import { PAGE_SIZE, TIMEZONES_CACHE_KEY } from '../../utils/constants';
 import useLocalStorageState from '../../hooks/useLocalStorageState';
 import Preloader from '../Preloader/Preloader';
+import Seo from '../../seo/Seo';
+import { useLang } from '../../i18n/LanguageContext';
 import './TimeZonesPage.css';
 
 function TimeZonesPage() {
+  const { t } = useLang();
   // Lido do localStorage ao montar — se o usuário já visitou a página antes,
   // os cartões aparecem na hora (sem preloader) enquanto uma hora fresca é
   // buscada da API em segundo plano e substitui o valor exibido.
@@ -31,7 +33,7 @@ function TimeZonesPage() {
     fetchAllDestinationTimes()
       .then((data) => setResults(data))
       .catch(() => {
-        if (!hadCache) setError(ERROR_MESSAGE);
+        if (!hadCache) setError(t('common.error'));
       })
       .finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,17 +48,20 @@ function TimeZonesPage() {
 
   return (
     <section className="sn-timezones">
-      <h1 className="sn-timezones__title">Sasso Nomad pelo mundo</h1>
-      <p className="sn-timezones__subtitle">
-        Hora atual em cada destino — útil pra coordenar chamadas e prazos remotos.
-      </p>
+      <Seo
+        title={t('seo.timezonesTitle')}
+        description={t('seo.timezonesDescription')}
+        routeKey="timezones"
+      />
+      <h1 className="sn-timezones__title">{t('timezones.title')}</h1>
+      <p className="sn-timezones__subtitle">{t('timezones.subtitle')}</p>
 
       {isLoading && <Preloader inline />}
 
       {!isLoading && error && <p className="sn-timezones__status sn-timezones__status--error">{error}</p>}
 
       {!isLoading && !error && items.length === 0 && (
-        <p className="sn-timezones__status">Nada encontrado.</p>
+        <p className="sn-timezones__status">{t('timezones.empty')}</p>
       )}
 
       {!isLoading && !error && items.length > 0 && (
@@ -67,7 +72,7 @@ function TimeZonesPage() {
                 <span className="sn-timezones__city">{entry.destination.label}</span>
                 <span className="sn-timezones__time">{formatDestinationTime(entry)}</span>
                 <span className="sn-timezones__day">
-                  {formatDestinationDay(entry)} · {formatDestinationDate(entry)}
+                  {t(`days.${entry.data.dayOfWeek}`)} · {formatDestinationDate(entry)}
                 </span>
               </div>
             ))}
@@ -75,7 +80,7 @@ function TimeZonesPage() {
 
           {hasMore && (
             <button type="button" className="sn-timezones__more" onClick={handleShowMore}>
-              Mostrar mais
+              {t('timezones.more')}
             </button>
           )}
         </>

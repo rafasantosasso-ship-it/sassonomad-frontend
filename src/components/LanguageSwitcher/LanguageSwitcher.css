@@ -1,0 +1,47 @@
+.sn-lang {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid currentColor;
+  border-left-color: color-mix(in srgb, currentColor 35%, transparent);
+}
+
+.sn-lang__option {
+  padding: 0.25rem 0.4rem;
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  opacity: 0.6;
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.sn-lang__option:hover,
+.sn-lang__option:focus-visible {
+  opacity: 1;
+}
+
+.sn-lang__option--current {
+  opacity: 1;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .sn-nav--open .sn-lang {
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.85rem 0 0;
+    border-left: none;
+  }
+
+  .sn-nav--open .sn-lang__option {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.5rem;
+  }
+}
