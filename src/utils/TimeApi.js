@@ -1,5 +1,3 @@
-import { DAY_LABELS } from './constants';
-
 const BASE_URL = 'https://timeapi.io/api/time/current/zone';
 
 export const DESTINATIONS = [
@@ -56,10 +54,6 @@ export function fetchAllDestinationTimes() {
 export function formatDestinationTime(entry) {
   const { hour, minute } = entry.data;
   return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
-}
-
-export function formatDestinationDay(entry) {
-  return DAY_LABELS[entry.data.dayOfWeek] || entry.data.dayOfWeek;
 }
 
 export function formatDestinationDate(entry) {

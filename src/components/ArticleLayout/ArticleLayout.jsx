@@ -1,10 +1,14 @@
 import ShareButton from '../ShareButton/ShareButton';
 import SaveArticleButton from '../SaveArticleButton/SaveArticleButton';
 import CommunityCta from '../CommunityCta/CommunityCta';
+import { useLang } from '../../i18n/LanguageContext';
 import './ArticleLayout.css';
 
 function ArticleLayout({ article, children }) {
-  const { tag, title, dek, image, imagePosition, path } = article;
+  const { t } = useLang();
+  const {
+    tag, title, dek, image, imagePosition, path,
+  } = article;
 
   return (
     <article className="sn-light-article">
@@ -15,7 +19,7 @@ function ArticleLayout({ article, children }) {
           alt={title}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        <ShareButton size="hero" path={path} title={title} label={`Compartilhar ${title}`} />
+        <ShareButton size="hero" path={path} title={title} label={t('share.label', { title })} />
         <SaveArticleButton article={article} />
       </div>
 

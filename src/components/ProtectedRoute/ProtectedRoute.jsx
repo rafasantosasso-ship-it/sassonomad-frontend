@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import { useLang } from '../../i18n/LanguageContext';
 
 /**
  * HOC de rota protegida (React Router v6): se não houver usuário logado,
@@ -9,9 +10,10 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
  */
 function ProtectedRoute({ children }) {
   const currentUser = useContext(CurrentUserContext);
+  const { path } = useLang();
 
   if (!currentUser) {
-    return <Navigate to="/" replace />;
+    return <Navigate to={path('home')} replace />;
   }
 
   return children;

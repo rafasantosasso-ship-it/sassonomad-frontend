@@ -1,19 +1,8 @@
 import { useEffect, useState } from 'react';
 import { register, authorize, requestPasswordReset } from '../../utils/MainApi';
 import useFormAndValidation from '../../hooks/useFormAndValidation';
+import { useLang } from '../../i18n/LanguageContext';
 import '../../styles/Modal.css';
-
-const TITLES = {
-  register: 'Inscreva-se',
-  login: 'Entrar',
-  forgot: 'Esqueci minha senha',
-};
-
-const SUBMIT_LABELS = {
-  register: 'Inscreva-se',
-  login: 'Entrar',
-  forgot: 'Enviar link',
-};
 
 /**
  * Modal único para cadastro, login e "esqueci minha senha".
@@ -26,6 +15,7 @@ function AuthModal({
   const {
     values, errors, isValid, handleChange, resetForm,
   } = useFormAndValidation();
+  const { t, lang, errorText } = useLang();
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [serverError, setServerError] = useState('');
 
@@ -52,7 +42,7 @@ function AuthModal({
   }
 
   function handleError(err) {
-    setServerError(err.message);
+    setServerError(errorText(err));
     setStatus('error');
   }
 
@@ -68,7 +58,7 @@ function AuthModal({
         .then(() => setStatus('success'))
         .catch(handleError);
     } else if (mode === 'forgot') {
-      requestPasswordReset(values.email)
+      requestPasswordReset(values.email, lang)
         .then(() => setStatus('success'))
         .catch(handleError);
     } else {
@@ -84,13 +74,10 @@ function AuthModal({
     if (mode === 'forgot') {
       return (
         <div className="sn-modal__success">
-          <h2 className="sn-modal__title">Confira seu e-mail</h2>
-          <p className="sn-modal__success-text">
-            Se existir uma conta com esse e-mail, você vai receber um link para criar uma nova
-            senha. O link vale por 1 hora.
-          </p>
+          <h2 className="sn-modal__title">{t('auth.forgotSuccessTitle')}</h2>
+          <p className="sn-modal__success-text">{t('auth.forgotSuccessText')}</p>
           <button className="sn-modal__submit" type="button" onClick={() => onSwitchMode('login')}>
-            Voltar para o login
+            {t('auth.backToLogin')}
           </button>
         </div>
       );
@@ -98,12 +85,10 @@ function AuthModal({
 
     return (
       <div className="sn-modal__success">
-        <h2 className="sn-modal__title">Cadastro concluído!</h2>
-        <p className="sn-modal__success-text">
-          Sua conta foi criada. Agora é só entrar com seu e-mail e senha.
-        </p>
+        <h2 className="sn-modal__title">{t('auth.registerSuccessTitle')}</h2>
+        <p className="sn-modal__success-text">{t('auth.registerSuccessText')}</p>
         <button className="sn-modal__submit" type="button" onClick={() => onSwitchMode('login')}>
-          Fazer login
+          {t('auth.doLogin')}
         </button>
       </div>
     );
@@ -112,28 +97,26 @@ function AuthModal({
   return (
     <div className="sn-modal-overlay" onClick={handleOverlayClick}>
       <div className="sn-modal" onClick={handleContentClick} role="dialog" aria-modal="true">
-        <button className="sn-modal__close" type="button" onClick={onClose} aria-label="Fechar">
+        <button className="sn-modal__close" type="button" onClick={onClose} aria-label={t('common.close')}>
           ✕
         </button>
 
         {status === 'success' && mode !== 'login' ? renderSuccess() : (
           <>
-            <h2 className="sn-modal__title">{TITLES[mode]}</h2>
+            <h2 className="sn-modal__title">{t(`auth.${mode}Title`)}</h2>
 
             {mode === 'forgot' && (
-              <p className="sn-modal__intro">
-                Digite o e-mail da sua conta e a gente te manda um link para criar uma nova senha.
-              </p>
+              <p className="sn-modal__intro">{t('auth.forgotIntro')}</p>
             )}
 
             <form className="sn-modal__form" noValidate onSubmit={handleSubmit}>
               {mode === 'register' && (
                 <label className="sn-modal__field">
-                  Nome
+                  {t('common.name')}
                   <input
                     type="text"
                     name="name"
-                    placeholder="Seu nome"
+                    placeholder={t('common.namePlaceholder')}
                     autoComplete="given-name"
                     value={values.name || ''}
                     onChange={handleChange}
@@ -146,11 +129,11 @@ function AuthModal({
               )}
 
               <label className="sn-modal__field">
-                E-mail
+                {t('common.email')}
                 <input
                   type="email"
                   name="email"
-                  placeholder="voce@email.com"
+                  placeholder={t('common.emailPlaceholder')}
                   autoComplete="email"
                   value={values.email || ''}
                   onChange={handleChange}
@@ -161,11 +144,11 @@ function AuthModal({
 
               {mode !== 'forgot' && (
                 <label className="sn-modal__field">
-                  Senha
+                  {t('common.password')}
                   <input
                     type="password"
                     name="password"
-                    placeholder="Sua senha"
+                    placeholder={t('common.passwordPlaceholder')}
                     autoComplete={mode === 'register' ? 'new-password' : 'current-password'}
                     value={values.password || ''}
                     onChange={handleChange}
@@ -182,22 +165,30 @@ function AuthModal({
                   type="button"
                   onClick={() => onSwitchMode('forgot')}
                 >
-                  Esqueci minha senha
+                  {t('auth.forgotLink')}
                 </button>
               )}
 
               {status === 'error' && <p className="sn-modal__error">{serverError}</p>}
 
               <button className="sn-modal__submit" type="submit" disabled={!isValid || isSubmitting}>
-                {isSubmitting ? 'Enviando...' : SUBMIT_LABELS[mode]}
+                {isSubmitting ? t('common.sending') : t(`auth.${mode}Submit`)}
               </button>
             </form>
 
             <p className="sn-modal__switch">
               {mode === 'login' ? (
-                <>Ainda não tem conta? <button type="button" onClick={() => onSwitchMode('register')}>Inscreva-se</button></>
+                <>
+                  {t('auth.noAccount')}
+                  {' '}
+                  <button type="button" onClick={() => onSwitchMode('register')}>{t('auth.registerTitle')}</button>
+                </>
               ) : (
-                <>Já tem conta? <button type="button" onClick={() => onSwitchMode('login')}>Entrar</button></>
+                <>
+                  {t('auth.hasAccount')}
+                  {' '}
+                  <button type="button" onClick={() => onSwitchMode('login')}>{t('auth.loginTitle')}</button>
+                </>
               )}
             </p>
           </>

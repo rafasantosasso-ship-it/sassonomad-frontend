@@ -5,14 +5,8 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import TimeZonesPage from '../TimeZonesPage/TimeZonesPage';
 import GuidesGrid from '../GuidesGrid/GuidesGrid';
-import GuideChapada from '../GuideChapada/GuideChapada';
-import GuideSardegna from '../GuideSardegna/GuideSardegna';
-import GuideNomadismo from '../GuideNomadismo/GuideNomadismo';
-import ArticleSardegna from '../ArticleSardegna/ArticleSardegna';
-import ArticleChapada from '../ArticleChapada/ArticleChapada';
-import ArticleNomadismo from '../ArticleNomadismo/ArticleNomadismo';
-import ArticleIreland from '../ArticleIreland/ArticleIreland';
-import ArticleCagliari from '../ArticleCagliari/ArticleCagliari';
+import GuidePage from '../GuidePage/GuidePage';
+import ArticlePage from '../ArticlePage/ArticlePage';
 import FaqPage from '../FaqPage/FaqPage';
 import NotFound from '../NotFound/NotFound';
 import CommunityModal from '../CommunityModal/CommunityModal';
@@ -24,6 +18,10 @@ import ResetPasswordPage from '../ResetPasswordPage/ResetPasswordPage';
 import MyAreaPage from '../MyAreaPage/MyAreaPage';
 import PrivacyPage from '../PrivacyPage/PrivacyPage';
 import Preloader from '../Preloader/Preloader';
+import LanguageBanner from '../LanguageBanner/LanguageBanner';
+import { RootRedirect, LegacyRedirect } from '../LangRedirect/LangRedirect';
+import { LANGS } from '../../i18n/config';
+import { ROUTES, localePath } from '../../i18n/routes';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import AuthModalContext from '../../contexts/AuthModalContext';
 import { getToken, clearToken, getUserInfo } from '../../utils/MainApi';
@@ -31,8 +29,10 @@ import useScrollToHash from '../../hooks/useScrollToHash';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import './App.css';
 
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+// `prerendered`: a página já veio pronta do build (HTML estático). Nesse
+// caso não mostra o preloader — o conteúdo já está na tela.
+function App({ prerendered = false }) {
+  const [isLoading, setIsLoading] = useState(!prerendered);
   const [isCommunityModalOpen, setIsCommunityModalOpen] = useState(false);
   const [communitySource, setCommunitySource] = useState('site');
   const [currentUser, setCurrentUser] = useState(null);
@@ -50,8 +50,8 @@ function App() {
       ? getUserInfo().then(setCurrentUser).catch(() => clearToken())
       : Promise.resolve();
 
-    Promise.all([minDelay, authCheck]).then(() => setIsLoading(false));
-  }, []);
+    Promise.all([prerendered ? null : minDelay, authCheck]).then(() => setIsLoading(false));
+  }, [prerendered]);
 
   // `source` diz de onde o popup foi aberto (menu, home, rodapé, artigo) e
   // vai junto com o cadastro para as estatísticas da lista.
@@ -92,6 +92,51 @@ function App() {
     setCurrentUser(null);
   }
 
+  // Uma página por chave do mapa de rotas (src/i18n/routes.js). O idioma
+  // vem da URL; cada página lê o texto do idioma atual.
+  function renderPage(key) {
+    switch (key) {
+      case 'home':
+        return <Main onJoinClick={() => handleOpenCommunityModal('home')} />;
+      case 'guides':
+        return <GuidesGrid />;
+      case 'guideChapada':
+      case 'guideSardegna':
+      case 'guideNomadismo':
+        return <GuidePage routeKey={key} />;
+      case 'articleSardegna':
+      case 'articleChapada':
+      case 'articleNomadismo':
+      case 'articleIreland':
+      case 'articleCagliari':
+        return <ArticlePage routeKey={key} />;
+      case 'faq':
+        return <FaqPage />;
+      case 'timezones':
+        return <TimeZonesPage />;
+      case 'privacy':
+        return <PrivacyPage />;
+      case 'saved':
+        return (
+          <ProtectedRoute>
+            <SavedGuidesPage />
+          </ProtectedRoute>
+        );
+      case 'myArea':
+        return (
+          <ProtectedRoute>
+            <MyAreaPage />
+          </ProtectedRoute>
+        );
+      case 'welcome':
+        return <WelcomePage onAuthenticated={handleAuthenticated} />;
+      case 'resetPassword':
+        return <ResetPasswordPage onAuthenticated={handleAuthenticated} />;
+      default:
+        return <NotFound />;
+    }
+  }
+
   if (isLoading) {
     return <Preloader />;
   }
@@ -109,42 +154,20 @@ function App() {
             onLogoutClick={handleLogout}
           />
           <Routes>
-            <Route path="/" element={<Main onJoinClick={() => handleOpenCommunityModal('home')} />} />
-            <Route path="/fusos" element={<TimeZonesPage />} />
-            <Route path="/guias" element={<GuidesGrid />} />
-            <Route path="/guias/chapada" element={<GuideChapada />} />
-            <Route path="/guias/sardegna" element={<GuideSardegna />} />
-            <Route path="/guias/nomadismo" element={<GuideNomadismo />} />
-            <Route
-              path="/guias-salvos"
-              element={(
-                <ProtectedRoute>
-                  <SavedGuidesPage />
-                </ProtectedRoute>
-              )}
-            />
-            <Route
-              path="/minha-area"
-              element={(
-                <ProtectedRoute>
-                  <MyAreaPage />
-                </ProtectedRoute>
-              )}
-            />
-            <Route path="/bem-vindo" element={<WelcomePage onAuthenticated={handleAuthenticated} />} />
-            <Route
-              path="/redefinir-senha"
-              element={<ResetPasswordPage onAuthenticated={handleAuthenticated} />}
-            />
-            <Route path="/privacidade" element={<PrivacyPage />} />
-            <Route path="/sardegna/vilarejos-de-pedra-e-mar-turquesa" element={<ArticleSardegna />} />
-            <Route path="/chapada-diamantina/trilhas-pocos-e-lencois" element={<ArticleChapada />} />
-            <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
-            <Route path="/irlanda/vida-de-nomade-alem-do-centro-caotico-de-dublin" element={<ArticleIreland />} />
-            <Route path="/sardegna/cagliari-capital-que-tambem-e-riviera" element={<ArticleCagliari />} />
-            <Route path="/perguntas-frequentes" element={<FaqPage />} />
+            <Route path="/" element={<RootRedirect />} />
+            {LANGS.map((lang) => Object.keys(ROUTES).map((key) => (
+              <Route key={`${lang}-${key}`} path={localePath(key, lang)} element={renderPage(key)} />
+            )))}
+            {Object.keys(ROUTES).filter((key) => key !== 'home').map((key) => (
+              <Route
+                key={`legacy-${key}`}
+                path={`/${ROUTES[key].pt}`}
+                element={<LegacyRedirect to={localePath(key, 'pt')} />}
+              />
+            ))}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <LanguageBanner />
           <Footer onJoinClick={() => handleOpenCommunityModal('rodape')} />
           {isCommunityModalOpen && (
             <CommunityModal onClose={handleCloseCommunityModal} source={communitySource} />

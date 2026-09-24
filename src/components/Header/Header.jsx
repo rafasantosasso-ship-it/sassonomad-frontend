@@ -3,13 +3,15 @@ import { NavLink, useLocation } from 'react-router-dom';
 import logoLight from '../../images/brand/logo-lockup-light.svg';
 import logoDark from '../../images/brand/logo-lockup-dark.svg';
 import Navigation from '../Navigation/Navigation';
+import { useLang } from '../../i18n/LanguageContext';
 import './Header.css';
 
 function Header({
   onCommunityClick, currentUser, onLoginClick, onLogoutClick,
 }) {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const { routeKey, path, t } = useLang();
+  const isHome = routeKey === 'home';
   const [isSolid, setIsSolid] = useState(!isHome);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -45,7 +47,7 @@ function Header({
   return (
     <header className={isSolid || isMenuOpen ? 'sn-header sn-header--solid' : 'sn-header'}>
       <div className="sn-header__inner">
-        <NavLink className="sn-header__logo" to="/">
+        <NavLink className="sn-header__logo" to={path('home')} end>
           <img className="sn-header__logo-img sn-header__logo-img--light" src={logoLight} alt="Sasso Nomad" />
           <img className="sn-header__logo-img sn-header__logo-img--dark" src={logoDark} alt="Sasso Nomad" />
         </NavLink>
@@ -53,7 +55,7 @@ function Header({
         <button
           className="sn-header__menu-toggle"
           type="button"
-          aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={isMenuOpen}
           onClick={handleToggleMenu}
         >

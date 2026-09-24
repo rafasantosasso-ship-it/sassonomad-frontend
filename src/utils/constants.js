@@ -7,18 +7,8 @@ export const PAGE_SIZE = 3;
 // solicitação em vez de mostrar cache antigo (dados de cidades removidas).
 export const TIMEZONES_CACHE_KEY = 'sn_timezones_cache_v3';
 
-export const ERROR_MESSAGE =
-  'Desculpe, algo deu errado durante a solicitação. Pode haver um problema de conexão ou o servidor pode estar inativo. Por favor, tente novamente mais tarde.';
-
-export const DAY_LABELS = {
-  Monday: 'Segunda-feira',
-  Tuesday: 'Terça-feira',
-  Wednesday: 'Quarta-feira',
-  Thursday: 'Quinta-feira',
-  Friday: 'Sexta-feira',
-  Saturday: 'Sábado',
-  Sunday: 'Domingo',
-};
+// Mensagem de erro e nomes dos dias da semana agora ficam em
+// src/i18n/ui.js (common.error e days.*), nos três idiomas.
 
 // E-mail de contato mostrado na política de privacidade.
 export const CONTACT_EMAIL = 'nomad@sassonomad.com';

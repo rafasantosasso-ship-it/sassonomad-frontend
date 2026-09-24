@@ -1,34 +1,66 @@
 import chapadaImg from '../images/guides/chapada.jpg';
 import sardegnaImg from '../images/guides/sardegna.jpg';
 import nomadismoImg from '../images/guides/nomadismo.jpg';
+import { localePath } from '../i18n/routes';
+import { SOURCE_LANG } from '../i18n/config';
 
-export const GUIDES = [
+import * as chapadaPt from '../content/guides/chapada/pt';
+import * as chapadaIt from '../content/guides/chapada/it';
+import * as chapadaEn from '../content/guides/chapada/en';
+import * as sardegnaPt from '../content/guides/sardegna/pt';
+import * as sardegnaIt from '../content/guides/sardegna/it';
+import * as sardegnaEn from '../content/guides/sardegna/en';
+import * as nomadismoPt from '../content/guides/nomadismo/pt';
+import * as nomadismoIt from '../content/guides/nomadismo/it';
+import * as nomadismoEn from '../content/guides/nomadismo/en';
+
+// Guias pagos. Texto por idioma em src/content/guides/<guia>/<idioma>.jsx;
+// preço e link de compra em src/i18n/checkout.js (`product`).
+const REGISTRY = [
   {
     slug: 'chapada',
-    eyebrow: 'LENÇÓIS',
-    title: 'Viver em Lençóis: O Guia Que Nenhum Turista Tem',
-    dek: 'Quanto custa, de verdade, viver em Lençóis — escrito por quem já morou lá.',
+    routeKey: 'guideChapada',
+    product: 'lencois',
     image: chapadaImg,
-    alt: 'Orquídea silvestre nos campos rupestres da Chapada Diamantina',
+    content: { pt: chapadaPt, it: chapadaIt, en: chapadaEn },
   },
   {
     slug: 'sardegna',
-    eyebrow: 'SARDEGNA',
-    title: 'Quanto custa viver na Sardenha',
-    dek: 'Números reais de Cagliari, Costa Rei e do entroterra em 2026.',
+    routeKey: 'guideSardegna',
+    product: 'sardegna',
     image: sardegnaImg,
-    alt: 'Torre espanhola sobre a costa do sul da Sardegna',
+    content: { pt: sardegnaPt, it: sardegnaIt, en: sardegnaEn },
   },
   {
     slug: 'nomadismo',
-    eyebrow: 'GUIA DIGITAL',
-    title: 'Guia Completo de Nomadismo Digital',
-    dek: 'Como construir uma vida com mais mobilidade, sem abrir mão da carreira — sem fórmula mágica.',
+    routeKey: 'guideNomadismo',
+    product: 'nomadismo',
     image: nomadismoImg,
-    alt: 'Piolho-de-cobra enrolado em espiral, close-up macro',
+    content: { pt: nomadismoPt, it: nomadismoIt, en: nomadismoEn },
   },
 ];
 
-export function getGuideBySlug(slug) {
-  return GUIDES.find((guide) => guide.slug === slug);
+function localize(entry, lang) {
+  const content = entry.content[lang] || entry.content[SOURCE_LANG];
+  const { meta } = content;
+  return {
+    ...meta,
+    slug: entry.slug,
+    routeKey: entry.routeKey,
+    product: entry.product,
+    image: entry.image,
+    pageTitle: meta.pageTitle || meta.title,
+    faqItems: content.faqItems || null,
+    Body: content.default,
+    path: localePath(entry.routeKey, lang),
+  };
+}
+
+export function getGuides(lang) {
+  return REGISTRY.map((entry) => localize(entry, lang));
+}
+
+export function getGuideByRoute(routeKey, lang) {
+  const entry = REGISTRY.find((item) => item.routeKey === routeKey);
+  return entry ? localize(entry, lang) : null;
 }

@@ -1,5 +1,6 @@
 import ArticleCard from '../ArticleCard/ArticleCard';
-import { ARTICLES } from '../../utils/articles';
+import { getArticles } from '../../utils/articles';
+import { useLang } from '../../i18n/LanguageContext';
 import './ArticlesSection.css';
 
 const ROLE_BY_SLUG = {
@@ -12,16 +13,16 @@ const ROLE_BY_SLUG = {
 };
 
 function ArticlesSection() {
+  const { t, lang } = useLang();
+
   return (
     <section className="sn-articles">
       <div className="sn-articles__header">
-        <h2 className="sn-articles__title">O próximo destino já está te esperando</h2>
-        <p className="sn-articles__subtitle">
-          Relatos sobre os lugares que moldam a vida nômade.
-        </p>
+        <h2 className="sn-articles__title">{t('articles.title')}</h2>
+        <p className="sn-articles__subtitle">{t('articles.subtitle')}</p>
       </div>
       <div className="sn-articles__grid">
-        {ARTICLES.map((article) => (
+        {getArticles(lang).map((article) => (
           <ArticleCard key={article.slug} article={article} role={ROLE_BY_SLUG[article.slug]} />
         ))}
       </div>

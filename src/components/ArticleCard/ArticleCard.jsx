@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useLang } from '../../i18n/LanguageContext';
 import './ArticleCard.css';
 
 const EXCERPT_ROLES = new Set(['lead', 'wide']);
 
 function ArticleCard({ article, role }) {
-  const { tag, title, excerpt, image, imagePosition, path } = article;
+  const { t } = useLang();
+  const {
+    tag, cardTitle: title, excerpt, image, imagePosition, path,
+  } = article;
   const isPending = !path;
   const Wrapper = isPending ? 'div' : Link;
   const wrapperProps = isPending ? {} : { to: path };
@@ -22,7 +26,7 @@ function ArticleCard({ article, role }) {
           alt={title}
           style={imagePosition ? { objectPosition: imagePosition } : undefined}
         />
-        {isPending && <span className="sn-article-card__badge">Em breve</span>}
+        {isPending && <span className="sn-article-card__badge">{t('articles.soon')}</span>}
         <div className="sn-article-card__overlay" />
         <div className="sn-article-card__content">
           <span className="sn-article-card__tag">{tag}</span>

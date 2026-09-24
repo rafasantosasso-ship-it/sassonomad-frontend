@@ -1,33 +1,29 @@
 import { Link } from 'react-router-dom';
 import productImage from '../../images/guide-cover.jpg';
+import { useLang } from '../../i18n/LanguageContext';
 import './FeaturedProduct.css';
 
 function FeaturedProduct() {
+  const { t, path } = useLang();
+  const guidePath = path('guideNomadismo');
+
   return (
     <section className="sn-product" id="guias">
       <div className="sn-product__inner">
-        <Link className="sn-product__image-wrap" to="/guias/nomadismo">
-          <img className="sn-product__image" src={productImage} alt="Capa do guia de nomadismo digital" />
+        <Link className="sn-product__image-wrap" to={guidePath}>
+          <img className="sn-product__image" src={productImage} alt={t('product.imageAlt')} />
         </Link>
         <div className="sn-product__content">
-          <span className="sn-product__eyebrow">Guia digital</span>
+          <span className="sn-product__eyebrow">{t('product.eyebrow')}</span>
           <h2 className="sn-product__title">
-            <Link className="sn-product__title-link" to="/guias/nomadismo">
-              Guia Completo de Nomadismo Digital
+            <Link className="sn-product__title-link" to={guidePath}>
+              {t('product.title')}
             </Link>
           </h2>
-          <p className="sn-product__text">
-            O nomadismo digital é fácil de imaginar: notebook, praia, liberdade instantânea. A
-            realidade é outra — tem visto, tem fuso horário, tem a pergunta que ninguém responde
-            direito. Por onde começar de verdade?
-          </p>
-          <p className="sn-product__text">
-            Este guia mostra o caminho. Dado real, o que muda de verdade entre morar em três
-            países bem diferentes entre si, e um roteiro de quatro fases pra testar antes de
-            virar sua vida de cabeça pra baixo.
-          </p>
-          <p className="sn-product__text">Sem fórmula mágica. Só o mapa que faltava.</p>
-          <Link className="sn-product__cta" to="/guias/nomadismo">Comprar</Link>
+          <p className="sn-product__text">{t('product.p1')}</p>
+          <p className="sn-product__text">{t('product.p2')}</p>
+          <p className="sn-product__text">{t('product.p3')}</p>
+          <Link className="sn-product__cta" to={guidePath}>{t('product.cta')}</Link>
         </div>
       </div>
     </section>

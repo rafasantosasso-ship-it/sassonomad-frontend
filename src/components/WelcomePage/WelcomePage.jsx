@@ -4,6 +4,8 @@ import { confirmSubscription, createAccount } from '../../utils/MainApi';
 import AuthModalContext from '../../contexts/AuthModalContext';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Preloader from '../Preloader/Preloader';
+import Seo from '../../seo/Seo';
+import { useLang } from '../../i18n/LanguageContext';
 import '../../styles/Modal.css';
 import '../../styles/AccountPage.css';
 
@@ -18,6 +20,10 @@ function WelcomePage({ onAuthenticated }) {
   const navigate = useNavigate();
   const { openLogin, openCommunity } = useContext(AuthModalContext);
   const currentUser = useContext(CurrentUserContext);
+  const {
+    t, tx, path, errorText,
+  } = useLang();
+  const seo = <Seo title={t('seo.accountTitle')} routeKey="welcome" noindex />;
 
   const [status, setStatus] = useState('loading'); // loading | confirmed | invalid
   const [subscriber, setSubscriber] = useState(null);
@@ -50,11 +56,11 @@ function WelcomePage({ onAuthenticated }) {
     if (isSubmitting) return;
 
     if (password.length < 8) {
-      setFormError('A senha precisa ter pelo menos 8 caracteres.');
+      setFormError(t('common.passwordTooShort'));
       return;
     }
     if (password !== passwordRepeat) {
-      setFormError('As duas senhas não são iguais.');
+      setFormError(t('common.passwordMismatch'));
       return;
     }
 
@@ -63,9 +69,9 @@ function WelcomePage({ onAuthenticated }) {
 
     createAccount({ token, password })
       .then(() => onAuthenticated())
-      .then(() => navigate('/minha-area', { replace: true }))
+      .then(() => navigate(path('myArea'), { replace: true }))
       .catch((err) => {
-        setFormError(err.message);
+        setFormError(errorText(err));
         setIsSubmitting(false);
       });
   }
@@ -73,6 +79,7 @@ function WelcomePage({ onAuthenticated }) {
   if (status === 'loading') {
     return (
       <main className="sn-account">
+        {seo}
         <Preloader inline />
       </main>
     );
@@ -81,19 +88,17 @@ function WelcomePage({ onAuthenticated }) {
   if (status === 'invalid') {
     return (
       <main className="sn-account">
+        {seo}
         <div className="sn-account__card">
-          <p className="sn-account__eyebrow">Link expirado</p>
-          <h1 className="sn-account__title">Esse link não vale mais</h1>
-          <p className="sn-account__text">
-            Os links de confirmação valem por 48 horas e são de uso único. Cadastre-se de novo e
-            a gente te manda um link novinho na hora.
-          </p>
+          <p className="sn-account__eyebrow">{t('common.linkExpired')}</p>
+          <h1 className="sn-account__title">{t('common.linkInvalidTitle')}</h1>
+          <p className="sn-account__text">{t('welcome.expiredText')}</p>
           <div className="sn-account__actions">
             <button className="sn-account__button" type="button" onClick={() => openCommunity('link-expirado')}>
-              Receber um novo link
+              {t('welcome.newLink')}
             </button>
             <button className="sn-account__button sn-account__button--ghost" type="button" onClick={openLogin}>
-              Já tenho conta
+              {t('welcome.haveAccount')}
             </button>
           </div>
         </div>
@@ -106,21 +111,20 @@ function WelcomePage({ onAuthenticated }) {
   if (subscriber.hasAccount || currentUser) {
     return (
       <main className="sn-account">
+        {seo}
         <div className="sn-account__card">
-          <p className="sn-account__eyebrow">E-mail confirmado</p>
+          <p className="sn-account__eyebrow">{t('welcome.confirmed')}</p>
           <h1 className="sn-account__title">
-            Tudo certo, <span className="sn-user-name">{firstName}</span>.
+            {tx('welcome.allSet', { name: <span className="sn-user-name">{firstName}</span> })}
           </h1>
-          <p className="sn-account__text">
-            Seu e-mail está confirmado e você já tem uma conta. É só entrar.
-          </p>
+          <p className="sn-account__text">{t('welcome.allSetText')}</p>
           <div className="sn-account__actions">
             {currentUser ? (
-              <Link className="sn-account__button" to="/minha-area">Ir para minha área</Link>
+              <Link className="sn-account__button" to={path('myArea')}>{t('welcome.goToMyArea')}</Link>
             ) : (
-              <button className="sn-account__button" type="button" onClick={openLogin}>Entrar</button>
+              <button className="sn-account__button" type="button" onClick={openLogin}>{t('nav.login')}</button>
             )}
-            <Link className="sn-account__button sn-account__button--ghost" to="/guias">Ver os guias</Link>
+            <Link className="sn-account__button sn-account__button--ghost" to={path('guides')}>{t('welcome.seeGuides')}</Link>
           </div>
         </div>
       </main>
@@ -129,26 +133,27 @@ function WelcomePage({ onAuthenticated }) {
 
   return (
     <main className="sn-account">
+      {seo}
       <div className="sn-account__card">
-        <p className="sn-account__eyebrow">E-mail confirmado</p>
+        <p className="sn-account__eyebrow">{t('welcome.confirmed')}</p>
         <h1 className="sn-account__title">
-          Você está dentro, <span className="sn-user-name">{firstName}</span>.
+          {tx('welcome.youreIn', { name: <span className="sn-user-name">{firstName}</span> })}
         </h1>
         <p className="sn-account__text">
-          Seu e-mail está confirmado. Agora crie uma senha para entrar no site com
+          {t('welcome.createTextBefore')}
           {' '}
           <strong>{subscriber.email}</strong>
           {' '}
-          e salvar os guias e artigos que quiser ler depois.
+          {t('welcome.createTextAfter')}
         </p>
 
         <form className="sn-modal__form" onSubmit={handleSubmit} noValidate>
           <label className="sn-modal__field">
-            Senha
+            {t('common.password')}
             <input
               type="password"
               name="password"
-              placeholder="Mínimo de 8 caracteres"
+              placeholder={t('common.passwordMin')}
               autoComplete="new-password"
               value={password}
               onChange={(evt) => setPassword(evt.target.value)}
@@ -157,11 +162,11 @@ function WelcomePage({ onAuthenticated }) {
             />
           </label>
           <label className="sn-modal__field">
-            Repita a senha
+            {t('common.passwordRepeat')}
             <input
               type="password"
               name="passwordRepeat"
-              placeholder="Mesma senha de novo"
+              placeholder={t('common.passwordRepeatPlaceholder')}
               autoComplete="new-password"
               value={passwordRepeat}
               onChange={(evt) => setPasswordRepeat(evt.target.value)}
@@ -173,15 +178,15 @@ function WelcomePage({ onAuthenticated }) {
           {formError && <p className="sn-modal__error">{formError}</p>}
 
           <button className="sn-modal__submit" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Criando...' : 'Criar minha conta'}
+            {isSubmitting ? t('welcome.creating') : t('welcome.create')}
           </button>
         </form>
 
         <p className="sn-account__text">
-          Prefere só receber os e-mails?
+          {t('welcome.onlyEmails')}
           {' '}
-          <Link to="/" style={{ color: 'var(--color-accent-dark)' }}>Pode fechar esta página</Link>
-          : sua inscrição já está confirmada.
+          <Link to={path('home')} style={{ color: 'var(--color-accent-dark)' }}>{t('welcome.closePage')}</Link>
+          {t('welcome.alreadyConfirmed')}
         </p>
       </div>
     </main>

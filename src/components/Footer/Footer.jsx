@@ -1,47 +1,47 @@
 import { Link } from 'react-router-dom';
 import logoLight from '../../images/brand/logo-lockup-light.svg';
+import { useLang } from '../../i18n/LanguageContext';
 import './Footer.css';
 
 function Footer({ onJoinClick }) {
+  const { t, path } = useLang();
+
   return (
     <footer className="sn-footer" id="contato">
       <div className="sn-footer__inner">
         <div className="sn-footer__col sn-footer__col--brand">
           <img className="sn-footer__logo" src={logoLight} alt="Sasso Nomad" />
-          <p className="sn-footer__bio">
-            Viagem lenta e nomadismo digital sem enrolação. Sardegna, Chapada Diamantina e o que
-            vier depois.
-          </p>
+          <p className="sn-footer__bio">{t('footer.bio')}</p>
         </div>
 
         <div className="sn-footer__col">
-          <h3 className="sn-footer__heading">Explorar</h3>
+          <h3 className="sn-footer__heading">{t('footer.explore')}</h3>
           <nav className="sn-footer__nav">
-            <Link className="sn-footer__nav-link" to="/guias/sardegna">Sardegna</Link>
-            <Link className="sn-footer__nav-link" to="/guias/chapada">Chapada Diamantina</Link>
-            <Link className="sn-footer__nav-link" to="/guias/nomadismo">Nomadismo Digital</Link>
-            <Link className="sn-footer__nav-link" to="/guias">Todos os Guias</Link>
+            <Link className="sn-footer__nav-link" to={path('guideSardegna')}>{t('footer.sardegna')}</Link>
+            <Link className="sn-footer__nav-link" to={path('guideChapada')}>Chapada Diamantina</Link>
+            <Link className="sn-footer__nav-link" to={path('guideNomadismo')}>{t('footer.nomadismo')}</Link>
+            <Link className="sn-footer__nav-link" to={path('guides')}>{t('footer.allGuides')}</Link>
           </nav>
         </div>
 
         <div className="sn-footer__col">
-          <h3 className="sn-footer__heading">Comunidade</h3>
+          <h3 className="sn-footer__heading">{t('footer.community')}</h3>
           <nav className="sn-footer__nav">
             <button
               className="sn-footer__nav-link"
               type="button"
               onClick={onJoinClick}
             >
-              Participar da Comunidade
+              {t('footer.join')}
             </button>
-            <Link className="sn-footer__nav-link" to="/#sobre">Sobre o Sasso Nomad</Link>
-            <Link className="sn-footer__nav-link" to="/perguntas-frequentes">Perguntas Frequentes</Link>
-            <a className="sn-footer__nav-link" href="#contato">Contato</a>
+            <Link className="sn-footer__nav-link" to={path('home', 'sobre')}>{t('footer.about')}</Link>
+            <Link className="sn-footer__nav-link" to={path('faq')}>{t('footer.faq')}</Link>
+            <a className="sn-footer__nav-link" href="#contato">{t('footer.contact')}</a>
           </nav>
         </div>
 
         <div className="sn-footer__col">
-          <h3 className="sn-footer__heading">Siga a Sassonomad</h3>
+          <h3 className="sn-footer__heading">{t('footer.follow')}</h3>
           <div className="sn-footer__social">
             <a
               className="sn-footer__link"
@@ -107,8 +107,8 @@ function Footer({ onJoinClick }) {
           <span>nomad@sassonomad.com</span>
         </a>
         <p className="sn-footer__copy">
-          © {new Date().getFullYear()} Sasso Nomad. Todos os direitos reservados. ·{' '}
-          <Link className="sn-footer__legal" to="/privacidade">Privacidade</Link>
+          © {new Date().getFullYear()} Sasso Nomad. {t('footer.rights')} ·{' '}
+          <Link className="sn-footer__legal" to={path('privacy')}>{t('footer.privacy')}</Link>
         </p>
       </div>
     </footer>
