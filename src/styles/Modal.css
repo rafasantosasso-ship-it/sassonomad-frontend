@@ -150,3 +150,58 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+/* Nome da pessoa na mensagem de sucesso */
+.sn-modal__name {
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.15em;
+  color: var(--color-accent);
+}
+
+.sn-modal__success-text--small {
+  font-size: 0.82rem;
+}
+
+/* Checkbox de consentimento (GDPR) */
+.sn-modal__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.sn-modal__consent input {
+  margin-top: 0.2rem;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.sn-modal__consent a {
+  color: var(--color-accent-dark);
+}
+
+/* Honeypot anti-robô: fora da tela, mas no formulário */
+.sn-modal__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Link discreto "Esqueci minha senha" */
+.sn-modal__link {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -19,6 +19,7 @@
   --color-olive: #6e7350; /* Oliva */
   --font-display: 'Zilla Slab', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  --font-name: 'Cormorant Garamond', Georgia, serif; /* nome do usuário */
   --header-height: 80px;
   --container-max: 1200px;
   --container-pad: clamp(20px, 4vw, 40px);

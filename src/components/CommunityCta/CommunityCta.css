@@ -23,6 +23,9 @@
 
 .sn-community-cta__button {
   display: inline-block;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
   background-color: var(--color-accent);
   color: var(--color-bg);
   text-decoration: none;

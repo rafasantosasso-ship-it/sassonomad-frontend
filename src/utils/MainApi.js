@@ -1,5 +1,5 @@
-// Requisições para o back-end próprio do Sasso Nomad (cadastro, login e
-// artigos/guias salvos pelo usuário logado). Fase 3 — Autorização com React.
+// Requisições para o back-end próprio do Sasso Nomad (cadastro, login,
+// comunidade/newsletter e artigos/guias salvos pelo usuário logado).
 //
 // O token JWT fica em localStorage e é anexado automaticamente pelas
 // funções abaixo — quem chama getSavedArticles()/saveArticle()/etc não
@@ -43,6 +43,12 @@ function request(path, { method = 'GET', body, auth = true } = {}) {
   }).then(handleResponse);
 }
 
+// Guarda o JWT devolvido pelas rotas que já deixam a pessoa logada.
+function storeToken({ token }) {
+  setToken(token);
+  return token;
+}
+
 // --- Cadastro e autorização ---
 
 export function register({ email, password, name }) {
@@ -51,14 +57,51 @@ export function register({ email, password, name }) {
 
 export function authorize({ email, password }) {
   return request('/signin', { method: 'POST', body: { email, password }, auth: false })
-    .then(({ token }) => {
-      setToken(token);
-      return token;
-    });
+    .then(storeToken);
 }
 
 export function getUserInfo() {
   return request('/users/me');
+}
+
+// --- Comunidade / newsletter ---
+
+// Popup "Participar da Comunidade": salva o inscrito e dispara na hora o
+// e-mail de boas-vindas. `website` é o honeypot anti-robô (fica vazio).
+export function subscribe({
+  name, email, consent, source, website = '', lang = 'pt',
+}) {
+  return request('/subscribe', {
+    method: 'POST',
+    body: {
+      name, email, consent, source, website, lang,
+    },
+    auth: false,
+  });
+}
+
+// Página /bem-vindo: confirma o e-mail pelo token do link.
+export function confirmSubscription(token) {
+  return request('/subscribe/confirm', { method: 'POST', body: { token }, auth: false });
+}
+
+// Página /bem-vindo: cria a conta com a senha escolhida e já entra.
+export function createAccount({ token, password }) {
+  return request('/subscribe/create-account', {
+    method: 'POST', body: { token, password }, auth: false,
+  }).then(storeToken);
+}
+
+// --- Senha ---
+
+export function requestPasswordReset(email) {
+  return request('/password/forgot', { method: 'POST', body: { email }, auth: false });
+}
+
+export function resetPassword({ token, password }) {
+  return request('/password/reset', {
+    method: 'POST', body: { token, password }, auth: false,
+  }).then(storeToken);
 }
 
 // --- Guias/artigos salvos ---
