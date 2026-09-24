@@ -48,14 +48,21 @@
   }
 }
 
+/* Nome da pessoa logada: terracota, Cormorant Garamond itálico. Leva
+   para /minha-area. */
 .sn-nav__user {
-  font-size: 0.82rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.03em;
+  font-family: var(--font-name);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-@media (max-width: 640px) {
-  .sn-nav__user {
-    display: none;
-  }
+.sn-nav__user:hover,
+.sn-nav__user.active {
+  color: var(--color-accent-dark);
 }

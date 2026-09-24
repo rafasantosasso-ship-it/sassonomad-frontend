@@ -19,3 +19,6 @@ export const DAY_LABELS = {
   Saturday: 'Sábado',
   Sunday: 'Domingo',
 };
+
+// E-mail de contato mostrado na política de privacidade.
+export const CONTACT_EMAIL = 'nomad@sassonomad.com';

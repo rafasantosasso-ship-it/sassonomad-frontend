@@ -107,7 +107,8 @@ function Footer({ onJoinClick }) {
           <span>nomad@sassonomad.com</span>
         </a>
         <p className="sn-footer__copy">
-          © {new Date().getFullYear()} Sasso Nomad. Todos os direitos reservados.
+          © {new Date().getFullYear()} Sasso Nomad. Todos os direitos reservados. ·{' '}
+          <Link className="sn-footer__legal" to="/privacidade">Privacidade</Link>
         </p>
       </div>
     </footer>

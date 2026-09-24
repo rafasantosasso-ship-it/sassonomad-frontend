@@ -35,7 +35,14 @@ function Navigation({
           <NavLink className="sn-nav__link" to="/guias-salvos" onClick={onNavigate}>
             Guias salvos
           </NavLink>
-          <span className="sn-nav__user">{currentUser.name}</span>
+          <NavLink
+            className="sn-nav__user"
+            to="/minha-area"
+            onClick={onNavigate}
+            title="Minha área"
+          >
+            {currentUser.name.split(' ')[0]}
+          </NavLink>
           <button className="sn-nav__link" type="button" onClick={handleLogoutClick}>
             Sair
           </button>

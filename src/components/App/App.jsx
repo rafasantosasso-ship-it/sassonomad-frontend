@@ -19,6 +19,10 @@ import CommunityModal from '../CommunityModal/CommunityModal';
 import AuthModal from '../AuthModal/AuthModal';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SavedGuidesPage from '../SavedGuidesPage/SavedGuidesPage';
+import WelcomePage from '../WelcomePage/WelcomePage';
+import ResetPasswordPage from '../ResetPasswordPage/ResetPasswordPage';
+import MyAreaPage from '../MyAreaPage/MyAreaPage';
+import PrivacyPage from '../PrivacyPage/PrivacyPage';
 import Preloader from '../Preloader/Preloader';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import AuthModalContext from '../../contexts/AuthModalContext';
@@ -30,6 +34,7 @@ import './App.css';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isCommunityModalOpen, setIsCommunityModalOpen] = useState(false);
+  const [communitySource, setCommunitySource] = useState('site');
   const [currentUser, setCurrentUser] = useState(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState('login');
@@ -48,10 +53,13 @@ function App() {
     Promise.all([minDelay, authCheck]).then(() => setIsLoading(false));
   }, []);
 
-  const handleOpenCommunityModal = () => {
+  // `source` diz de onde o popup foi aberto (menu, home, rodapé, artigo) e
+  // vai junto com o cadastro para as estatísticas da lista.
+  const handleOpenCommunityModal = useCallback((source) => {
+    setCommunitySource(typeof source === 'string' ? source : 'site');
     setIsAuthModalOpen(false);
     setIsCommunityModalOpen(true);
-  };
+  }, []);
   const handleCloseCommunityModal = () => setIsCommunityModalOpen(false);
 
   const handleOpenLoginModal = useCallback(() => {
@@ -62,15 +70,21 @@ function App() {
 
   const handleCloseAuthModal = () => setIsAuthModalOpen(false);
 
+  // Depois que um token novo foi salvo (login, conta criada pelo link do
+  // e-mail, senha redefinida): carrega o usuário. Devolve a Promise pra
+  // quem chamou poder navegar só depois que o usuário estiver no contexto.
+  const handleAuthenticated = useCallback(() => getUserInfo()
+    .then((user) => {
+      setCurrentUser(user);
+      setIsAuthModalOpen(false);
+    })
+    .catch((err) => {
+      clearToken();
+      return Promise.reject(err);
+    }), []);
+
   function handleLoginSuccess() {
-    getUserInfo()
-      .then((user) => {
-        setCurrentUser(user);
-        setIsAuthModalOpen(false);
-      })
-      .catch(() => {
-        clearToken();
-      });
+    handleAuthenticated().catch(() => {});
   }
 
   function handleLogout() {
@@ -84,16 +98,18 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <AuthModalContext.Provider value={{ openLogin: handleOpenLoginModal }}>
+      <AuthModalContext.Provider
+        value={{ openLogin: handleOpenLoginModal, openCommunity: handleOpenCommunityModal }}
+      >
         <div className="sn-app">
           <Header
-            onCommunityClick={handleOpenCommunityModal}
+            onCommunityClick={() => handleOpenCommunityModal('menu')}
             currentUser={currentUser}
             onLoginClick={handleOpenLoginModal}
             onLogoutClick={handleLogout}
           />
           <Routes>
-            <Route path="/" element={<Main onJoinClick={handleOpenCommunityModal} />} />
+            <Route path="/" element={<Main onJoinClick={() => handleOpenCommunityModal('home')} />} />
             <Route path="/fusos" element={<TimeZonesPage />} />
             <Route path="/guias" element={<GuidesGrid />} />
             <Route path="/guias/chapada" element={<GuideChapada />} />
@@ -107,6 +123,20 @@ function App() {
                 </ProtectedRoute>
               )}
             />
+            <Route
+              path="/minha-area"
+              element={(
+                <ProtectedRoute>
+                  <MyAreaPage />
+                </ProtectedRoute>
+              )}
+            />
+            <Route path="/bem-vindo" element={<WelcomePage onAuthenticated={handleAuthenticated} />} />
+            <Route
+              path="/redefinir-senha"
+              element={<ResetPasswordPage onAuthenticated={handleAuthenticated} />}
+            />
+            <Route path="/privacidade" element={<PrivacyPage />} />
             <Route path="/sardegna/vilarejos-de-pedra-e-mar-turquesa" element={<ArticleSardegna />} />
             <Route path="/chapada-diamantina/trilhas-pocos-e-lencois" element={<ArticleChapada />} />
             <Route path="/nomadismo-digital/trabalhar-de-qualquer-lugar" element={<ArticleNomadismo />} />
@@ -115,8 +145,10 @@ function App() {
             <Route path="/perguntas-frequentes" element={<FaqPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Footer onJoinClick={handleOpenCommunityModal} />
-          {isCommunityModalOpen && <CommunityModal onClose={handleCloseCommunityModal} />}
+          <Footer onJoinClick={() => handleOpenCommunityModal('rodape')} />
+          {isCommunityModalOpen && (
+            <CommunityModal onClose={handleCloseCommunityModal} source={communitySource} />
+          )}
           {isAuthModalOpen && (
             <AuthModal
               mode={authModalMode}

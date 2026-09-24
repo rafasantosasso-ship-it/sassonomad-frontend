@@ -141,6 +141,10 @@
   margin: 0;
 }
 
+.sn-footer__legal {
+  color: inherit;
+}
+
 @media (max-width: 880px) {
   .sn-footer__inner {
     grid-template-columns: 1fr 1fr;
