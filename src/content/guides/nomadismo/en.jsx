@@ -25,7 +25,7 @@ function Body({ offer }) {
 
       <p>It&apos;s not about travelling all the time. It&apos;s about being less tied to one place.</p>
 
-      <GuideCta variant="alt" title="Get yours" buttonLabel="Buy now" offer={offer} />
+      <GuideCta variant="alt" title="Get yours" buttonLabel="Buy now" guideName={meta.productName} source="guide-nomadismo" />
     </>
   );
 }

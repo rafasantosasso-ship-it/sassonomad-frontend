@@ -31,8 +31,8 @@ function Body({ offer }) {
       <GuideCta
         title="Il prossimo passo"
         buttonLabel="Scopri la guida Vivere a Lençóis"
-        offer={offer}
-        format="Formato: PDF"
+        guideName={meta.productName}
+        source="guide-chapada"
       >
         La guida <strong>Vivere a Lençóis</strong> parla proprio di questo — scritta da chi ci ha
         abitato.

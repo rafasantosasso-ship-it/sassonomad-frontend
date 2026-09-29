@@ -26,7 +26,7 @@ function Body({ offer }) {
 
       <p>Não é sobre viajar o tempo todo. É sobre ter menos limitação de lugar.</p>
 
-      <GuideCta variant="alt" title="Garanta o seu" buttonLabel="Comprar" offer={offer} />
+      <GuideCta variant="alt" title="Garanta o seu" buttonLabel="Comprar" guideName={meta.productName} source="guide-nomadismo" />
     </>
   );
 }

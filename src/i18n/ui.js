@@ -101,6 +101,11 @@ const pt = {
     checkoutSoon: 'Checkout em breve.',
     pdfInPortuguese: 'PDF em português.',
   },
+  guideWaitlist: {
+    title: 'Em breve por aqui',
+    intro: 'O {guide} ainda não está disponível para compra. Deixe seu e-mail para ser avisado assim que ele for lançado.',
+    submit: 'Quero ser avisado',
+  },
   footer: {
     bio: 'Viagem lenta e nomadismo digital sem enrolação. Sardegna, Chapada Diamantina e o que vier depois.',
     explore: 'Explorar',
@@ -339,6 +344,11 @@ const it = {
     checkoutSoon: 'Checkout in arrivo.',
     pdfInPortuguese: 'PDF in portoghese — edizione italiana in arrivo.',
   },
+  guideWaitlist: {
+    title: 'Presto disponibile',
+    intro: "La {guide} non è ancora disponibile per l'acquisto. Lascia la tua email per essere avvisato al lancio.",
+    submit: 'Avvisami',
+  },
   footer: {
     bio: 'Viaggio lento e nomadismo digitale senza giri di parole. Sardegna, Chapada Diamantina e quello che verrà.',
     explore: 'Esplora',
@@ -576,6 +586,11 @@ const en = {
     buy: 'Buy now',
     checkoutSoon: 'Checkout coming soon.',
     pdfInPortuguese: 'PDF in Portuguese — English edition coming soon.',
+  },
+  guideWaitlist: {
+    title: 'Coming soon',
+    intro: "The {guide} isn't available for purchase yet. Leave your email to be notified as soon as it launches.",
+    submit: 'Notify me',
   },
   footer: {
     bio: 'Slow travel and digital nomad life, no fluff. Sardinia, Chapada Diamantina and whatever comes next.',

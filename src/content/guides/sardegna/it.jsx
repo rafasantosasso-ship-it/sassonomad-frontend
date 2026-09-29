@@ -99,8 +99,8 @@ function Body({ offer }) {
       <GuideCta
         title="Il prossimo passo"
         buttonLabel="Scopri la guida Vivere nel Sud della Sardegna"
-        offer={offer}
-        format="accesso immediato via Hotmart"
+        guideName={meta.productName}
+        source="guide-sardegna"
       >
         La guida completa <strong>Vivere nel Sud della Sardegna</strong> spiega dove vivere in base
         al tuo profilo, come funziona il lavoro da remoto con una fibra affidabile e

@@ -1,43 +1,40 @@
+import { useState } from 'react';
 import { useLang } from '../../i18n/LanguageContext';
+import CommunityModal from '../CommunityModal/CommunityModal';
 import './GuideCta.css';
 
 /**
- * Caixa de compra no fim das páginas de guia. Preço, moeda e link vêm de
- * src/i18n/checkout.js (via `offer`). Sem link de checkout ainda, mostra o
- * botão sem ação — como antes.
+ * Caixa de compra no fim das páginas de guia. Vendas ainda não estão
+ * abertas: o botão sempre abre um popup de lista de espera (reaproveita o
+ * CommunityModal) em vez de linkar para um checkout.
  */
 function GuideCta({
-  variant = 'primary', title, buttonLabel, offer, format, children,
+  variant = 'primary', title, buttonLabel, guideName, source, children,
 }) {
-  const { t } = useLang();
-  const priceParts = [offer?.priceLabel, format].filter(Boolean);
+  const { t, tx } = useLang();
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   return (
     <div className={`sn-guide-cta sn-guide-cta--${variant}`}>
       <h3 className="sn-guide-cta__title">{title}</h3>
       {children && <p className="sn-guide-cta__text">{children}</p>}
-      {offer?.url ? (
-        <a
-          className="sn-guide-cta__button"
-          href={offer.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {buttonLabel}
-        </a>
-      ) : (
-        <button className="sn-guide-cta__button" type="button">
-          {buttonLabel}
-        </button>
-      )}
-      {priceParts.length > 0 && (
-        <span className="sn-guide-cta__price">{priceParts.join(' · ')}</span>
-      )}
-      {offer && !offer.pdfInLang && (
-        <span className="sn-guide-cta__price">{t('guides.pdfInPortuguese')}</span>
-      )}
-      {offer && !offer.url && !offer.priceLabel && (
-        <span className="sn-guide-cta__price">{t('guides.checkoutSoon')}</span>
+      <button
+        className="sn-guide-cta__button"
+        type="button"
+        onClick={() => setIsWaitlistOpen(true)}
+      >
+        {buttonLabel}
+      </button>
+
+      {isWaitlistOpen && (
+        <CommunityModal
+          onClose={() => setIsWaitlistOpen(false)}
+          source={source || 'guide-waitlist'}
+          title={t('guideWaitlist.title')}
+          intro1={tx('guideWaitlist.intro', { guide: guideName })}
+          intro2={false}
+          ctaLabel={t('guideWaitlist.submit')}
+        />
       )}
     </div>
   );

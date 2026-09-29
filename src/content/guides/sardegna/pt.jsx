@@ -98,8 +98,8 @@ function Body({ offer }) {
       <GuideCta
         title="O próximo passo"
         buttonLabel="Conhecer o Guia Viver no Sul da Sardenha"
-        offer={offer}
-        format="acesso imediato via Hotmart"
+        guideName={meta.productName}
+        source="guide-sardegna"
       >
         O guia completo <strong>Viver no Sul da Sardenha</strong> detalha onde morar por perfil,
         como funciona o trabalho remoto com fibra confiável e o roteiro exato do seu primeiro mês na

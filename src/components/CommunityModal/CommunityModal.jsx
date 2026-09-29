@@ -10,7 +10,9 @@ import '../../styles/Modal.css';
  * e-mail e criar a senha). `source` diz de onde o popup foi aberto (menu,
  * home, rodapé, artigo) — aparece nas estatísticas da lista.
  */
-function CommunityModal({ onClose, source = 'site' }) {
+function CommunityModal({
+  onClose, source = 'site', title, intro1, intro2, ctaLabel,
+}) {
   const {
     t, tx, lang, path, errorText,
   } = useLang();
@@ -83,9 +85,11 @@ function CommunityModal({ onClose, source = 'site' }) {
           </div>
         ) : (
           <>
-            <h2 className="sn-modal__title">{t('community.title')}</h2>
-            <p className="sn-modal__intro">{t('communityModal.intro1')}</p>
-            <p className="sn-modal__intro">{t('communityModal.intro2')}</p>
+            <h2 className="sn-modal__title">{title || t('community.title')}</h2>
+            <p className="sn-modal__intro">{intro1 || t('communityModal.intro1')}</p>
+            {intro2 !== false && (
+              <p className="sn-modal__intro">{intro2 || t('communityModal.intro2')}</p>
+            )}
             <form className="sn-modal__form" onSubmit={handleSubmit}>
               <label className="sn-modal__field">
                 {t('common.name')}
@@ -144,7 +148,7 @@ function CommunityModal({ onClose, source = 'site' }) {
               {status === 'error' && <p className="sn-modal__error">{errorMessage}</p>}
 
               <button className="sn-modal__submit" type="submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? t('common.sending') : t('community.cta')}
+                {status === 'submitting' ? t('common.sending') : (ctaLabel || t('community.cta'))}
               </button>
             </form>
           </>

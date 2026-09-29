@@ -30,8 +30,8 @@ function Body({ offer }) {
       <GuideCta
         title="O próximo passo"
         buttonLabel="Conhecer o Guia Viver em Lençóis"
-        offer={offer}
-        format="Formato: PDF"
+        guideName={meta.productName}
+        source="guide-chapada"
       >
         O guia <strong>Viver em Lençóis</strong> é sobre isso — escrito por quem já morou lá.
       </GuideCta>
