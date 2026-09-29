@@ -84,6 +84,30 @@ function Footer({ onJoinClick }) {
               </svg>
               <span>Sasso Nomad</span>
             </a>
+            <a
+              className="sn-footer__link"
+              href="https://www.facebook.com/profile.php?id=61591071345446"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                className="sn-footer__icon"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <path
+                  d="M14 8.5h-1.4c-.9 0-1.6.7-1.6 1.6V12h3l-.4 2h-2.6v6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Sasso Nomad</span>
+            </a>
           </div>
         </div>
       </div>
