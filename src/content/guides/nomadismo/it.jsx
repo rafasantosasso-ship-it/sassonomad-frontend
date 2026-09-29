@@ -26,7 +26,7 @@ function Body({ offer }) {
 
       <p>Non si tratta di viaggiare sempre. Si tratta di avere meno vincoli di luogo.</p>
 
-      <GuideCta variant="alt" title="Prendi la tua copia" buttonLabel="Acquista" offer={offer} />
+      <GuideCta variant="alt" title="Prendi la tua copia" buttonLabel="Acquista" guideName={meta.productName} source="guide-nomadismo" />
     </>
   );
 }

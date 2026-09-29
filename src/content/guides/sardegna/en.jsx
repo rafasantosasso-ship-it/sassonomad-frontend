@@ -99,8 +99,8 @@ function Body({ offer }) {
       <GuideCta
         title="The next step"
         buttonLabel="See the Living in Southern Sardinia guide"
-        offer={offer}
-        format="instant access via Hotmart"
+        guideName={meta.productName}
+        source="guide-sardegna"
       >
         The full <strong>Living in Southern Sardinia</strong> guide covers where to live for your
         profile, how remote work runs on reliable fibre and the exact plan for your first month on
