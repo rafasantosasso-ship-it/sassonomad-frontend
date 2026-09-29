@@ -49,18 +49,21 @@ function Footer({ onJoinClick }) {
               target="_blank"
               rel="noreferrer"
             >
-              <svg
-                className="sn-footer__icon"
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4.2" />
-                <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none" />
+              <svg className="sn-footer__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sn-ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#FEE411" />
+                    <stop offset="15%" stopColor="#FEDA77" />
+                    <stop offset="30%" stopColor="#F58529" />
+                    <stop offset="50%" stopColor="#DD2A7B" />
+                    <stop offset="70%" stopColor="#8134AF" />
+                    <stop offset="100%" stopColor="#515BD4" />
+                  </linearGradient>
+                </defs>
+                <rect width="24" height="24" rx="6" fill="url(#sn-ig-gradient)" />
+                <rect x="6.5" y="6.5" width="11" height="11" rx="3.5" fill="none" stroke="#fff" strokeWidth="1.5" />
+                <circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" strokeWidth="1.5" />
+                <circle cx="16.3" cy="7.7" r="1" fill="#fff" />
               </svg>
               <span>@sassonomad</span>
             </a>
@@ -70,17 +73,12 @@ function Footer({ onJoinClick }) {
               target="_blank"
               rel="noreferrer"
             >
-              <svg
-                className="sn-footer__icon"
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              >
-                <circle cx="12" cy="12" r="9.5" />
-                <path d="M9.5 19c.6-2 1.6-6.2 1.6-6.2M12 12c-1 0-2.4-.8-2.4-2.7 0-2.1 1.7-3.9 4-3.9 2 0 3.6 1.4 3.6 3.4 0 2.4-1.2 4.7-3.1 4.7-.9 0-1.6-.7-1.4-1.6" />
+              <svg className="sn-footer__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <circle cx="12" cy="12" r="12" fill="#E60023" />
+                <path
+                  d="M12.2 5.5c-3.7 0-5.6 2.6-5.6 4.8 0 1.3.5 2.5 1.6 2.9.2.1.3 0 .4-.2l.1-.6c0-.2 0-.2-.1-.4-.3-.4-.5-.9-.5-1.6 0-2.1 1.6-4 4.1-4 2.2 0 3.5 1.4 3.5 3.2 0 2.4-1.1 4.4-2.6 4.4-.9 0-1.5-.7-1.3-1.6.3-1 .8-2.1.8-2.9 0-.7-.4-1.2-1.1-1.2-.9 0-1.6.9-1.6 2.1 0 .8.3 1.3.3 1.3s-.9 3.9-1.1 4.6c-.3 1.4-.1 3 0 3.2 0 .1.1.1.2 0 .1-.1 1.2-1.5 1.6-2.9l.6-2.3c.3.6 1.2 1.1 2.1 1.1 2.8 0 4.8-2.6 4.8-5.8 0-3.1-2.5-5.4-5.8-5.4Z"
+                  fill="#fff"
+                />
               </svg>
               <span>Sasso Nomad</span>
             </a>
@@ -90,20 +88,11 @@ function Footer({ onJoinClick }) {
               target="_blank"
               rel="noreferrer"
             >
-              <svg
-                className="sn-footer__icon"
-                viewBox="0 0 24 24"
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
+              <svg className="sn-footer__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <rect width="24" height="24" rx="5" fill="#1877F2" />
                 <path
-                  d="M14 8.5h-1.4c-.9 0-1.6.7-1.6 1.6V12h3l-.4 2h-2.6v6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  d="M16 8.5h-1.6c-.5 0-.9.4-.9.9v1.6h2.4l-.3 2.4h-2.1V19h-2.4v-5.6H9V11h1.8V9.1c0-1.8 1.1-2.8 2.7-2.8H16v2.2Z"
+                  fill="#fff"
                 />
               </svg>
               <span>Sasso Nomad</span>
