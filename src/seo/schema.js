@@ -10,7 +10,7 @@ const ORGANIZATION = {
   url: SITE_URL,
   logo: `${SITE_URL}/email/logo-light.png`,
   email: 'nomad@sassonomad.com',
-  sameAs: ['https://instagram.com/sassonomad', 'https://pinterest.com/sassonomad'],
+  sameAs: ['https://instagram.com/sassonomad', 'https://pinterest.com/sassonomad', 'https://www.facebook.com/profile.php?id=61591071345446'],
 };
 
 function abs(src) {
