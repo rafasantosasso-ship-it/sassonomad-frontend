@@ -106,6 +106,13 @@ const pt = {
     intro: 'O {guide} ainda não está disponível para compra. Deixe seu e-mail para ser avisado assim que ele for lançado.',
     submit: 'Quero ser avisado',
   },
+  cookieConsent: {
+    title: 'Aviso de cookies',
+    text: 'Usamos cookies de análise pra entender como o site é usado.',
+    link: 'Política de privacidade',
+    accept: 'Aceitar',
+    decline: 'Recusar',
+  },
   footer: {
     bio: 'Viagem lenta e nomadismo digital sem enrolação. Sardegna, Chapada Diamantina e o que vier depois.',
     explore: 'Explorar',
@@ -349,6 +356,13 @@ const it = {
     intro: "La {guide} non è ancora disponibile per l'acquisto. Lascia la tua email per essere avvisato al lancio.",
     submit: 'Avvisami',
   },
+  cookieConsent: {
+    title: 'Avviso sui cookie',
+    text: 'Usiamo cookie di analisi per capire come viene usato il sito.',
+    link: 'Informativa sulla privacy',
+    accept: 'Accetta',
+    decline: 'Rifiuta',
+  },
   footer: {
     bio: 'Viaggio lento e nomadismo digitale senza giri di parole. Sardegna, Chapada Diamantina e quello che verrà.',
     explore: 'Esplora',
@@ -591,6 +605,13 @@ const en = {
     title: 'Coming soon',
     intro: "The {guide} isn't available for purchase yet. Leave your email to be notified as soon as it launches.",
     submit: 'Notify me',
+  },
+  cookieConsent: {
+    title: 'Cookie notice',
+    text: 'We use analytics cookies to understand how the site is used.',
+    link: 'Privacy policy',
+    accept: 'Accept',
+    decline: 'Decline',
   },
   footer: {
     bio: 'Slow travel and digital nomad life, no fluff. Sardinia, Chapada Diamantina and whatever comes next.',
