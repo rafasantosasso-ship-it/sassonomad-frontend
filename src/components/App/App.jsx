@@ -19,6 +19,7 @@ import MyAreaPage from '../MyAreaPage/MyAreaPage';
 import PrivacyPage from '../PrivacyPage/PrivacyPage';
 import Preloader from '../Preloader/Preloader';
 import LanguageBanner from '../LanguageBanner/LanguageBanner';
+import CookieConsent from '../CookieConsent/CookieConsent';
 import { RootRedirect, LegacyRedirect } from '../LangRedirect/LangRedirect';
 import { LANGS } from '../../i18n/config';
 import { ROUTES, localePath } from '../../i18n/routes';
@@ -168,6 +169,7 @@ function App({ prerendered = false }) {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <LanguageBanner />
+          <CookieConsent />
           <Footer onJoinClick={() => handleOpenCommunityModal('rodape')} />
           {isCommunityModalOpen && (
             <CommunityModal onClose={handleCloseCommunityModal} source={communitySource} />
